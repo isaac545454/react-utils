@@ -1,7 +1,7 @@
 import { useHome } from "./hook";
 
 function Home() {
-  const { data, handleClick, treatmentComponen } = useHome();
+  const { data, treatmentComponen } = useHome();
 
   return (
     <div>
@@ -11,7 +11,7 @@ function Home() {
         <div key={item.id}>
           <p>{item.title}</p>
           <p>{item.body}</p>
-          <button onClick={handleClick}>Acessar</button>
+          <button>Acessar</button>
         </div>
       ))}
     </div>

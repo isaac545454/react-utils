@@ -3,8 +3,11 @@ import { useGet } from "../../hook/useGet";
 import { usePost } from "../../hook/usePost";
 import { useTreatmentRequest } from "../../hook/useTreatmentRequest";
 import { endpoint } from "../../endipoints";
-import { IResponsePost } from "./types";
+import { IResponsePost, ISchema } from "./types";
 import { mensagem } from "./mensagem";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { schema } from "./schema";
 
 export const useHome = () => {
   const { data, isLoading, isError } = useGet<IResponsePost[]>({
@@ -23,18 +26,27 @@ export const useHome = () => {
   const { mutate } = usePost<
     { id: string },
     AxiosError<unknown>,
-    { name: string }
+    { body: string }
   >({
     url: endpoint.getPosts,
   });
 
-  const handleClick = () => {
-    mutate({ name: mensagem.sucess });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: zodResolver(schema) });
+
+  const onSubmit = (data: ISchema) => {
+    mutate({ body: data.body });
   };
 
   return {
     treatmentComponen,
     data,
-    handleClick,
+    handleSubmit,
+    register,
+    errors,
+    onSubmit,
   };
 };
