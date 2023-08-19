@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Header() {
-  return <header>index</header>;
+  return <header>header</header>;
 }
