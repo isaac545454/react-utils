@@ -1,9 +1,7 @@
-import React from "react";
-
 interface Props {
   children: JSX.Element;
 }
 
-export function ContainerButtons({ children }: Props) {
+export const ContainerButtons = ({ children }: Props): JSX.Element => {
   return <div>{children}</div>;
-}
+};
