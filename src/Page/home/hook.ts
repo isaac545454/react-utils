@@ -8,8 +8,11 @@ import { mensagem } from "./mensagem";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { schema } from "./schema";
+import { useState } from "react";
 
 export const useHome = () => {
+  const [showModal, setShowModal] = useState();
+
   const { data, isLoading, isError } = useGet<IResponsePost[]>({
     queryKey: ["getPosts"],
     url: endpoint.getPosts,
@@ -48,5 +51,7 @@ export const useHome = () => {
     register,
     errors,
     onSubmit,
+    showModal,
+    setShowModal,
   };
 };
