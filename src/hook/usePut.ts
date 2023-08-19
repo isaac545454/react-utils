@@ -5,21 +5,21 @@ import {
   MutationOptions,
 } from "@tanstack/react-query";
 
-interface IPut<TData, TError, TVariables> {
-  options?: MutationOptions<TData, TError, TVariables>;
+interface IPut<TData, TError, TRequest> {
+  options?: MutationOptions<TData, TError, TRequest>;
   url: string;
 }
 
-export const usePut = <TData, TError, TVariables>({
+export const usePut = <TData, TError, TRequest>({
   options,
   url,
-}: IPut<TData, TError, TVariables>): UseMutationResult<
+}: IPut<TData, TError, TRequest>): UseMutationResult<
   TData,
   TError,
-  TVariables
+  TRequest
 > => {
-  const mutation = useMutation<TData, TError, TVariables>(
-    (variables) => putApi<TData, TVariables>({ url, bodyData: variables }),
+  const mutation = useMutation<TData, TError, TRequest>(
+    (variables) => putApi<TData, TRequest>({ url, bodyData: variables }),
     options
   );
 

@@ -1,29 +1,28 @@
-import Loading from "../src/components/Loading";
-import { toast } from "react-toastify";
+import Loading from "../../src/components/Loading";
+import Error from "../../src/components/Error";
 
 interface Itreatment {
   isLoading: boolean;
   isError: boolean;
   data: Array<unknown> | undefined;
-  mensagem: string;
+  mensagemError: React.ComponentProps<typeof Error>;
 }
 
 export const useTreatmentRequest = ({
   isLoading,
   isError,
   data,
-  mensagem,
+  mensagemError,
 }: Itreatment): JSX.Element | undefined => {
   if (isLoading) {
     return <Loading />;
   }
 
   if (isError) {
-    toast.error(mensagem);
-    return <div />;
+    return <Error {...mensagemError} />;
   }
 
-  if (data === undefined || data.length === 0) {
+  if (data?.length === 0) {
     return <div />;
   }
 };

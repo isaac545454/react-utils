@@ -1,5 +1,3 @@
-import React from "react";
-
-export default function index() {
-  return <div>index</div>;
+export default function Error({ mensagem }: { mensagem: string }) {
+  return <div>{mensagem}</div>;
 }
