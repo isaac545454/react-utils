@@ -1,3 +1,3 @@
 export const endpoint = {
-  getPosts: "https://jsonplaceholder.typicode.com/posts",
+  getPosts: "https://jsonplaceholder.typicode.com/post",
 };

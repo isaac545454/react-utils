@@ -1,11 +1,14 @@
 import Loading from "../../src/components/Loading";
 import Error from "../../src/components/Error";
+import NotData from "../../src/components/NotData";
+import { ComponentProps } from "react";
 
 interface Itreatment {
   isLoading: boolean;
   isError: boolean;
   data: Array<unknown> | undefined;
-  mensagemError: React.ComponentProps<typeof Error>;
+  mensagemError: ComponentProps<typeof Error>;
+  mensagemNotData: ComponentProps<typeof NotData>;
 }
 
 export const useTreatmentRequest = ({
@@ -13,6 +16,7 @@ export const useTreatmentRequest = ({
   isError,
   data,
   mensagemError,
+  mensagemNotData,
 }: Itreatment): JSX.Element | undefined => {
   if (isLoading) {
     return <Loading />;
@@ -23,6 +27,6 @@ export const useTreatmentRequest = ({
   }
 
   if (data?.length === 0) {
-    return <div />;
+    return <NotData {...mensagemNotData} />;
   }
 };

@@ -1,5 +1,3 @@
-import React from "react";
-
-export default function NotData() {
-  return <div>index</div>;
+export default function NotData({ mensagem }: { mensagem: string }) {
+  return <div>{mensagem}</div>;
 }

@@ -5,7 +5,7 @@ import { useTreatmentRequest } from "./hook/useTreatmentRequest";
 import { toast } from "react-toastify";
 import { endpoint } from "./endipoints";
 
-export interface RootObject {
+export interface IResponsePost {
   userId: number;
   id: number;
   title: string;
@@ -15,10 +15,11 @@ export interface RootObject {
 const mensagem = {
   error: "Ops... houve um erro",
   sucess: "Post Criado com sucesso",
+  notData: "Não a dados",
 };
 
 function App() {
-  const { data, isLoading, isError } = useGet<RootObject[]>({
+  const { data, isLoading, isError } = useGet<IResponsePost[]>({
     queryKey: ["getPosts"],
     url: endpoint.getPosts,
   });
@@ -28,6 +29,7 @@ function App() {
     isLoading,
     isError,
     mensagemError: { mensagem: mensagem.error },
+    mensagemNotData: { mensagem: mensagem.notData },
   });
 
   const { mutate } = usePost<
@@ -52,7 +54,7 @@ function App() {
   }
 
   return (
-    <>
+    <div>
       {treatmentComponen && treatmentComponen}
       {data?.map((item) => (
         <div key={item.id}>
@@ -62,7 +64,7 @@ function App() {
           <button onClick={handleClick}>Acessar</button>
         </div>
       ))}
-    </>
+    </div>
   );
 }
 
