@@ -3,19 +3,8 @@ import { useGet } from "../../hook/useGet";
 import { usePost } from "../../hook/usePost";
 import { useTreatmentRequest } from "../../hook/useTreatmentRequest";
 import { endpoint } from "../../endipoints";
-
-export interface IResponsePost {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
-
-const mensagem = {
-  error: "Ops... houve um erro",
-  sucess: "Post Criado com sucesso",
-  notData: "Não a dados",
-};
+import { IResponsePost } from "./types";
+import { mensagem } from "./mensagem";
 
 function Home() {
   const { data, isLoading, isError } = useGet<IResponsePost[]>({
