@@ -1,8 +1,9 @@
 import { useHome } from "./hook";
+import Modal from "./HomeComponent/Modal";
 
 function Home() {
-  const { data, treatmentComponen } = useHome();
-
+  const { data, treatmentComponen, onChangeModal, showModal } = useHome();
+  console.log(showModal, "home");
   return (
     <div>
       {treatmentComponen && treatmentComponen}
@@ -14,11 +15,15 @@ function Home() {
           >
             <p>{item.title}</p>
             <p>{item.body}</p>
-            <button className="bg-blue300 text-myOrange px-20 py-2 rounded-md absolute bottom-3">
+            <button
+              className="bg-blue300 text-myOrange px-20 py-2 rounded-md absolute bottom-3"
+              onClick={onChangeModal}
+            >
               Editar
             </button>
           </div>
         ))}
+        <Modal showModal={showModal} onChangeModal={onChangeModal} />
       </div>
     </div>
   );

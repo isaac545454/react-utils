@@ -11,7 +11,7 @@ import { schema } from "./schema";
 import { useState } from "react";
 
 export const useHome = () => {
-  const [showModal, setShowModal] = useState();
+  const [showModal, setShowModal] = useState(true);
 
   const { data, isLoading, isError } = useGet<IResponsePost[]>({
     queryKey: ["getPosts"],
@@ -44,6 +44,10 @@ export const useHome = () => {
     mutate({ body: data.body });
   };
 
+  const onChangeModal = () => {
+    setShowModal(!showModal);
+  };
+
   return {
     treatmentComponen,
     data,
@@ -53,5 +57,6 @@ export const useHome = () => {
     onSubmit,
     showModal,
     setShowModal,
+    onChangeModal,
   };
 };
