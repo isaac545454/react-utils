@@ -1,25 +1,25 @@
-import { postApi } from "../service/postApi";
+import { postApi, IPost } from "../service/postApi";
 import {
   UseMutationResult,
   useMutation,
   MutationOptions,
 } from "@tanstack/react-query";
 
-interface IPost<TData, TError, TRequest> {
+interface IPostMutation<TData, TError, TRequest> {
   options?: MutationOptions<TData, TError, TRequest>;
-  url: string;
+  req: IPost;
 }
 
 export const usePost = <TData, TError, TRequest>({
   options,
-  url,
-}: IPost<TData, TError, TRequest>): UseMutationResult<
+  req,
+}: IPostMutation<TData, TError, TRequest>): UseMutationResult<
   TData,
   TError,
   TRequest
 > => {
   const mutation = useMutation<TData, TError, TRequest>(
-    (variables) => postApi<TData, TRequest>({ url, bodyData: variables }),
+    (data) => postApi<TData>({ data, ...req }),
     options
   );
 

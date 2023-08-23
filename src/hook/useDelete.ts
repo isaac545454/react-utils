@@ -1,4 +1,4 @@
-import { deleteApi } from "../service/deleteApi";
+import { deleteApi, IDelete } from "../service/deleteApi";
 import {
   UseMutationResult,
   useMutation,
@@ -7,15 +7,15 @@ import {
 
 interface IMutate<TData, TError> {
   options?: MutationOptions<TData, TError>;
-  url: string;
+  req: IDelete;
 }
 
 export const useDelete = <TData, TError>({
   options,
-  url,
+  req,
 }: IMutate<TData, TError>): UseMutationResult<TData, TError, void, unknown> => {
   const mutation = useMutation<TData, TError>(
-    () => deleteApi<TData>({ url }),
+    () => deleteApi<TData>(req),
     options
   );
 

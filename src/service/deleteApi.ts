@@ -1,13 +1,14 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
-interface IGet {
-  url: string;
-}
+export interface IDelete extends AxiosRequestConfig {}
 
 export const deleteApi = async <TResponse>({
-  url,
-}: IGet): Promise<TResponse> => {
-  const { data } = await axios.delete<TResponse>(url);
+  ...res
+}: IDelete): Promise<TResponse> => {
+  const response = await axios<TResponse>({
+    method: "delete",
+    ...res,
+  });
 
-  return data;
+  return response.data;
 };

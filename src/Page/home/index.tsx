@@ -1,26 +1,20 @@
 import { useHome } from "./hook";
 import Modal from "./HomeComponent/Modal";
-import { styles } from "./style";
+import ListPosts from "./HomeComponent/ListPosts";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 function Home() {
   const { data, treatmentComponen, onChangeModal, showModal } = useHome();
 
   return (
-    <div>
+    <>
+      <Header />
       {treatmentComponen && treatmentComponen}
-      <div className={styles.container}>
-        {data?.map((item) => (
-          <div key={item.id} className={styles.content}>
-            <p>{item.title}</p>
-            <p>{item.body}</p>
-            <button className={styles.button} onClick={onChangeModal}>
-              Editar
-            </button>
-          </div>
-        ))}
-        <Modal showModal={showModal} onChangeModal={onChangeModal} />
-      </div>
-    </div>
+      <ListPosts data={data} />
+      <Modal showModal={showModal} onChangeModal={onChangeModal} />
+      <Footer />
+    </>
   );
 }
 

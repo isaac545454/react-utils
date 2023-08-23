@@ -1,4 +1,3 @@
-import { AxiosError } from "axios";
 import { useGet } from "../../hook/useGet";
 import { usePost } from "../../hook/usePost";
 import { useTreatmentRequest } from "../../hook/useTreatmentRequest";
@@ -26,12 +25,10 @@ export const useHome = () => {
     mensagemNotData: { mensagem: mensagem.notData },
   });
 
-  const { mutate } = usePost<
-    { id: string },
-    AxiosError<unknown>,
-    { body: string }
-  >({
-    url: endpoint.getPosts,
+  const { mutate } = usePost<{ title: string }, unknown, ISchema>({
+    req: {
+      url: endpoint.getPosts,
+    },
   });
 
   const {
@@ -41,7 +38,7 @@ export const useHome = () => {
   } = useForm({ resolver: zodResolver(schema) });
 
   const onSubmit = (data: ISchema) => {
-    mutate({ body: data.body });
+    mutate(data);
   };
 
   const onChangeModal = () => {

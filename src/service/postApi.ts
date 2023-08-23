@@ -1,15 +1,14 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
-interface Ipost<body> {
-  url: string;
-  bodyData: body;
-}
+export interface IPost extends AxiosRequestConfig {}
 
-export const postApi = async <TResponse, body>({
-  url,
-  bodyData,
-}: Ipost<body>): Promise<TResponse> => {
-  const { data } = await axios.post<TResponse>(url, bodyData);
+export const postApi = async <TResponse>({
+  ...res
+}: IPost): Promise<TResponse> => {
+  const response = await axios<TResponse>({
+    method: "POST",
+    ...res,
+  });
 
-  return data;
+  return response.data;
 };
