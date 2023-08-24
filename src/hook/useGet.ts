@@ -17,7 +17,7 @@ export const useGet = <TData, TError = unknown>({
   options,
   url,
 }: IGet<TData, TError>): UseQueryResult<TData, TError> => {
-  const data = useQuery(queryKey, () => getApi<TData>({ url: url }), options);
+  const data = useQuery(queryKey, () => getApi<TData>({ url }), options);
 
   return data;
 };

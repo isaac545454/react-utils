@@ -1,8 +1,9 @@
 import { useHome } from "./hook";
-import Modal from "./HomeComponent/Modal";
+import ModalHomeEdit from "./HomeComponent/Modal";
 import ListPosts from "./HomeComponent/ListPosts";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { Modal } from "../../components/Modal";
 
 function Home() {
   const { data, treatmentComponen, onChangeModal, showModal } = useHome();
@@ -11,8 +12,10 @@ function Home() {
     <>
       <Header />
       {treatmentComponen && treatmentComponen}
-      <ListPosts data={data} />
-      <Modal showModal={showModal} onChangeModal={onChangeModal} />
+      <ListPosts data={data ?? []} />
+      <Modal.Container showModal={showModal}>
+        <ModalHomeEdit onChangeModal={onChangeModal} />
+      </Modal.Container>
       <Footer />
     </>
   );
