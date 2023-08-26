@@ -9,12 +9,19 @@ import { useForm } from "react-hook-form";
 import { schema } from "./schema";
 import { useState } from "react";
 
+/**
+ * Logica da Home
+ * @param parametro1 teste.
+ * @param parametro2 teste.
+ * @deprecated onChangeModal
+ */
 export const useHome = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const { data, isLoading, isError } = useGet<IResponsePost[]>({
     queryKey: ["getPosts"],
-    url: endpoint.getPosts,
+    request: { endpoint: endpoint.getPosts },
+    options: {},
   });
 
   const treatmentComponen = useTreatmentRequest({

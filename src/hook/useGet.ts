@@ -1,4 +1,4 @@
-import { getApi } from "../service/getApi";
+import { getApi, IGet } from "../service/getApi";
 import {
   useQuery,
   UseQueryResult,
@@ -6,18 +6,18 @@ import {
   UseQueryOptions,
 } from "@tanstack/react-query";
 
-interface IGet<TData, TError> {
+interface IGetMutation<TData, TError> {
   queryKey: QueryKey;
   options?: UseQueryOptions<TData, TError>;
-  url: string;
+  request: IGet;
 }
 
 export const useGet = <TData, TError = unknown>({
   queryKey,
   options,
-  url,
-}: IGet<TData, TError>): UseQueryResult<TData, TError> => {
-  const data = useQuery(queryKey, () => getApi<TData>({ url }), options);
+  request,
+}: IGetMutation<TData, TError>): UseQueryResult<TData, TError> => {
+  const data = useQuery(queryKey, () => getApi<TData>({ ...request }), options);
 
   return data;
 };

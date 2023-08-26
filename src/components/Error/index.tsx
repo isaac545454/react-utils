@@ -1,3 +1,3 @@
 export default function Error({ mensagem }: { mensagem: string }) {
-  return <div>{mensagem}</div>;
+  return <div role="ErrorMessage">{mensagem}</div>;
 }

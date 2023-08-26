@@ -1,11 +1,16 @@
-import axios from "axios";
+import { AxiosRequestConfig } from "axios";
+import { api } from "./api";
 
-interface IGet {
-  url: string;
+export interface IGet extends AxiosRequestConfig {
+  endpoint: string;
 }
 
-export const getApi = async <TResponse>({ url }: IGet): Promise<TResponse> => {
-  const { data } = await axios.get<TResponse>(url);
+export const getApi = async <TResponse>({
+  endpoint,
+  ...res
+}: IGet): Promise<TResponse> => {
+  console.log(endpoint);
+  const { data } = await api<TResponse>(endpoint, { ...res, method: "GET" });
 
   return data;
 };
