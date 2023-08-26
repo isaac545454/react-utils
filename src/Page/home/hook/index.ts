@@ -10,9 +10,10 @@ import { schema } from "../schema";
 import { useState } from "react";
 
 /**
- * Logica da Home
- * @param parametro1 teste.
- * @param parametro2 teste.
+ * @param params parametro
+ * @description  descrição
+ * @returns o retorno
+ * @deprecated
  */
 export const useHome = () => {
   const [showModal, setShowModal] = useState(false);
@@ -31,7 +32,7 @@ export const useHome = () => {
     mensagemNotData: { mensagem: mensagem.notData },
   });
 
-  const { mutate } = usePost<{ title: string }, unknown, ISchema>({
+  const { mutate } = usePost<{ title: string }, Error, ISchema>({
     req: {
       url: endpoint.getPosts,
     },
