@@ -1,19 +1,18 @@
-import { useGet } from "../../hook/useGet";
-import { usePost } from "../../hook/usePost";
-import { useTreatmentRequest } from "../../hook/useTreatmentRequest";
-import { endpoint } from "../../endipoints";
-import { IResponsePost, ISchema } from "./types";
-import { mensagem } from "./mensagem";
+import { useGet } from "../../../hook/useGet";
+import { usePost } from "../../../hook/usePost";
+import { useTreatmentRequest } from "../../../hook/useTreatmentRequest";
+import { endpoint } from "../../../endipoints";
+import { IResponsePost, ISchema } from "../types";
+import { mensagem } from "../mensagem";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { schema } from "./schema";
+import { schema } from "../schema";
 import { useState } from "react";
 
 /**
  * Logica da Home
  * @param parametro1 teste.
  * @param parametro2 teste.
- * @deprecated onChangeModal
  */
 export const useHome = () => {
   const [showModal, setShowModal] = useState(false);
