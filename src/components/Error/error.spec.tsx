@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Error from "./index";
+import Error from ".";
 
 describe("test", () => {
   test("renders button with correct label", () => {

@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react";
 import { useHome } from "./hook";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Skeleton from "../../components/Skeleton";
 const ListPosts = lazy(() => import("./components/ListPosts"));
 const ModalHomeEdit = lazy(() => import("./components/Modal"));
 
@@ -12,7 +13,7 @@ function Home() {
     <>
       <Header />
       {treatmentComponen && treatmentComponen}
-      <Suspense fallback={<div>Loading lazy</div>}>
+      <Suspense fallback={<Skeleton repetition={10} />}>
         <ListPosts data={data ?? []} onChangeModal={onChangeModal} />
         <ModalHomeEdit onChangeModal={onChangeModal} showModal={showModal} />
       </Suspense>
