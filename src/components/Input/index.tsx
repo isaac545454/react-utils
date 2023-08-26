@@ -3,7 +3,7 @@ import { ErrorMessage } from "@hookform/error-message";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   error?: React.ComponentProps<typeof ErrorMessage>;
-  errorExists: boolean;
+  errorExists?: boolean;
 }
 
 export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
