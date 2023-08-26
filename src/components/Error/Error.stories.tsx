@@ -8,6 +8,6 @@ export default {
 
 type Story = StoryObj<typeof Error>;
 
-export const Primary: Story = {
+export const ErrorMessage: Story = {
   args: { mensagem: "Mensagem" },
 };
