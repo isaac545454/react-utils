@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import Error from ".";
 
-describe("test", () => {
-  test("renders button with correct label", () => {
+describe("<Error />", () => {
+  test("Error is being rendered", () => {
     const mensagem = "Erro de teste";
     render(<Error mensagem={mensagem} />);
 

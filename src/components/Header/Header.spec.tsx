@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import Header from ".";
 
-describe("test", () =>
-  test("test2", () => {
+describe("<Header />", () =>
+  test("header is being rendered", () => {
     render(<Header />);
     const component = screen.getByRole("banner");
     expect(component).toBeVisible();

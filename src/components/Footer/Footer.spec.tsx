@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import Footer from ".";
 
-describe("test", () =>
-  test("test2", () => {
+describe("<Footer />", () =>
+  test("footer is being rendered", () => {
     render(<Footer />);
     const component = screen.getByRole("contentinfo");
     expect(component).toBeVisible();
