@@ -8,4 +8,4 @@ export default {
 
 type Story = StoryObj<typeof Header>;
 
-export const HeaderPage: Story = {};
+export const HeaderComponent: Story = {};
