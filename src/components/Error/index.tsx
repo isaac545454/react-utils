@@ -1,3 +1,10 @@
-export default function Error({ mensagem }: { mensagem: string }) {
-  return <div role="ErrorMessage">{mensagem}</div>;
+import { Props } from "./interface";
+import { style } from "./style";
+
+export default function Error({ mensagem }: Props) {
+  return (
+    <div role="ErrorMessage" className={style.error}>
+      {mensagem}
+    </div>
+  );
 }
