@@ -3,10 +3,11 @@ import { renderHook } from "@testing-library/react";
 import { endpoint } from "../../endipoints";
 import { useGet } from ".";
 import { getApi } from "../../service/getApi";
-import { mockGetApi, mockQueryKey } from "./mock";
+import { mockGetApi, mockQueryKey, mockOptions } from "./mock";
 
-jest.mock("@tanstack/react-query");
+jest.mock("./index");
 jest.mock("../../service/getApi");
+
 describe("useGet", () => {
   test("request using useGet", async () => {
     const useQueryMock = jest.fn();
@@ -23,6 +24,7 @@ describe("useGet", () => {
       useGet({
         queryKey: mockQueryKey,
         request: { endpoint: endpoint.getPosts },
+        options: mockOptions,
       })
     );
 

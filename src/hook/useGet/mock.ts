@@ -16,3 +16,5 @@ export const mockGetApi = [
 ];
 
 export const mockQueryKey = ["test"];
+
+export const mockOptions = { retry: 2 };
