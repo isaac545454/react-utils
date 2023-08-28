@@ -3,7 +3,7 @@ import { ErrorMessage } from "@hookform/error-message";
 import { Props } from "./interface";
 import { styles } from "./styles";
 
-export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
+const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { errorExists = false, error, ...res } = props;
 
   return (
@@ -13,3 +13,4 @@ export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
     </div>
   );
 });
+export default Input;
