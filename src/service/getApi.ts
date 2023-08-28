@@ -9,7 +9,6 @@ export const getApi = async <TResponse>({
   endpoint,
   ...res
 }: IGet): Promise<TResponse> => {
-  console.log(endpoint);
   const { data } = await api<TResponse>(endpoint, { ...res, method: "GET" });
 
   return data;

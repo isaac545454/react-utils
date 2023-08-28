@@ -1,4 +1,4 @@
-import { getApi, IGet } from "../service/getApi";
+import { getApi, IGet } from "../../service/getApi";
 import {
   useQuery,
   UseQueryResult,
