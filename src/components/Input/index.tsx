@@ -1,9 +1,9 @@
 import { forwardRef } from "react";
 import { ErrorMessage } from "@hookform/error-message";
-import { Props } from "./interface";
+import { Props } from "./types";
 import { styles } from "./styles";
 
-const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
+export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { errorExists = false, error, ...res } = props;
 
   return (
@@ -13,4 +13,3 @@ const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
     </div>
   );
 });
-export default Input;
