@@ -1,4 +1,4 @@
-import { deleteApi, IDelete } from "../service/deleteApi";
+import { deleteApi, IDelete } from "../../service/deleteApi";
 import {
   UseMutationResult,
   useMutation,

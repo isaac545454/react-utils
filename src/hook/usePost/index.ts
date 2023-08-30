@@ -1,4 +1,4 @@
-import { postApi, IPost } from "../service/postApi";
+import { postApi, IPost } from "../../service/postApi";
 import {
   UseMutationResult,
   useMutation,

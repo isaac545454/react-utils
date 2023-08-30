@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { schema } from "./schema";
+import { schema } from "../schema";
 
 export interface IResponsePost {
   userId: number;

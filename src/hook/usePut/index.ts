@@ -1,4 +1,4 @@
-import { putApi } from "../service/putApi";
+import { putApi } from "../../service/putApi";
 import {
   UseMutationResult,
   useMutation,

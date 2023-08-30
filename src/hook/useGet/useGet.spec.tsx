@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { renderHook } from "@testing-library/react";
-import { endpoint } from "../../endipoints";
+import { useEndpoint } from "../../hook/useEndpoint";
 import { useGet } from ".";
 import { getApi } from "../../service/getApi";
 import { mockGetApi, mockQueryKey, mockOptions } from "./mock";
@@ -15,12 +15,18 @@ describe("useGet", () => {
 
     const {
       result: {
+        current: { getPosts },
+      },
+    } = renderHook(() => useEndpoint());
+
+    const {
+      result: {
         current: { data },
       },
     } = renderHook(() =>
       useGet({
         queryKey: mockQueryKey,
-        request: { endpoint: endpoint.getPosts, params: {} },
+        request: { endpoint: getPosts, params: {} },
         options: mockOptions,
       })
     );

@@ -1,6 +1,6 @@
-import Loading from "../../src/components/Loading";
-import Error from "../../src/components/Error";
-import NotData from "../../src/components/NotData";
+import Loading from "../../../src/components/Loading";
+import Error from "../../../src/components/Error";
+import NotData from "../../../src/components/NotData";
 import { ComponentProps } from "react";
 
 interface Itreatment {
