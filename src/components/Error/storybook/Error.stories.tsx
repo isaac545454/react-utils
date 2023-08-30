@@ -1,4 +1,4 @@
-import Error from ".";
+import Error from "../";
 import type { Meta, StoryObj } from "@storybook/react";
 
 export default {

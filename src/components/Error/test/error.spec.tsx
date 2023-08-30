@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Error from ".";
+import Error from "../";
 
 describe("<Error />", () => {
   it("Error is being rendered", () => {
