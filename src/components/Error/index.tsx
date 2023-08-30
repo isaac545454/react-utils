@@ -1,5 +1,5 @@
-import { Props } from "./interface";
-import { style } from "./style";
+import { Props } from "./types";
+import { style } from "./styles";
 
 export default function Error({ mensagem }: Props) {
   return (

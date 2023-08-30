@@ -1,16 +1,9 @@
-import { ButtonHTMLAttributes } from "react";
-
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  onChangeModal: () => void;
-}
+import { Props } from "../../types/IButtonCancel";
+import { style } from "../../styles/ButtonCancel";
 
 export const ButtonCancel = ({ onChangeModal, ...res }: Props): JSX.Element => {
   return (
-    <button
-      {...res}
-      className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none focus:ring"
-      onClick={onChangeModal}
-    >
+    <button {...res} className={style.button} onClick={onChangeModal}>
       CANCELAR
     </button>
   );
