@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Header from ".";
+import Header from "../";
 
 describe("<Header />", () =>
   it("header is being rendered", () => {
