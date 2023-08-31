@@ -10,9 +10,9 @@ import { schema } from "../schema";
 import { useState } from "react";
 
 /**
- * @param params parametro
- * @description  descrição
- * @returns o retorno
+ * @param params params
+ * @description  custom hook for home logic
+ * @returns  treatmentComponen, data, handleSubmit, register,errors, onSubmit,showModal, setShowModalonChangeModal,}
  * @example  const { data, treatmentComponen, onChangeModal, showModal } = useHome();
  */
 export const useHome = () => {
