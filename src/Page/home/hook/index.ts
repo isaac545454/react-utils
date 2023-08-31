@@ -1,7 +1,7 @@
 import { useGet } from "../../../hook/useGet";
 import { usePost } from "../../../hook/usePost";
 import { useTreatmentRequest } from "../../../hook/useTreatmentRequest";
-import { endpoint } from "../../../endipoints";
+import { useEndpoint } from "../../../hook/useEndpoint";
 import { IResponsePost, ISchema } from "../types";
 import { mensagem } from "../mensagem";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,14 +13,15 @@ import { useState } from "react";
  * @param params parametro
  * @description  descrição
  * @returns o retorno
- * @deprecated
+ * @example  const { data, treatmentComponen, onChangeModal, showModal } = useHome();
  */
 export const useHome = () => {
   const [showModal, setShowModal] = useState(false);
+  const { getPosts } = useEndpoint();
 
   const { data, isLoading, isError } = useGet<IResponsePost[]>({
     queryKey: ["getPosts"],
-    request: { endpoint: endpoint.getPosts },
+    request: { endpoint: getPosts },
     options: {},
   });
 
@@ -34,7 +35,7 @@ export const useHome = () => {
 
   const { mutate } = usePost<{ title: string }, Error, ISchema>({
     req: {
-      url: endpoint.getPosts,
+      url: getPosts,
     },
   });
 
