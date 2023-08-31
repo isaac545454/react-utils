@@ -8,9 +8,26 @@ const treatment = () => {
   };
 };
 
-export const returnData = ({ title, userId }: ReturnType<typeof treatment>) => {
-  return {
-    title,
-    userId,
-  };
-};
+export interface course {
+  name: string;
+  semester: string;
+  ra: string;
+}
+
+export interface Student {
+  depression: string;
+}
+
+export interface IModuleComponent extends course {
+  label: string;
+}
+
+export type TypePick = Pick<course, "name" | "semester">;
+
+export type TypeOmit = Omit<course, "name">;
+
+export type TypeReturn = ReturnType<typeof treatment>;
+
+export type TypePartial = Partial<course>;
+
+export type typeUnion = course & Student;
