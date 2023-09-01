@@ -1,24 +1,21 @@
+import React from "react";
 import { Modal } from "../../../../components/Modal";
 
-export default function HomeModal({
-  onChangeModal,
-  showModal,
-}: {
-  onChangeModal: () => void;
-  showModal: boolean;
-}) {
+interface HomeModalProps {
+  ButtonCancel: React.ReactNode;
+}
+
+export default function HomeModal({ ButtonCancel }: HomeModalProps) {
   return (
-    <Modal.Container showModal={showModal}>
-      <>
-        <Modal.Header />
-        <div>aaaaaaaaaaaa</div>
-        <Modal.ContainerButtons>
-          <>
-            <Modal.ButtonCancel onChangeModal={onChangeModal} />
-            <Modal.ButtonToSend />
-          </>
-        </Modal.ContainerButtons>
-      </>
-    </Modal.Container>
+    <>
+      <Modal.Header />
+      <div>aaaaaaaaaaaa</div>
+      <Modal.ContainerButtons>
+        <>
+          {ButtonCancel}
+          <Modal.ButtonToSend />
+        </>
+      </Modal.ContainerButtons>
+    </>
   );
 }

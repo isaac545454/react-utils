@@ -1,8 +1,8 @@
-import { ButtonCancel } from "./buttonCancel";
-import { ButtonToSend } from "./ButtonToSend";
-import { Container } from "./Container";
-import { ContainerButtons } from "./ContainerButtons";
-import { Header } from "./Header";
+import { ButtonCancel } from "./components/buttonCancel";
+import { ButtonToSend } from "./components/ButtonToSend";
+import { Container } from "./components/Container";
+import { ContainerButtons } from "./components/ContainerButtons";
+import { Header } from "./components/Header";
 
 export const Modal = {
   Container,

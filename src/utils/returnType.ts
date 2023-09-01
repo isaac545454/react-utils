@@ -13,7 +13,6 @@ export interface course {
   semester: string;
   ra: string;
 }
-
 export interface Student {
   depression: string;
 }
@@ -21,7 +20,6 @@ export interface Student {
 export interface IModuleComponent extends course {
   label: string;
 }
-
 export type TypePick = Pick<course, "name" | "semester">;
 
 export type TypeOmit = Omit<course, "name">;
