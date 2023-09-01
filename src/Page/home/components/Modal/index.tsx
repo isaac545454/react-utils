@@ -7,7 +7,7 @@ interface HomeModalProps {
 }
 
 export default function HomeModal({ ButtonCancel }: HomeModalProps) {
-  const { setItem } = useStorage({});
+  const { getItem, setItem, removeItem } = useStorage({});
   return (
     <>
       <Modal.Header />
@@ -15,7 +15,10 @@ export default function HomeModal({ ButtonCancel }: HomeModalProps) {
       <Modal.ContainerButtons>
         <>
           {ButtonCancel}
-          <Modal.ButtonToSend onClick={() => setItem("isaac", "test")} />
+          <Modal.ButtonToSend
+            // onClick={() => console.log(setItem("ala", { aaa: "aaaaaaaaaaa" }))}
+            onClick={() => console.log(removeItem("isaac"))}
+          />
         </>
       </Modal.ContainerButtons>
     </>

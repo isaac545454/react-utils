@@ -3,9 +3,9 @@ import { IStorage } from "./interface";
 export const useStorage = ({ type = sessionStorage }: IStorage) => {
   const stotage: Storage = type;
 
-  const setItem = (key: string, value: string) => {
+  const setItem = (key: string, value: unknown) => {
     try {
-      stotage.setItem(key, value);
+      stotage.setItem(key, JSON.stringify(value));
     } catch (error) {
       console.error(error);
     }
@@ -13,9 +13,11 @@ export const useStorage = ({ type = sessionStorage }: IStorage) => {
 
   const getItem = (key: string) => {
     try {
-      stotage.getItem(key);
+      const item = stotage.getItem(key);
+      if (!item) return undefined;
+      return JSON.parse(item);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
