@@ -1,9 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
-
 interface Props {
   children: JSX.Element;
   showModal: boolean;
-  setShowModal?: Dispatch<SetStateAction<boolean>>;
 }
 
 export const Container: React.FC<Props> = ({ children, showModal }) => {

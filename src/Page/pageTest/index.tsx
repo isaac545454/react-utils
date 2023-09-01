@@ -9,20 +9,22 @@ export default function PageTest() {
   return (
     <div>
       <Ternary
+        codition={state == "name"}
         R_if={<R_IF_component />}
         R_else={<R_ELSE_Component />}
-        codition={state == "name"}
       />
       <>
-        {state === "name" ? (
-          <div>
-            <div></div>
-          </div>
-        ) : (
-          <div>
-            <div></div>
-          </div>
-        )}
+        <>
+          {state === "name" ? (
+            <div>
+              <div>IF_component</div>
+            </div>
+          ) : (
+            <div>
+              <div>ELSE_component</div>
+            </div>
+          )}
+        </>
       </>
     </div>
   );

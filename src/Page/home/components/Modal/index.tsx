@@ -1,11 +1,13 @@
 import React from "react";
 import { Modal } from "../../../../components/Modal";
+import { useStorage } from "../../../../hook/useStorage";
 
 interface HomeModalProps {
   ButtonCancel: React.ReactNode;
 }
 
 export default function HomeModal({ ButtonCancel }: HomeModalProps) {
+  const { setItem } = useStorage({});
   return (
     <>
       <Modal.Header />
@@ -13,7 +15,7 @@ export default function HomeModal({ ButtonCancel }: HomeModalProps) {
       <Modal.ContainerButtons>
         <>
           {ButtonCancel}
-          <Modal.ButtonToSend />
+          <Modal.ButtonToSend onClick={() => setItem("isaac", "test")} />
         </>
       </Modal.ContainerButtons>
     </>
