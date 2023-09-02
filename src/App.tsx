@@ -1,4 +1,4 @@
-import Home from "./Page/home";
+import Home from "./Page/Grid";
 
 function App() {
   return (

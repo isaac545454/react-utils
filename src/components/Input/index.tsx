@@ -9,7 +9,12 @@ export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
   return (
     <div>
       <input ref={ref} {...res} className={styles.Input} />
-      {errorExists && error && <ErrorMessage {...error} />}
+      {errorExists && error && (
+        <ErrorMessage
+          {...error}
+          render={({ message }) => <p className={styles.error}>{message}</p>}
+        />
+      )}
     </div>
   );
 });

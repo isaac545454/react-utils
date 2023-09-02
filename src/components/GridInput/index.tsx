@@ -1,17 +1,15 @@
 import { IProps } from "./types";
 
-export function GridInput(props: IProps) {
-  const { data, description, email, name, buttonSucess } = props;
-
+export function GridInput({ email, form, name }: IProps) {
   return (
-    <div>
+    <form {...form}>
       <div className="flex justify-around">
-        {data}
-        {description}
         {email}
         {name}
       </div>
-      <div>{buttonSucess}</div>
-    </div>
+      <div>
+        <button>ENVIAR</button>
+      </div>
+    </form>
   );
 }

@@ -1,17 +1,29 @@
 import { GridInput } from "../../components/GridInput";
 import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
+import { useContact } from "./hook";
 
-export default function Grid() {
+export function Contact() {
+  const { errors, handleSubmit, register, onSubmit } = useContact();
+
   return (
-    <div>
+    <>
       <GridInput
-        name={<Input />}
-        email={<Input />}
-        description={<Input />}
-        data={<Input />}
-        buttonSucess={<Button>oi</Button>}
+        form={{ onSubmit: handleSubmit(onSubmit) }}
+        name={
+          <Input
+            {...register("name")}
+            errorExists={true}
+            error={{ name: "name", errors }}
+          />
+        }
+        email={
+          <Input
+            {...register("email")}
+            errorExists={true}
+            error={{ name: "email", errors }}
+          />
+        }
       />
-    </div>
+    </>
   );
 }
