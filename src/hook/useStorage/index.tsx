@@ -1,6 +1,4 @@
-import { IStorage } from "./interface";
-
-export const useStorage = ({ type = sessionStorage }: IStorage) => {
+export const useStorage = (type: Storage) => {
   const stotage: Storage = type;
 
   const setItem = (key: string, value: unknown) => {
