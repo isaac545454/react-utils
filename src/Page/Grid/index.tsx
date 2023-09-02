@@ -7,23 +7,20 @@ export function Contact() {
 
   return (
     <>
-      <GridInput
-        form={{ onSubmit: handleSubmit(onSubmit) }}
-        name={
+      <GridInput onSubmit={handleSubmit(onSubmit)}>
+        <>
           <Input
             {...register("name")}
             errorExists={true}
             error={{ name: "name", errors }}
           />
-        }
-        email={
           <Input
             {...register("email")}
             errorExists={true}
             error={{ name: "email", errors }}
           />
-        }
-      />
+        </>
+      </GridInput>
     </>
   );
 }

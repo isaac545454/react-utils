@@ -1,12 +1,9 @@
 import { IProps } from "./types";
 
-export function GridInput({ email, form, name }: IProps) {
+export function GridInput({ children, ...form }: IProps) {
   return (
     <form {...form}>
-      <div className="flex justify-around">
-        {email}
-        {name}
-      </div>
+      <div className="flex justify-around">{children}</div>
       <div>
         <button>ENVIAR</button>
       </div>

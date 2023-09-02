@@ -1,9 +1,9 @@
-import Home from "./Page/Grid";
+import { Contact } from "./Page/Grid";
 
 function App() {
   return (
     <>
-      <Home />;
+      <Contact />;
     </>
   );
 }
