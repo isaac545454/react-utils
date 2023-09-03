@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { IResponsePost } from "../../types";
 import { styles } from "./style";
 
@@ -6,7 +7,7 @@ interface Props {
   onChangeModal: () => void;
 }
 
-export default function ListPosts({ data = [], onChangeModal }: Props) {
+function ListPosts({ data = [], onChangeModal }: Props) {
   return (
     <div className={styles.container}>
       {data?.map((item) => (
@@ -21,3 +22,4 @@ export default function ListPosts({ data = [], onChangeModal }: Props) {
     </div>
   );
 }
+export default memo(ListPosts);

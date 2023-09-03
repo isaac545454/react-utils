@@ -1,41 +1,38 @@
-import { Suspense, lazy } from "react";
 import { useHome } from "./hook";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import Skeleton from "../../components/Skeleton";
-const ListPosts = lazy(() => import("./components/ListPosts"));
-const ModalHomeEdit = lazy(() => import("./components/Modal"));
-const ButtonCancel = lazy(() =>
-  import("../../components/Modal/components/buttonCancel").then((module) => ({
-    default: module.ButtonCancel,
-  }))
-);
-const ModalContainer = lazy(() =>
-  import("../../components/Modal/components/Container").then((module) => ({
-    default: module.Container,
-  }))
-);
+import { Modal } from "../../components/Modal";
+import { GridInput } from "../../components/GridInput";
+import { Input } from "../../components/Input";
+import { ErrrorInput } from "../../components/ErrorInput";
+import { Fragment } from "react";
 
-function Home() {
-  const { data, treatmentComponen, onChangeModal, showModal } = useHome();
-
+export const Home = () => {
+  const { onChangeModal, showModal, errors, register, handleSubmit, onSubmit } =
+    useHome();
   return (
-    <>
-      <Header />
-      {treatmentComponen && treatmentComponen}
-      <Suspense fallback={<Skeleton repetition={10} />}>
-        <ListPosts data={data ?? []} onChangeModal={onChangeModal} />
-
-        <ModalContainer showModal={showModal}>
-          <ModalHomeEdit
-            ButtonCancel={<ButtonCancel onChangeModal={onChangeModal} />}
-          />
-        </ModalContainer>
-        
-      </Suspense>
-      <Footer />
-    </>
+    <Modal.Container showModal={showModal}>
+      <Fragment>
+        <Modal.Header />
+        <GridInput onSubmit={handleSubmit(onSubmit)}>
+          <Fragment>
+            <Input
+              {...register("title")}
+              label="Titulo"
+              message={<ErrrorInput errrors={errors} name="title" />}
+            />
+            <Input
+              {...register("body")}
+              label="Descrição"
+              message={<ErrrorInput errrors={errors} name="body" />}
+            />
+          </Fragment>
+          <Modal.ContainerButtons>
+            <Fragment>
+              <Modal.ButtonCancel type="button" onClick={onChangeModal} />
+              <Modal.ButtonToSend type="submit" />
+            </Fragment>
+          </Modal.ContainerButtons>
+        </GridInput>
+      </Fragment>
+    </Modal.Container>
   );
-}
-
-export default Home;
+};

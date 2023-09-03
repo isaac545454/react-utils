@@ -16,7 +16,7 @@ import { useState } from "react";
  * @example  const { data, treatmentComponen, onChangeModal, showModal } = useHome();
  */
 export const useHome = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(true);
   const { getPosts } = useEndpoint();
 
   const { data, isLoading, isError } = useGet<IResponsePost[]>({
@@ -43,7 +43,7 @@ export const useHome = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: zodResolver(schema) });
+  } = useForm<ISchema>({ resolver: zodResolver(schema) });
 
   const onSubmit = (data: ISchema) => {
     mutate(data);

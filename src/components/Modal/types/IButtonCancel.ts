@@ -1,5 +1,3 @@
 import { ButtonHTMLAttributes } from "react";
 
-export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  onChangeModal: () => void;
-}
+export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}

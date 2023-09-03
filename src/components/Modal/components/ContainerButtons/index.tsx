@@ -3,5 +3,5 @@ interface Props {
 }
 
 export const ContainerButtons = ({ children }: Props): JSX.Element => {
-  return <div>{children}</div>;
+  return <div className="flex justify-between mt-6">{children}</div>;
 };
