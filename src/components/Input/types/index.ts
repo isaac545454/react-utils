@@ -1,7 +1,6 @@
-import React, { InputHTMLAttributes } from "react";
-import { ErrorMessage } from "@hookform/error-message";
+import { InputHTMLAttributes, ReactNode } from "react";
 
 export interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  error?: React.ComponentProps<typeof ErrorMessage>;
-  errorExists?: boolean;
+  label?: string;
+  message?: ReactNode;
 }
