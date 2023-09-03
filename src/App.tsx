@@ -1,9 +1,13 @@
-import { Contact } from "./Page/Grid";
+import { Home } from "./Page/home";
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
 
 function App() {
   return (
     <>
-      <Contact />;
+      <Header />
+      <Home />;
+      <Footer />
     </>
   );
 }
