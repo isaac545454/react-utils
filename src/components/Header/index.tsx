@@ -1,6 +1,6 @@
 import { styles } from "./styles";
 
-export default function Header() {
+export function Header() {
   return (
     <header className={styles.container}>
       <p className={styles.text}>Posts</p>
