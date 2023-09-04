@@ -1,14 +1,13 @@
-import { forwardRef } from "react";
-import { Props } from "./types";
-import { styles } from "./styles";
+import { Input as Text } from "./components/Element";
+import { ErrrorInput } from "./components/ErrorInput";
+import { Labelnput } from "./components/Labelnput";
+import { Mask } from "./components/Mask";
+import { Container } from "./components/ContainerInput";
 
-export const Input = forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const { label, message, ...res } = props;
-  return (
-    <div>
-      <span>{label}</span>
-      <input ref={ref} {...res} className={styles.Input} />
-      {message}
-    </div>
-  );
-});
+export const Input = {
+  Text,
+  Errror: ErrrorInput,
+  Label: Labelnput,
+  Mask,
+  Container,
+};

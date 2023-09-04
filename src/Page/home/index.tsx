@@ -2,7 +2,6 @@ import { useHome } from "./hook";
 import { Modal } from "../../components/Modal";
 import { GridInput } from "../../components/GridInput";
 import { Input } from "../../components/Input";
-import { ErrrorInput } from "../../components/ErrorInput";
 import { Fragment } from "react";
 
 export const Home = () => {
@@ -14,16 +13,16 @@ export const Home = () => {
         <Modal.Header />
         <GridInput onSubmit={handleSubmit(onSubmit)}>
           <Fragment>
-            <Input
-              {...register("title")}
-              label="Titulo"
-              message={<ErrrorInput errrors={errors} name="title" />}
-            />
-            <Input
-              {...register("body")}
-              label="Descrição"
-              message={<ErrrorInput errrors={errors} name="body" />}
-            />
+            <Input.Container>
+              <Input.Label name="CPF" />
+              <Input.Mask mask="999.999.99" {...register("cpf")} />
+              <Input.Errror errrors={errors} name="cpf" />
+            </Input.Container>
+            <Input.Container>
+              <Input.Label name="SENHA" />
+              <Input.Text type="password" {...register("password")} />
+              <Input.Errror errrors={errors} name="password" />
+            </Input.Container>
           </Fragment>
           <Modal.ContainerButtons>
             <Fragment>
