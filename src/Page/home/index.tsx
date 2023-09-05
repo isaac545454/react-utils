@@ -1,7 +1,5 @@
 import { useHome } from "./hook";
-import { Modal } from "../../components/Modal";
-import { GridInput } from "../../components/GridInput";
-import { Input } from "../../components/Input";
+import { Modal, GridInput, Input } from "@components";
 import { Fragment } from "react";
 
 export const Home = () => {
