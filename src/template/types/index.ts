@@ -1,1 +1,1 @@
-export type { Template } from "./types";
+export type { TemplateProps } from "./types";
