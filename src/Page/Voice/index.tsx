@@ -5,7 +5,7 @@ export function TestInput() {
   const email = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
 
-  const handleVoice = () => {
+  const handle = () => {
     if (email === null || password === null) return;
     console.log(email.current?.value, password.current?.value);
   };
@@ -14,7 +14,7 @@ export function TestInput() {
     <div>
       <Input.Text ref={email} />
       <Input.Text ref={password} />
-      <button onClick={handleVoice}>falar</button>
+      <button onClick={handle}>enviar</button>
     </div>
   );
 }
