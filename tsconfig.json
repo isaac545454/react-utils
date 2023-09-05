@@ -14,6 +14,15 @@
       ],
       "@models": [
         "./src/models/index.ts"
+      ],
+      "@routes": [
+        "./src/routes/index.ts"
+      ],
+      "@pages": [
+        "./src/pages/index.ts"
+      ],
+      "@template": [
+        "./src/template/index.ts"
       ]
     },
     "lib": [

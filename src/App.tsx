@@ -1,14 +1,12 @@
-import { TestInput } from "./Page/Voice";
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
+import { RouterProvider } from "react-router-dom";
+import { router } from "@routes";
+import { Template } from "@template";
 
 function App() {
   return (
-    <>
-      <Header />
-      <TestInput />;
-      <Footer />
-    </>
+    <Template>
+      <RouterProvider router={router} />
+    </Template>
   );
 }
 

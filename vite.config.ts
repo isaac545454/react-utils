@@ -13,6 +13,9 @@ export default defineConfig({
       "@hooks": "./src/hooks/index.ts",
       "@services": "./src/service/index.ts",
       "@models": "./src/models/index.ts",
+      "@routes": "./src/routes/index.ts",
+      "@pages": "./src/pages/index.ts",
+      "@template": "./src/template/index.ts",
     },
   },
 });
