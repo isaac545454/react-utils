@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Input } from "@components";
 
-export function TestInput() {
+export function Voice() {
   const email = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
 
