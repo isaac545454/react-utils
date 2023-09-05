@@ -1,3 +1,1 @@
-export const endpoint = {
-  getPosts: "/posts",
-};
+export { endpoint } from "./endpoint";
