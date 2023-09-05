@@ -1,24 +1,19 @@
 import { useRef } from "react";
-import { Input } from "../../components/Input";
+import { Input } from "@components";
 
-export default function Voice() {
-  const value = useRef<null | { value: string }>(null);
+export function TestInput() {
+  const email = useRef<HTMLInputElement>(null);
+  const password = useRef<HTMLInputElement>(null);
 
   const handleVoice = () => {
-    if (value.current === null) return;
-
-    const utterance = new SpeechSynthesisUtterance(value.current.value);
-    utterance.lang = "pt-BR";
-    utterance.pitch = 1;
-    utterance.volume = 1;
-    utterance.rate = 1;
-
-    speechSynthesis.speak(utterance);
+    if (email === null || password === null) return;
+    console.log(email.current?.value, password.current?.value);
   };
 
   return (
     <div>
-      <Input ref={value} />
+      <Input.Text ref={email} />
+      <Input.Text ref={password} />
       <button onClick={handleVoice}>falar</button>
     </div>
   );

@@ -14,12 +14,12 @@ export const Home = () => {
             <Input.Container>
               <Input.Label name="CPF" />
               <Input.Mask mask="999.999.99" {...register("cpf")} />
-              <Input.Errror errrors={errors} name="cpf" />
+              <Input.Error errrors={errors} name="cpf" />
             </Input.Container>
             <Input.Container>
               <Input.Label name="SENHA" />
               <Input.Text type="password" {...register("password")} />
-              <Input.Errror errrors={errors} name="password" />
+              <Input.Error errrors={errors} name="password" />
             </Input.Container>
           </Fragment>
           <Modal.ContainerButtons>

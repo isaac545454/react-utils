@@ -6,7 +6,7 @@ import { Container } from "./components/ContainerInput";
 
 export const Input = {
   Text,
-  Errror: ErrrorInput,
+  Error: ErrrorInput,
   Label: Labelnput,
   Mask,
   Container,

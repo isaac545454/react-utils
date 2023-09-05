@@ -7,4 +7,12 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ["@testing-library/jest-dom"],
   },
+  resolve: {
+    alias: {
+      "@components": "./src/components/index.ts",
+      "@hooks": "./src/hooks/index.ts",
+      "@services": "./src/service/index.ts",
+      "@models": "./src/models/index.ts",
+    },
+  },
 });
