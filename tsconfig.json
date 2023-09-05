@@ -3,11 +3,11 @@
     "target": "ES2020",
     "useDefineForClassFields": true,
     "paths": {
-      "@components/*": [
-        "./src/components/*"
+      "@components": [
+        "./src/components/index.ts"
       ],
-      "@hooks/*": [
-        "./src/hook/*"
+      "@hooks": [
+        "./src/hooks/index.ts"
       ],
       "@services/*": [
         "./src/service/*"
@@ -45,5 +45,5 @@
     {
       "path": "./tsconfig.node.json"
     }
-  ]
+  ],
 }
