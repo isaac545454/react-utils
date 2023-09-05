@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { renderHook } from "@testing-library/react";
-import { endpoint } from "../../endpoint";
-import { useGet } from ".";
-import { getApi } from "@services/getApi";
+import { endpoint } from "../../../endpoint";
+import { useGet } from "../";
+import { getApi } from "@services";
 import { mockGetApi, mockQueryKey, mockOptions } from "./mock";
 
 jest.mock("./index");
