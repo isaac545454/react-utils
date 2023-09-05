@@ -1,9 +1,5 @@
-import { AxiosRequestConfig } from "axios";
 import { api } from "./api";
-
-export interface IGet extends AxiosRequestConfig {
-  endpoint: string;
-}
+import { IGet } from "@models";
 
 export const getApi = async <TResponse>({
   endpoint,

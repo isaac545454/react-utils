@@ -1,10 +1,11 @@
-import { getApi, IGet } from "../../service/getApi";
+import { getApi } from "@services";
 import {
   useQuery,
   UseQueryResult,
   QueryKey,
   UseQueryOptions,
 } from "@tanstack/react-query";
+import { IGet } from "@models";
 
 interface IGetMutation<TData, TError> {
   queryKey: QueryKey;

@@ -11,6 +11,9 @@
       ],
       "@services": [
         "./src/service/index.ts"
+      ],
+      "@models": [
+        "./src/models/index.ts"
       ]
     },
     "lib": [

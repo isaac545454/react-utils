@@ -1,4 +1,5 @@
-import { deleteApi, IDelete } from "../../service/deleteApi";
+import { deleteApi } from "@services";
+import { IDelete } from "@models";
 import {
   UseMutationResult,
   useMutation,
