@@ -78,6 +78,11 @@
       "/node_modules/",
       "./src/endipoints",
       "./src/service"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^@components/(.*)$": "./src/components/index.ts",
+      "^@hooks/(.*)$": "./src/hook/$1",
+      "^@services/(.*)$": "<rootDir>/src/service/$1"
+    }
   }
 }

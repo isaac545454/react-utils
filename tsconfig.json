@@ -9,8 +9,8 @@
       "@hooks": [
         "./src/hooks/index.ts"
       ],
-      "@services/*": [
-        "./src/service/*"
+      "@services": [
+        "./src/service/index.ts"
       ]
     },
     "lib": [
