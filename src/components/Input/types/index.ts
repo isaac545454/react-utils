@@ -1,10 +1,8 @@
 import { InputHTMLAttributes, ReactNode } from "react";
 
-export interface Props extends InputHTMLAttributes<HTMLInputElement> {}
+export type Props = InputHTMLAttributes<HTMLInputElement>;
 
-export interface IMask extends Props {
-  mask: string;
-}
+export type IMask = InputHTMLAttributes<HTMLInputElement> & { mask: string };
 
 export type ITemplate = {
   children: ReactNode;
