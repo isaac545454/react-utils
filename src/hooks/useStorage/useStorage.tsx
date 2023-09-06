@@ -11,6 +11,7 @@ export const useStorage = (storage: Storage) => {
     try {
       const item = storage.getItem(key);
       if (!item) return undefined;
+      ("");
       return JSON.parse(item);
     } catch (error) {
       console.error(error);

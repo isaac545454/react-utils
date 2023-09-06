@@ -1,12 +1,8 @@
 import { ErrorMessage } from "@hookform/error-message";
 import { styles } from "./style";
+import { ErrorProps } from "../../types";
 
-interface IProps {
-  name: string;
-  errrors: Record<string, unknown>;
-}
-
-export const ErrrorInput = ({ name, errrors }: IProps) => {
+export const ErrrorInput = ({ name, errrors }: ErrorProps) => {
   return (
     <ErrorMessage
       name={name}

@@ -1,3 +1,5 @@
-export function Labelnput({ name }: { name: string }) {
-  return <span>{name}</span>;
+import { LabelProps } from "../../types";
+
+export function Labelnput({ label }: LabelProps) {
+  return <span>{label}</span>;
 }
