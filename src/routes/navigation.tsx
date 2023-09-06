@@ -1,17 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Grid, Home, Voice } from "@pages";
+import { ROUTES } from "./routes";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: ROUTES.HOME,
     element: <Home />,
   },
   {
-    path: "/grid",
+    path: ROUTES.GRID,
     element: <Grid />,
   },
   {
-    path: "/voice",
+    path: ROUTES.VOICE,
     element: <Voice />,
   },
 ]);

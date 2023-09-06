@@ -1,9 +1,7 @@
-export const useStorage = (type: Storage) => {
-  const stotage: Storage = type;
-
+export const useStorage = (storage: Storage) => {
   const setItem = (key: string, value: unknown) => {
     try {
-      stotage.setItem(key, JSON.stringify(value));
+      storage.setItem(key, JSON.stringify(value));
     } catch (error) {
       console.error(error);
     }
@@ -11,7 +9,7 @@ export const useStorage = (type: Storage) => {
 
   const getItem = (key: string) => {
     try {
-      const item = stotage.getItem(key);
+      const item = storage.getItem(key);
       if (!item) return undefined;
       return JSON.parse(item);
     } catch (error) {
@@ -21,7 +19,7 @@ export const useStorage = (type: Storage) => {
 
   const removeItem = (key: string) => {
     try {
-      stotage.removeItem(key);
+      storage.removeItem(key);
     } catch (error) {
       console.error(error);
     }
