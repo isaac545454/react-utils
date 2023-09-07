@@ -34,12 +34,12 @@ export const Home = () => {
             <Input.Container>
               <Input.label label="CPF" />
               <Input.Mask mask="999.999.99" {...register("cpf")} />
-              <Input.Error errrors={errors} name="cpf" />
+              <Input.Error errors={errors} name="cpf" />
             </Input.Container>
             <Input.Container>
               <Input.label label="SENHA" />
               <Input.Text type="password" {...register("password")} />
-              <Input.Error errrors={errors} name="password" />
+              <Input.Error errors={errors} name="password" />
             </Input.Container>
             <Input.Container>
               <Input.label label="SENHA" />
@@ -48,12 +48,12 @@ export const Home = () => {
                 name="select2"
                 options={options}
               />
-              <Input.Error errrors={errors} name="select" />
+              <Input.Error errors={errors} name="select" />
             </Input.Container>
             <Input.Container>
               <Input.label label="SENHA" />
               <Input.ControllerSelectAsync control={control} name="select1" />
-              <Input.Error errrors={errors} name="select" />
+              <Input.Error errors={errors} name="select" />
             </Input.Container>
           </Fragment>
           <Modal.ContainerButtons>

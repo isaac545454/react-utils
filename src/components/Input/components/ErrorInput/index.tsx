@@ -1,12 +1,12 @@
 import { ErrorMessage } from "@hookform/error-message";
 import { styles } from "./style";
-import { ErrorProps } from "../../types";
 
-export const ErrrorInput = ({ name, errrors }: ErrorProps) => {
+export const ErrrorInput = ({
+  ...resError
+}: React.ComponentProps<typeof ErrorMessage>) => {
   return (
     <ErrorMessage
-      name={name}
-      errors={errrors}
+      {...resError}
       render={({ message }) => <span className={styles.error}>{message}</span>}
     />
   );
