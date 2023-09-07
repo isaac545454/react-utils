@@ -3,7 +3,7 @@ import { ErrrorInput } from "./components/ErrorInput";
 import { Labelnput } from "./components/Labelnput";
 import { Mask } from "./components/Mask";
 import { Container } from "./components/ContainerInput";
-import { ControlletSelect } from "./components/ControlletSelect";
+import { ControllerSelect } from "./components/ControlletSelect";
 
 export const Input = {
   Text,
@@ -11,5 +11,5 @@ export const Input = {
   Label: Labelnput,
   Mask,
   Container,
-  ControlletSelect,
+  ControllerSelect,
 };

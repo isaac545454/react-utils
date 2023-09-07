@@ -41,7 +41,7 @@ export const Home = () => {
             </Input.Container>
             <Input.Container>
               <Input.Label label="SENHA" />
-              <Input.ControlletSelect
+              <Input.ControllerSelect
                 options={options}
                 name="select"
                 control={control}
