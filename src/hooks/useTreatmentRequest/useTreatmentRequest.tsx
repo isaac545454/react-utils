@@ -1,5 +1,7 @@
 import { ComponentProps } from "react";
-import { Loading, Error, NotData } from "@components";
+import { Loading } from "../../components/Loading";
+import { Error } from "../../components/Error";
+import { NotData } from "../../components/NotData";
 
 interface Itreatment {
   isLoading: boolean;

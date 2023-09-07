@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Input } from "@components";
+import { Input } from "../../components/Input";
 
 export function Voice() {
   const email = useRef<HTMLInputElement>(null);

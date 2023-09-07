@@ -1,9 +1,9 @@
-import { useGet, usePost, useTreatmentRequest } from '@hooks';
+import { useGet, usePost, useTreatmentRequest } from '../../../hooks/index';
 import { endpoint } from '../../../endpoint';
 import { IResponsePost, ISchema } from '../types';
 import { mensagem } from '../mensagem';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { useForm,  } from 'react-hook-form';
 import { schema } from '../schema';
 import { useState } from 'react';
 

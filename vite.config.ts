@@ -9,12 +9,12 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@components": "./src/components/index.ts",
-      "@hooks": "./src/hooks/index.ts",
+      "@components/*": "./src/components/*",
+      "@hooks/*": "./src/hooks/*",
       "@services": "./src/service/index.ts",
-      "@models": "./src/models/index.ts",
+      "@models/*": "./src/models/*",
       "@routes": "./src/routes/index.ts",
-      "@pages": "./src/pages/index.ts",
+      "@pages/*": "./src/pages/*",
       "@template": "./src/template/index.ts",
     },
   },

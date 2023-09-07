@@ -3,19 +3,19 @@ import Select from "react-select/async";
 
 type ControllerSelectAsyncProps = React.ComponentProps<typeof Select>;
 
-export function ControllerSelectAsync<TFieldValues extends FieldValues>({
-  control,
+export const ControllerSelectAsync = <TFieldValues extends FieldValues>({
   name,
+  control,
   ...SelectProps
-}: UseControllerProps<TFieldValues & ControllerSelectAsyncProps>) {
+}: UseControllerProps<TFieldValues> & ControllerSelectAsyncProps) => {
   return (
-    <>
-      <Controller
-        control={control}
-        name={name}
-        {...SelectProps}
-        render={({ field }) => <Select {...field} {...SelectProps} />}
-      />
-    </>
+    <Controller
+      control={control}
+      name={name}
+      {...SelectProps}
+      render={({ field }) => (
+        <Select {...field} onChange={field.onChange} value={field.value} />
+      )}
+    />
   );
-}
+};
