@@ -1,15 +1,17 @@
 import { Input as Text } from "./components/Element";
-import { ErrrorInput } from "./components/ErrorInput";
-import { Labelnput } from "./components/Labelnput";
+import { ErrrorInput as Error } from "./components/ErrorInput";
+import { Labelnput as label } from "./components/Labelnput";
 import { Mask } from "./components/Mask";
 import { Container } from "./components/ContainerInput";
 import { ControllerSelect } from "./components/ControlletSelect";
+import { ControllerSelectAsync } from "./components/ControllerSelectAsync";
 
 export const Input = {
   Text,
-  Error: ErrrorInput,
-  Label: Labelnput,
+  Error,
+  label,
   Mask,
   Container,
   ControllerSelect,
+  ControllerSelectAsync,
 };

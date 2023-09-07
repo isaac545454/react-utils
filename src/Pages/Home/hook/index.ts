@@ -1,11 +1,11 @@
-import { useGet, usePost, useTreatmentRequest } from "@hooks";
-import { endpoint } from "../../../endpoint";
-import { IResponsePost, ISchema } from "../types";
-import { mensagem } from "../mensagem";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { schema } from "../schema";
-import { useState } from "react";
+import { useGet, usePost, useTreatmentRequest } from '@hooks';
+import { endpoint } from '../../../endpoint';
+import { IResponsePost, ISchema } from '../types';
+import { mensagem } from '../mensagem';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { schema } from '../schema';
+import { useState } from 'react';
 
 /**
  * @param params params
@@ -17,7 +17,7 @@ export const useHome = () => {
   const [showModal, setShowModal] = useState(true);
 
   const { data, isLoading, isError } = useGet<IResponsePost[]>({
-    queryKey: ["getPosts"],
+    queryKey: ['getPosts'],
     request: { endpoint: endpoint.getPosts },
   });
 
