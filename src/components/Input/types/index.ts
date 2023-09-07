@@ -1,4 +1,5 @@
 import { InputHTMLAttributes, ReactNode } from "react";
+import { Props } from "react-select";
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
@@ -18,3 +19,5 @@ export type ErrorProps = {
 export type LabelProps = {
   label: string;
 };
+
+export type ControllerSelectProps = Props;

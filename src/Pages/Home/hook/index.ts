@@ -39,6 +39,7 @@ export const useHome = () => {
     register,
     handleSubmit,
     formState: { errors },
+    control,
   } = useForm<ISchema>({ resolver: zodResolver(schema) });
 
   const onSubmit = (data: ISchema) => {
@@ -59,5 +60,6 @@ export const useHome = () => {
     showModal,
     setShowModal,
     onChangeModal,
+    control,
   };
 };
