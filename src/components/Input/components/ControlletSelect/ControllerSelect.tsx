@@ -1,8 +1,7 @@
 import { Controller, UseControllerProps, FieldValues } from "react-hook-form";
-import Select from "react-select";
-import { ControllerSelectProps } from "../../types";
+import Select, { Props as ControllerSelectProps } from "react-select";
 
-export function ControlletSelect<TFieldValues extends FieldValues>({
+export function ControllerSelect<TFieldValues extends FieldValues>({
   control,
   name,
   ...SelectProps
