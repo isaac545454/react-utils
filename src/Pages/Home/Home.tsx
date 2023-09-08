@@ -1,19 +1,16 @@
 //hooks
 import { useHome } from "./hook";
 
+// //react
+import { Fragment } from "react";
+
+//mock
+import { options } from "./mock";
+
 // //components
 import { Modal } from "../../components/Modal";
 import { Input } from "../../components/Input";
 import { GridInput } from "../../components/GridInput";
-
-// //react
-import { Fragment } from "react";
-
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
-];
 
 export const Home = () => {
   const {
@@ -29,6 +26,7 @@ export const Home = () => {
   return (
     <Modal.Container showModal={showModal}>
       <Fragment>
+        {/*  */}
         <Modal.Header />
         <GridInput onSubmit={handleSubmit(onSubmit)}>
           <Fragment>
@@ -77,6 +75,7 @@ export const Home = () => {
           {/*  */}
         </GridInput>
       </Fragment>
+      {/*  */}
     </Modal.Container>
   );
 };
