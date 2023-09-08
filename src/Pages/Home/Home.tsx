@@ -32,16 +32,19 @@ export const Home = () => {
         <Modal.Header />
         <GridInput onSubmit={handleSubmit(onSubmit)}>
           <Fragment>
+            {/*  */}
             <Input.Container>
               <Input.label label="CPF" />
               <Input.Mask mask="999.999.99" {...register("cpf")} />
               <Input.Error errors={errors} name="cpf" />
             </Input.Container>
+            {/*  */}
             <Input.Container>
               <Input.label label="SENHA" />
               <Input.Text type="password" {...register("password")} />
               <Input.Error errors={errors} name="password" />
             </Input.Container>
+            {/*  */}
             <Input.Container>
               <Input.label label="SENHA" />
               <Input.ControllerSelect
@@ -51,16 +54,19 @@ export const Home = () => {
               />
               <Input.Error errors={errors} name="select2" />
             </Input.Container>
+            {/*  */}
             <Input.Container>
               <Input.label label="SENHA" />
               <Input.ControllerSelectAsync control={control} name="select1" />
               <Input.Error errors={errors} name="select1" />
             </Input.Container>
+            {/*  */}
             <Input.Container>
               <Input.label label="SENHA" />
               <Input.DateInput {...register("select1.label")} name="select1" />
               <Input.Error errors={errors} name="select1" />
             </Input.Container>
+            {/*  */}
           </Fragment>
           <Modal.ContainerButtons>
             <Fragment>
@@ -68,6 +74,7 @@ export const Home = () => {
               <Modal.ButtonToSend type="submit" />
             </Fragment>
           </Modal.ContainerButtons>
+          {/*  */}
         </GridInput>
       </Fragment>
     </Modal.Container>
