@@ -25,6 +25,7 @@ export const Home = () => {
     onSubmit,
     control,
   } = useHome();
+
   return (
     <Modal.Container showModal={showModal}>
       <Fragment>
@@ -48,12 +49,17 @@ export const Home = () => {
                 name="select2"
                 options={options}
               />
-              <Input.Error errors={errors} name="select" />
+              <Input.Error errors={errors} name="select2" />
             </Input.Container>
             <Input.Container>
               <Input.label label="SENHA" />
               <Input.ControllerSelectAsync control={control} name="select1" />
-              <Input.Error errors={errors} name="select" />
+              <Input.Error errors={errors} name="select1" />
+            </Input.Container>
+            <Input.Container>
+              <Input.label label="SENHA" />
+              <Input.DateInput {...register("select1.label")} name="select1" />
+              <Input.Error errors={errors} name="select1" />
             </Input.Container>
           </Fragment>
           <Modal.ContainerButtons>
