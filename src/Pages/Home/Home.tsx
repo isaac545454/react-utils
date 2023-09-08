@@ -61,7 +61,7 @@ export const Home = () => {
             {/*  */}
             <Input.Container>
               <Input.label label="SENHA" />
-              <Input.DateInput {...register("select1.label")} name="select1" />
+              <Input.Date {...register("select1.label")} name="select1" />
               <Input.Error errors={errors} name="select1" />
             </Input.Container>
             {/*  */}

@@ -1,1 +1,1 @@
-export {DateInput} from './DateInput'
+export {Date} from './DateInput'

@@ -3,7 +3,7 @@ import { InputProps } from "../../types";
 import { styles } from "../../styles";
 import { AiFillCalendar } from "react-icons/ai";
 
-export const DateInput = forwardRef<HTMLInputElement, InputProps>(
+export const Date = forwardRef<HTMLInputElement, InputProps>(
   ({ ...res }, ref) => {
     const randomId = String(Math.random());
 

@@ -5,7 +5,7 @@ import { Mask } from "./components/Mask";
 import { Container } from "./components/ContainerInput";
 import { ControllerSelect } from "./components/ControlletSelect";
 import { ControllerSelectAsync } from "./components/ControllerSelectAsync";
-import { DateInput } from "./components/DateInput";
+import { Date } from "./components/DateInput";
 
 export const Input = {
   Text,
@@ -15,5 +15,5 @@ export const Input = {
   Container,
   ControllerSelect,
   ControllerSelectAsync,
-  DateInput,
+  Date,
 };
