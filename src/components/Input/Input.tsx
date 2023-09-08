@@ -1,19 +1,19 @@
-import { Input as Text } from "./components/Element";
-import { ErrrorInput as Error } from "./components/ErrorInput";
-import { Labelnput as label } from "./components/Labelnput";
-import { Mask } from "./components/Mask";
-import { Container } from "./components/ContainerInput";
-import { ControllerSelect } from "./components/ControlletSelect";
-import { ControllerSelectAsync } from "./components/ControllerSelectAsync";
-import { Date } from "./components/DateInput";
+export { Input as Text } from "./components/Element";
+export { ErrrorInput as Error } from "./components/ErrorInput";
+export { Labelnput as Label } from "./components/Labelnput";
+export { Mask } from "./components/Mask";
+export { Container } from "./components/ContainerInput";
+export { ControllerSelect } from "./components/ControlletSelect";
+export { ControllerSelectAsync } from "./components/ControllerSelectAsync";
+export { Date } from "./components/DateInput";
 
-export const Input = {
-  Text,
-  Error,
-  label,
-  Mask,
-  Container,
-  ControllerSelect,
-  ControllerSelectAsync,
-  Date,
-};
+// export {
+//   Text,
+//   Error,
+//   label,
+//   Mask,
+//   Container,
+//   ControllerSelect,
+//   ControllerSelectAsync,
+//   Date,
+// };
