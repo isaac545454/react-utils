@@ -1,13 +1,12 @@
+import { ComponentProps } from "react";
 import { Controller, UseControllerProps, FieldValues } from "react-hook-form";
 import Select from "react-select/async";
-
-type ControllerSelectAsyncProps = React.ComponentProps<typeof Select>;
 
 export const ControllerSelectAsync = <TFieldValues extends FieldValues>({
   name,
   control,
   ...SelectProps
-}: UseControllerProps<TFieldValues> & ControllerSelectAsyncProps) => {
+}: UseControllerProps<TFieldValues> & ComponentProps<typeof Select>) => {
   return (
     <Controller
       control={control}
