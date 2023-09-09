@@ -5,16 +5,16 @@ import { Error } from "../../../components/Error";
 
 export const DataLoader = ({
   isloading,
-  isErrror,
+  isError,
   children,
 }: ContainerProps) => {
   if (isloading) return <Loading />;
-  if (isErrror) return <Error mensagem="error" />;
+  if (isError) return <Error mensagem="error" />;
 
   return <>{children}</>;
 };
 
-export const Posts = ({ data }: ListPostsProps) => {
+export const Posts = ({ data = [] }: ListPostsProps) => {
   return (
     <div className={styles.container}>
       {data?.map((item) => (

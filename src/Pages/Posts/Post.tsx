@@ -1,11 +1,11 @@
 import { DataLoader, Posts } from "./ListPosts";
 import { usePost } from "./hook";
 
-export const ListPosts = () => {
+export const Post = () => {
   const { data, isError, isLoading } = usePost();
 
   return (
-    <DataLoader isloading={isLoading} isErrror={isError}>
+    <DataLoader isError={isError} isloading={isLoading}>
       <Posts data={data ?? []} />
     </DataLoader>
   );

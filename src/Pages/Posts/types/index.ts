@@ -2,11 +2,12 @@ import { ReactNode } from "react";
 import { IResponsePost } from "../../Home/types";
 
 export type ListPostsProps = {
-    data: IResponsePost[];
+    data?: IResponsePost[]
 }
 
 export type ContainerProps = {
     isloading: boolean;
-    isErrror: boolean;
+    isError: boolean;
     children: ReactNode;
+
 }

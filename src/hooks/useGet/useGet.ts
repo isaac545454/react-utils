@@ -5,7 +5,7 @@ import {
   QueryKey,
   UseQueryOptions,
 } from "@tanstack/react-query";
-import { IGet } from "@models";
+import { IGet } from "@models/IGet";
 
 interface IGetMutation<TData, TError> {
   queryKey: QueryKey;
