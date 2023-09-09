@@ -36,8 +36,8 @@ export const Home = () => {
             {/*  */}
             <Input.Container>
               <Input.Label label="CPF" />
-              <Input.Mask mask="999.999.99" {...register("cpf")} />
-              <Input.Error<ISchema> errors={errors} name="cpf" />
+              <Input.Mask mask="999.999.999-99" {...register("cpf")} />
+              <Input.Error<ISchema> errors={errors} name="password" />
             </Input.Container>
             {/*  */}
             <Input.Container>
@@ -59,7 +59,7 @@ export const Home = () => {
             <Input.Container>
               <Input.Label label="SENHA" />
               <Input.ControllerSelectAsync control={control} name="select1" />
-              <Input.Error<ISchema> errors={errors} name="select1" />
+              <Input.Error<ISchema> errors={errors} name="cpf" />
             </Input.Container>
             {/*  */}
             <Input.Container>

@@ -1,5 +1,6 @@
 export const ROUTES = {
   HOME: "/",
   GRID: "/grid",
-  VOICE: "//voice",
+  VOICE: "/voice",
+  POSTS: "/posts"
 };
