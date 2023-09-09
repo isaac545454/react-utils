@@ -6,6 +6,7 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "@routes";
 import { Template } from "@template";
 import "react-toastify/dist/ReactToastify.css";
+import "./i18n";
 import "./style/index.css";
 
 const queryClient = new QueryClient();

@@ -1,0 +1,25 @@
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+
+i18n
+    .use(initReactI18next)
+    .init({
+        resources: {
+            en: {
+                translation: {
+                    greeting: 'Hello, World!',
+                },
+            },
+            es: {
+                translation: {
+                    greeting: '¡Hola, Mundo!',
+                },
+            },
+        },
+        lng: 'en', // Idioma padrão
+        fallbackLng: 'en', // Idioma de fallback
+        interpolation: {
+            escapeValue: false,
+        },
+    })
+export default i18n;
