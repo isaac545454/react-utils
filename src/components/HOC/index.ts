@@ -1,0 +1,1 @@
+export { withErrorAndLoadingHandling } from './HOC'

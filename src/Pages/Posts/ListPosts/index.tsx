@@ -1,20 +1,13 @@
-import { ContainerProps, ListPostsProps } from "../types";
+import { ListPostsProps } from "../types";
 import { styles } from "./style";
-import { Loading } from "../../../components/Loading";
-import { Error } from "../../../components/Error";
+import { withErrorAndLoadingHandlingProps } from "../../../components/HOC/HOC";
 
-export const DataLoader = ({
-  isloading,
-  isError,
-  children,
-}: ContainerProps) => {
-  if (isloading) return <Loading />;
-  if (isError) return <Error mensagem="error" />;
+type ListPostsWithLoadingProps = ListPostsProps &
+  withErrorAndLoadingHandlingProps;
 
-  return <>{children}</>;
-};
-
-export const Posts = ({ data = [] }: ListPostsProps) => {
+export const ListPosts: React.FC<ListPostsWithLoadingProps> = ({
+  data = [],
+}) => {
   return (
     <div className={styles.container}>
       {data?.map((item) => (

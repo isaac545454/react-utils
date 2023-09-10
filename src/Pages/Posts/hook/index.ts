@@ -10,7 +10,6 @@ export const usePost = () => {
     request: { endpoint: endpoint.getPosts },
   });
 
-
   return {
     isLoading,
     isError,
