@@ -3,9 +3,9 @@ import { endpoint } from '../../../endpoint';
 import { IResponsePost, ISchema } from '../types';
 import { mensagem } from '../mensagem';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm,  } from 'react-hook-form';
+import { useForm, } from 'react-hook-form';
 import { schema } from '../schema';
-import { useState } from 'react';
+import { useId, useState } from 'react';
 
 /**
  * @param params params
@@ -15,6 +15,8 @@ import { useState } from 'react';
  */
 export const useHome = () => {
   const [showModal, setShowModal] = useState(true);
+  const ID = useId();
+
 
   const { data, isLoading, isError } = useGet<IResponsePost[]>({
     queryKey: ['getPosts'],
@@ -61,5 +63,6 @@ export const useHome = () => {
     setShowModal,
     onChangeModal,
     control,
+    ID
   };
 };

@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, ReactNode } from "react";
+import { InputHTMLAttributes, LabelHTMLAttributes, ReactNode } from "react";
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
@@ -8,9 +8,9 @@ export type MaskProps = InputHTMLAttributes<HTMLInputElement> & {
 
 export type ITemplate = {
   children: ReactNode;
-};
+} & LabelHTMLAttributes<HTMLLabelElement>
 
- 
+
 
 export type LabelProps = {
   label: string;
