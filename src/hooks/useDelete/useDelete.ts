@@ -1,22 +1,23 @@
-import { deleteApi } from "@services";
-import { IDelete } from "@models";
+import { IDelete } from "@models/IDelete";
 import {
   UseMutationResult,
   useMutation,
   MutationOptions,
 } from "@tanstack/react-query";
+import { createAxios } from "../../infra";
 
 interface IMutate<TData, TError> {
   options?: MutationOptions<TData, TError>;
-  req: IDelete;
+  res: IDelete;
 }
 
 export const useDelete = <TData, TError>({
   options,
-  req,
+  res,
 }: IMutate<TData, TError>): UseMutationResult<TData, TError, void, unknown> => {
+  const { http } = createAxios<TData>()
   const mutation = useMutation<TData, TError>(
-    () => deleteApi<TData>(req),
+    () => http.exec({ ...res, method: "DELETE" }),
     options
   );
 

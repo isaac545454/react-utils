@@ -1,5 +1,5 @@
 import { api } from "../api";
-import { IGet } from "@models";
+import { IGet } from "@models/IGet";
 
 export const getApi = async <TResponse>({
   endpoint,

@@ -1,5 +1,5 @@
 import { api } from "../api";
-import { IPut } from "@models";
+import { IPut } from "@models/IPut";
 
 export const putApi = async <TResponse>({
   endpoint,

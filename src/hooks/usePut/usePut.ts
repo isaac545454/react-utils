@@ -1,25 +1,28 @@
-import { putApi } from "../../service/putApi";
+import { IPut } from '@models/IPut'
 import {
   UseMutationResult,
   useMutation,
   MutationOptions,
 } from "@tanstack/react-query";
+import { createAxios } from "../../infra";
 
-interface IPut<TData, TError, TRequest> {
+interface IPutMutate<TData, TError, TRequest> {
   options?: MutationOptions<TData, TError, TRequest>;
-  url: string;
+  response: IPut
+
 }
 
 export const usePut = <TData, TError, TRequest>({
   options,
-  url,
-}: IPut<TData, TError, TRequest>): UseMutationResult<
+  ...req
+}: IPutMutate<TData, TError, TRequest>): UseMutationResult<
   TData,
   TError,
   TRequest
 > => {
+  const { http } = createAxios<TData>()
   const mutation = useMutation<TData, TError, TRequest>(
-    (variables) => putApi<TData, TRequest>({ url, bodyData: variables }),
+    (data) => http.exec({ data, ...req, method: "PUT" }),
     options
   );
 

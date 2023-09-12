@@ -44,8 +44,14 @@ export const useHome = () => {
     control,
   } = useForm<ISchema>({ resolver: zodResolver(schema) });
 
-  const onSubmit = (data: ISchema) => {
-    mutate(data);
+  const onSubmit = () => {
+    mutate({
+      cpf: "aaaaaaaaaa",
+      password: "aaaaaaaaaa",
+      select1: { label: "aa", value: "aaaa" },
+      select2: { label: "aa", value: "aaaa" }
+    })
+
   };
 
   const onChangeModal = () => {

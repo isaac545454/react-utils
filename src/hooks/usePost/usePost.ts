@@ -1,9 +1,10 @@
-import { postApi, IPost } from "../../service/postApi";
+import { IPost } from "@models/IPost";
 import {
   UseMutationResult,
   useMutation,
   MutationOptions,
 } from "@tanstack/react-query";
+import { createAxios } from "../../infra";
 
 interface IPostMutation<TData, TError, TRequest> {
   options?: MutationOptions<TData, TError, TRequest>;
@@ -18,8 +19,9 @@ export const usePost = <TData, TError, TRequest>({
   TError,
   TRequest
 > => {
+  const { http } = createAxios<TData>()
   const mutation = useMutation<TData, TError, TRequest>(
-    (data) => postApi<TData>({ data, ...req }),
+    (data) => http.exec({ data, ...req, method: "POST" }),
     options
   );
 
