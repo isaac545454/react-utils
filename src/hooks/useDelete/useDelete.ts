@@ -4,7 +4,7 @@ import {
   useMutation,
   MutationOptions,
 } from "@tanstack/react-query";
-import { createAxios } from "../../infra";
+import { createHttp } from "../../infra";
 
 interface IMutate<TData, TError> {
   options?: MutationOptions<TData, TError>;
@@ -15,7 +15,7 @@ export const useDelete = <TData, TError>({
   options,
   res,
 }: IMutate<TData, TError>): UseMutationResult<TData, TError, void, unknown> => {
-  const { http } = createAxios<TData>()
+  const { http } = createHttp<TData>()
   const mutation = useMutation<TData, TError>(
     () => http.exec({ ...res, method: "DELETE" }),
     options

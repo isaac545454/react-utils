@@ -5,7 +5,7 @@ import {
   UseQueryOptions,
 } from "@tanstack/react-query";
 import { IGet } from "@models/IGet";
-import { createAxios } from "../../infra/http-axios-client";
+import { createHttp } from "../../infra/http-axios-client";
 
 interface IGetMutation<TData, TError> {
   queryKey: QueryKey;
@@ -18,7 +18,7 @@ export const useGet = <TData, TError = unknown>({
   options,
   request,
 }: IGetMutation<TData, TError>): UseQueryResult<TData, TError> => {
-  const { http } = createAxios<TData>()
+  const { http } = createHttp<TData>()
   const data = useQuery(queryKey, () => http.exec({
     ...request, method: "GET",
   }), options);

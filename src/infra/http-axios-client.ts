@@ -1,18 +1,24 @@
-import { api as apiClient  } from "../service/api";
-import { AxiosRequestConfig } from "axios";
+ import { api as apiClient  } from "../service/api";
+import  { AxiosInstance, AxiosRequestConfig } from "axios";
 
 type HttpAxiosClientProps<IResponse> = { exec: (params: HttpProps) => Promise<IResponse> }
 
 type HttpProps = AxiosRequestConfig & { endpoint?: string }
 
-class HttpAxiosClient<IResponse> implements HttpAxiosClientProps<IResponse> {
-    private readonly api = apiClient
+ 
+ 
+class HttpClient<IResponse, TClient extends AxiosInstance> implements HttpAxiosClientProps<IResponse> {
+    private readonly client: TClient    
+   
+    constructor(client:  TClient){
+        this.client = client 
+    }
+
     async exec({ endpoint = "", ...res }: HttpProps): Promise<IResponse> {
-        const { data } = await this.api<IResponse>(endpoint, { ...res })
+        const { data } = await this.client<IResponse>(endpoint, { ...res })
         return data
     }
 }
 
-export const createAxios = <IResponse>() => ({ http: new HttpAxiosClient<IResponse>() })
+export const createHttp = <IResponse>() => ({ http: new HttpClient<IResponse, AxiosInstance>(apiClient) })
 
- 

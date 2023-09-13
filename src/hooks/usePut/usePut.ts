@@ -4,7 +4,7 @@ import {
   useMutation,
   MutationOptions,
 } from "@tanstack/react-query";
-import { createAxios } from "../../infra";
+import { createHttp } from "../../infra";
 
 interface IPutMutate<TData, TError, TRequest> {
   options?: MutationOptions<TData, TError, TRequest>;
@@ -20,7 +20,7 @@ export const usePut = <TData, TError, TRequest>({
   TError,
   TRequest
 > => {
-  const { http } = createAxios<TData>()
+  const { http } = createHttp<TData>()
   const mutation = useMutation<TData, TError, TRequest>(
     (data) => http.exec({ data, ...req, method: "PUT" }),
     options
