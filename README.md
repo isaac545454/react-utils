@@ -1,11 +1,3 @@
->## 📚 Documentação
-
-| Categoria           | Ferramenta de Documentação |
-|---------------------|-----------------------------|
-| Componentes         | Storybook                   |
-| Hooks e Classes     | jsDocs                      |
-| Utilitários         | Markdown                    |
-
 
 > ## 📁 arquitetura do projeto
 ```shell
@@ -28,10 +20,18 @@ src
 └─> main.ts
  
 ```
+>## 📚 Documentação
+
+| Categoria           | Ferramenta de Documentação |
+|---------------------|-----------------------------|
+| Componentes         | Storybook                   |
+| Hooks e Classes     | jsDocs                      |
+| Utilitários         | Markdown                    |
 
 
 
-> ## 📚 Tabela de Conteúdo 
+
+> ## 📄 Sumário
 
  
 - [`createHttp()`](https://www.linkedin.com/feed/update/urn:li:activity:7107698003984941059/)
