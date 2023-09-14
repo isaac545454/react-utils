@@ -1,3 +1,16 @@
+# 📚 Documentação
+
+## Componentes (Storybook)
+Os componentes são documentados e visualizados no [Storybook](https://storybook.js.org/), onde você pode interagir com eles e ver exemplos de uso.
+
+## Hooks e Classes (jsDocs)
+
+Os hooks e as classes são bem documentados usando jsDocs. Isso inclui descrições detalhadas de cada hook ou classe, parâmetros aceitos, valores de retorno e exemplos de uso.
+
+## Utilitários (Markdown)
+
+Os utilitários são documentados usando Markdown. Aqui, você encontrará informações sobre como usar os utilitários, exemplos de código e outras dicas úteis.
+
 
 > ## 📁 arquitetura do projeto
 ```shell
@@ -20,6 +33,7 @@ src
 └─> main.ts
  
 ```
+
 
 
 > ## 📚 Tabela de Conteúdo 
