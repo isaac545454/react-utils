@@ -13,10 +13,10 @@ src
  
 ```
 
->## 🌐 create http   
+>## 🌐 createHttp() 
 
 ```js
-//uso do HttpClient
+//uso do createHttp
 import { api as apiClient } from "../service/api";
 import { createHttp } from "./http-client"; // Importe a classe e a função
 
@@ -30,3 +30,4 @@ const response = await http.exec({
   params: { id: "1" },
 });
 ```
+>## 📡useGet()

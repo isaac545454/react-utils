@@ -84,9 +84,7 @@
   },
   "jest": {
     "testEnvironment": "jest-environment-jsdom",
-    "setupFilesAfterEnv": [
-      "<rootDir>/setup-tests.js"
-    ],
+    "setupFilesAfterEnv": ["<rootDir>/setup-tests.js"],
     "testPathIgnorePatterns": [
       "/node_modules/",
       "./src/endipoints",
@@ -98,4 +96,5 @@
       "^@services/(.*)$": "<rootDir>/src/service/$1"
     }
   }
+  
 }

@@ -1,4 +1,4 @@
- import { api as apiClient  } from "../service/api";
+ import {  apiClient } from "./api";
 import  { AxiosInstance, AxiosRequestConfig } from "axios";
 
 type HttpAxiosClientProps<IResponse> = { exec: (params: HttpProps) => Promise<IResponse> }

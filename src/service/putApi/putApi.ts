@@ -1,4 +1,4 @@
-import { api } from "../api";
+import { api } from "../../infra/api";
 import { IPut } from "@models/IPut";
 
 export const putApi = async <TResponse>({
