@@ -19,6 +19,12 @@ src
 └─> main.ts
  
 ```
+> ## 📚 Documentação 
+```js
+ componentes: storybook
+ hooks/methodos: jsDocs 
+ utils: Markdown + jsDocs 
+```
 
 >## 🌐 createHttp() 
 
