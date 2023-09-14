@@ -1,3 +1,10 @@
+
+> ## 📚 Documentação 
+```js
+ componentes: storybook
+ hooks/methodos: jsDocs 
+ utils: Markdown + jsDocs 
+```
 > ## 📁 arquitetura do projeto
 ```shell
 
@@ -18,12 +25,6 @@ src
          └─> index.ts(export-da-page)
 └─> main.ts
  
-```
-> ## 📚 Documentação 
-```js
- componentes: storybook
- hooks/methodos: jsDocs 
- utils: Markdown + jsDocs 
 ```
 
 >## 🌐 createHttp() 
