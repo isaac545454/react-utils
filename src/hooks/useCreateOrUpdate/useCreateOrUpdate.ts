@@ -1,4 +1,4 @@
-import { IPost } from "@models/IPost";
+import { HttpProps } from "../../infra/http-axios-client";
 import {
   UseMutationResult,
   useMutation,
@@ -9,10 +9,10 @@ import { createHttp } from "../../infra";
 
 interface IPostMutation<TData, TError, TRequest> {
   options?: MutationOptions<TData, TError, TRequest>;
-  req: IPost;
+  HttpClient: HttpProps;
 }
 
-/**
+/**'
  * Hook personalizado para realizar uma mutação HTTP POST usando o react-query.
  *
  * @template TData - O tipo dos dados de resposta esperados.
@@ -21,7 +21,7 @@ interface IPostMutation<TData, TError, TRequest> {
  *
  * @param {Object} params - Parâmetros do hook.
  * @param {MutationOptions<TData, TError, TRequest>} [params.options] - Opções de configuração para a mutação.
- * @param {IPost} params.req - Dados da solicitação POST.
+ * @param {HttpProps} HttpClientProps- Dados da solicitação POST.
  *
  * @returns {UseMutationResult<TData, TError, TRequest>} Um objeto contendo os resultados da mutação.
  *
@@ -30,7 +30,7 @@ interface IPostMutation<TData, TError, TRequest> {
  *   options: {
  *     // Opções de configuração da mutação (opcional)
  *   },
- *   req: {
+ *   HttpClient: {
  *     // Dados da solicitação 
  *     // method:POST | PUT | PATH (POST é default)
  *   },
@@ -38,7 +38,7 @@ interface IPostMutation<TData, TError, TRequest> {
  */
 export const useCreateOrUpdate = <TData, TError, TRequest>({
   options,
-  req,
+  HttpClient,
 }: IPostMutation<TData, TError, TRequest>): UseMutationResult<
   TData,
   TError,
@@ -46,7 +46,11 @@ export const useCreateOrUpdate = <TData, TError, TRequest>({
 > => {
   const { http } = createHttp<TData>()
   const mutation = useMutation<TData, TError, TRequest>(
-    (data) => http.exec({ data, ...req, method: "POST" }),
+    (data) => http.exec({ data, 
+      ...HttpClient,
+       method: "POST", 
+      
+      }),
     options
   );
 

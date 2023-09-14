@@ -1,9 +1,9 @@
  import {  apiClient } from "./api";
 import  { AxiosInstance, AxiosRequestConfig } from "axios";
 
-type HttpAxiosClientProps<IResponse> = { exec: (params: HttpProps) => Promise<IResponse> }
+type HttpClientProps<IResponse> = { exec: (params: HttpProps) => Promise<IResponse> }
 
-type HttpProps = AxiosRequestConfig & { endpoint?: string }
+export type HttpProps = AxiosRequestConfig & { endpoint?: string }
 
  
 /**
@@ -11,7 +11,7 @@ type HttpProps = AxiosRequestConfig & { endpoint?: string }
  * @template IResponse - O tipo da resposta esperada.
  * @params Client  - O tipo do cliente que será usado.
  */
-class HttpClient <IResponse, TClient extends AxiosInstance> implements HttpAxiosClientProps<IResponse> {
+class HttpClient <IResponse, TClient extends AxiosInstance> implements HttpClientProps<IResponse> {
     private readonly client: TClient  
 
     constructor(client: TClient) {

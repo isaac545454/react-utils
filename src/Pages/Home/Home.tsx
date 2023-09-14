@@ -17,7 +17,6 @@ import { ISchema } from "./types";
 
 export const Home = () => {
   const {
-  
     showModal,
     errors,
     register,
