@@ -17,8 +17,6 @@ export const useHome = () => {
   const [showModal, setShowModal] = useState(true);
   const ID = useId();
  
-
-
   const { data, isLoading, isError } = useGet<IResponsePost[]>({
     queryKey: ['getPosts'],
     request: { endpoint: endpoint.getPosts  },
