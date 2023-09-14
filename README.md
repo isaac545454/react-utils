@@ -72,7 +72,9 @@ import { endpoint } from '@/endpoint';
 
 //exemplo de uso(obs: evitar usar string diretamente no endpoint)
  const { isLoading, isError, isSuccess, mutate } = usePost<TData, TError, TRequest>({
-    options: {} // Opções de configuração da mutação (opcional),
+    options: {
+       // Opções de configuração da mutação (opcional),
+    },
     req: {
        endpoint: endpoint.createPost 
     },
