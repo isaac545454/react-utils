@@ -1,4 +1,4 @@
-> # 📁 arquitetura do projeto
+> ## 📁 arquitetura do projeto
 ```shell
 
 src
@@ -29,6 +29,4 @@ const response = await http.exec({
   method: "GET",
   params: { id: "1" },
 });
-
-
 ```
