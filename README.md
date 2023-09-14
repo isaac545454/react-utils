@@ -51,7 +51,7 @@ import { endpoint } from '@/endpoint';
 -`headers` (object): Um objeto contendo cabeçalhos HTTP opcionais a serem enviados com a requisição.
 -Outras opções relevantes para uma requisição HTTP GET, como `params`, `auth`, etc.
 
-//exemplo de uso(obs: evitar usar string diretamente)
+//exemplo de uso(obs: evitar usar string diretamente no endpoint)
 const { data, isLoading, isError } = useGet<IResponsePost[]>({
     queryKey: ['getPosts'],
     request: { endpoint: endpoint.getPosts, signal },
