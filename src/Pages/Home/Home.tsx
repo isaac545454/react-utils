@@ -17,7 +17,7 @@ import { ISchema } from "./types";
 
 export const Home = () => {
   const {
-    onChangeModal,
+  
     showModal,
     errors,
     register,
@@ -25,6 +25,7 @@ export const Home = () => {
     onSubmit,
     control,
     ID,
+
   } = useHome();
 
   return (
@@ -85,7 +86,7 @@ export const Home = () => {
           </Fragment>
           <Modal.ContainerButtons>
             <Fragment>
-              <Modal.ButtonCancel type="button" onClick={onChangeModal} />
+              <Modal.ButtonCancel type="button" onClick={onSubmit} />
               <Modal.ButtonToSend type="submit" />
             </Fragment>
           </Modal.ContainerButtons>

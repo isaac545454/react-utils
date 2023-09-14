@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { renderHook } from "@testing-library/react";
 import { endpoint } from "../../../endpoint";
-import { useGet } from "../";
+import { useFetchData } from "../";
 import { getApi } from "@services";
 import { mockGetApi, mockQueryKey, mockOptions } from "./mock";
 
 jest.mock("./index");
 jest.mock("../../service/getApi");
 
-describe("useGet", () => {
-  test("request using useGet", async () => {
-    (useGet as unknown as jest.Mock).mockReturnValue({ data: mockGetApi });
+describe("useFetchData", () => {
+  test("request using useFetchData", async () => {
+    (useFetchData as unknown as jest.Mock).mockReturnValue({ data: mockGetApi });
     (getApi as jest.Mock).mockResolvedValue({ data: mockGetApi });
 
     const {
@@ -18,7 +18,7 @@ describe("useGet", () => {
         current: { data },
       },
     } = renderHook(() =>
-      useGet({
+    useFetchData({
         queryKey: mockQueryKey,
         request: { endpoint: endpoint.getPosts },
         options: mockOptions,

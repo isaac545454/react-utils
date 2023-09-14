@@ -37,10 +37,10 @@ const response = await http.exec({
   params: { id: "1" },
 });
 ```
->## 📡useGet()
+>## useFetchData ()
 ```js
-//uso do useGet
-import { useGet } from '@/hooks/index';
+//uso do useFetchData 
+import { useFetchData  } from '@/hooks/index';
 import { endpoint } from '@/endpoint';
 
 //parametros
@@ -52,17 +52,17 @@ import { endpoint } from '@/endpoint';
 -Outras opções relevantes para uma requisição HTTP GET, como `params`, `auth`, etc.
 
 //exemplo de uso(obs: evitar usar string diretamente no endpoint)
-const { data, isLoading, isError } = useGet<IResponsePost[]>({
+const { data, isLoading, isError } = useFetchData <IResponsePost[]>({
     queryKey: ['getPosts'],
     request: { endpoint: endpoint.getPosts },
     options: {enabled: true}
 });
 ```
 
->## 🚀usePost()
+>## useCreateOrUpdate()
 ```js
-//uso do usePost
-import { usePost } from '@/hooks/index';
+//uso do useCreateOrUpdate
+import { useCreateOrUpdate } from '@/hooks/index';
 import { endpoint } from '@/endpoint';
 
 //parametros
@@ -71,7 +71,7 @@ import { endpoint } from '@/endpoint';
 
 
 //exemplo de uso(obs: evitar usar string diretamente no endpoint)
- const { isLoading, isError, isSuccess, mutate } = usePost<TData, TError, TRequest>({
+ const { isLoading, isError, isSuccess, mutate } = useCreateOrUpdate<TData, TError, TRequest>({
     options: {
        // Opções de configuração da mutação (opcional),
     },

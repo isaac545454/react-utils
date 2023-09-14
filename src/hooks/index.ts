@@ -1,6 +1,6 @@
-export { useDelete } from "./useDelete";
-export { useGet } from "./useGet";
-export { usePost } from "./usePost";
-export { usePut } from "./usePut";
-export { useStorage } from "./useStorage";
-export { useTreatmentRequest } from "./useTreatmentRequest";
+export * from "./useDelete";
+export * from "./useGet";
+export * from "./usePost";
+export * from "./usePut";
+export * from "./useStorage";
+export * from "./useTreatmentRequest";

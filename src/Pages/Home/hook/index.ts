@@ -1,7 +1,6 @@
-import { useGet, usePost, useTreatmentRequest } from '../../../hooks/index';
+import { useCreateOrUpdate, useFetchData} from '../../../hooks/index';
 import { endpoint } from '../../../endpoint';
 import { IResponsePost, ISchema } from '../types';
-import { mensagem } from '../mensagem';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, } from 'react-hook-form';
 import { schema } from '../schema';
@@ -17,21 +16,15 @@ export const useHome = () => {
   const [showModal, setShowModal] = useState(true);
   const ID = useId();
  
-  const { data, isLoading, isError } = useGet<IResponsePost[]>({
+  const { data, isLoading, isError } = useFetchData<IResponsePost[]>({
     queryKey: ['getPosts'],
     request: { endpoint: endpoint.getPosts  },
     options: {enabled: true}
   });
 
-  const treatmentComponen = useTreatmentRequest({
-    data,
-    isLoading,
-    isError,
-    mensagemError: { mensagem: mensagem.error },
-    mensagemNotData: { mensagem: mensagem.notData },
-  });
+ 
 
-  const { mutate } = usePost<{ title: string }, Error, ISchema>({
+  const { mutate } = useCreateOrUpdate<{ title: string }, Error, ISchema>({
     req: {
       url: endpoint.getPosts,
     },
@@ -59,7 +52,6 @@ export const useHome = () => {
   };
 
   return {
-    treatmentComponen,
     data,
     handleSubmit,
     register,
@@ -69,6 +61,8 @@ export const useHome = () => {
     setShowModal,
     onChangeModal,
     control,
+    isLoading,
+    isError,
     ID
   };
 };

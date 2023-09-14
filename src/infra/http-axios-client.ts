@@ -23,6 +23,7 @@ class HttpClient <IResponse, TClient extends AxiosInstance> implements HttpAxios
      * @returns {Promise<IResponse>} Uma Promise que resolve na resposta da solicitação.
      */
     async exec({ endpoint = "", ...res }) {
+        console.log(res)
         const { data } = await this.client<IResponse>(endpoint, { ...res });
         return data;
     }

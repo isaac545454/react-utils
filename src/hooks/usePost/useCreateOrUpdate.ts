@@ -5,6 +5,8 @@ import {
   MutationOptions,
 } from "@tanstack/react-query";
 import { createHttp } from "../../infra";
+
+
 interface IPostMutation<TData, TError, TRequest> {
   options?: MutationOptions<TData, TError, TRequest>;
   req: IPost;
@@ -24,16 +26,17 @@ interface IPostMutation<TData, TError, TRequest> {
  * @returns {UseMutationResult<TData, TError, TRequest>} Um objeto contendo os resultados da mutação.
  *
  * @example
- * const { isLoading, isError, isSuccess, mutate } = usePost({
+ * const { isLoading, isError, isSuccess, mutate } = useCreateOrUpdate({
  *   options: {
  *     // Opções de configuração da mutação (opcional)
  *   },
  *   req: {
- *     // Dados da solicitação POST
+ *     // Dados da solicitação 
+ *     // method:POST | PUT | PATH (POST é default)
  *   },
  * });
  */
-export const usePost = <TData, TError, TRequest>({
+export const useCreateOrUpdate = <TData, TError, TRequest>({
   options,
   req,
 }: IPostMutation<TData, TError, TRequest>): UseMutationResult<

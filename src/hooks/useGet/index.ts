@@ -1,1 +1,1 @@
-export { useGet } from "./useGet";
+export * from "./useFetchData";

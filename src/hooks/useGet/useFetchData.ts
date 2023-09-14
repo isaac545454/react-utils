@@ -13,9 +13,9 @@ interface IGetMutation<TData, TError> {
   request: IGet;
 }
 /**
- * Custom Hook: useGet
+ * Custom Hook: useFetchData
  *
- * O `useGet` é um custom hook que simplifica a lógica de fazer uma requisição HTTP GET a uma API ou servidor usando a biblioteca `react-query`.
+ * O `useFetchData` é um custom hook que simplifica a lógica de fazer uma requisição HTTP GET a uma API ou servidor usando a biblioteca `react-query`.
  *
  * @template TData - O tipo dos dados que serão retornados pela requisição.
  * @template TError - O tipo de erro que pode ocorrer na requisição.
@@ -30,12 +30,12 @@ interface IGetMutation<TData, TError> {
  * @returns {UseQueryResult<TData, TError>} - Um objeto do tipo `UseQueryResult` que inclui propriedades como `data`, `isLoading` e `isError` para lidar com o estado da requisição e seus resultados.
  *
  * @example
- * // Exemplo de uso do `useGet` em um componente React.
+ * // Exemplo de uso do `useFetchData` em um componente React.
  * import React from 'react';
- * import { useGet } from './useGet';
+ * import { useFetchData  } from './useFetchData ';
  *
  * function PostList() {
- *   const { data, isLoading, isError } = useGet<IResponsePost[]>({
+ *   const { data, isLoading, isError } = useFetchData<IResponsePost[]>({
  *     queryKey: ['getPosts'],
  *     request: { endpoint: '/api/posts' },
  *   });
@@ -64,7 +64,7 @@ interface IGetMutation<TData, TError> {
  */
 
 
-export const useGet = <TData, TError = unknown>({
+export const useFetchData  = <TData, TError = unknown>({
   queryKey,
   options,
   request,
