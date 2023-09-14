@@ -37,7 +37,7 @@ const response = await http.exec({
   params: { id: "1" },
 });
 ```
->## useHttpQuery ()
+>## 🌐 useHttpQuery ()
 ```js
 //uso do useHttpQuery 
 import { useHttpQuery  } from '@/hooks/index';
@@ -59,7 +59,7 @@ const { data, isLoading, isError } = useHttpQuery <IResponsePost[]>({
 });
 ```
 
->## useHttpMutation()
+>## 🔄 useHttpMutation()
 ```js
 //uso do useHttpMutation
 import { useHttpMutation } from '@/hooks/index';
