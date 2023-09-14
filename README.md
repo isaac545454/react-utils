@@ -39,17 +39,19 @@ const response = await http.exec({
 ```
 >## 📡useGet()
 ```js
-//use do useGet
+//uso do useGet
 import { useGet } from '@/hooks/index';
 import { endpoint } from '@/endpoint';
 
+//parametros
 - `queryKey` (QueryKey): Uma chave única que identifica a consulta ou recurso a ser buscado. Isso pode ser útil para cache ou invalidação de cache.
 - `options` (UseQueryOptions): Opções adicionais para personalizar o comportamento do `useQuery` da biblioteca `react-query`.
 - `request` (IGet): Um objeto de configuração que define os detalhes da requisição HTTP GET.
-  - `endpoint` (string): O endpoint da API ou URL de onde os dados devem ser buscados.
-  - `headers` (object): Um objeto contendo cabeçalhos HTTP opcionais a serem enviados com a requisição.
-  - Outras opções relevantes para uma requisição HTTP GET, como `params`, `auth`, etc.
+- `endpoint` (string): O endpoint da API ou URL de onde os dados devem ser buscados.
+- `headers` (object): Um objeto contendo cabeçalhos HTTP opcionais a serem enviados com a requisição.
+- Outras opções relevantes para uma requisição HTTP GET, como `params`, `auth`, etc.
 
+//exemplo de uso(obs: evitar usar string diretamente)
 const { data, isLoading, isError } = useGet<IResponsePost[]>({
     queryKey: ['getPosts'],
     request: { endpoint: endpoint.getPosts, signal },
