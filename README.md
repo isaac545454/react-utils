@@ -1,10 +1,4 @@
 
-> ## 📚 Documentação 
-```js
- componentes: storybook
- hooks/methodos: jsDocs 
- utils: Markdown + jsDocs 
-```
 > ## 📁 arquitetura do projeto
 ```shell
 
@@ -26,6 +20,17 @@ src
 └─> main.ts
  
 ```
+
+
+> ## 📚 Tabela de Conteúdo 
+
+ 
+- [`createHttp()`](https://www.linkedin.com/feed/update/urn:li:activity:7107698003984941059/)
+- [`useHttpQuery()`](https://www.linkedin.com/posts/isaac545454_useget-activity-7099364195527196672-21oh?utm_source=share&utm_medium=member_desktop)
+- [`useHttpMutation()`](https://www.linkedin.com/posts/isaac545454_useget-activity-7099364195527196672-21oh?utm_source=share&utm_medium=member_desktop)
+ 
+
+
 
 >## 🌐 createHttp() 
 
