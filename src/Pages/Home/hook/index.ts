@@ -1,4 +1,4 @@
-import { useCreateOrUpdate, useFetchData} from '../../../hooks/index';
+import { useHttpMutation ,useHttpQuery } from '../../../hooks/index';
 import { endpoint } from '../../../endpoint';
 import { IResponsePost, ISchema } from '../types';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -16,7 +16,7 @@ export const useHome = () => {
   const [showModal, setShowModal] = useState(true);
   const ID = useId();
  
-  const { data, isLoading, isError } = useFetchData<IResponsePost[]>({
+  const { data, isLoading, isError } = useHttpQuery<IResponsePost[]>({
     queryKey: ['getPosts'],
     request: { endpoint: endpoint.getPosts  },
     options: {enabled: true}
@@ -24,9 +24,10 @@ export const useHome = () => {
 
  
 
-  const { mutate } = useCreateOrUpdate<{ title: string }, Error, ISchema>({
-    req: {
+  const { mutate } = useHttpMutation <{ title: string }, Error, ISchema>({
+    HttpClient: {
       url: endpoint.getPosts,
+      params:{ label2: "22222"}
     },
   });
 
@@ -38,12 +39,12 @@ export const useHome = () => {
   } = useForm<ISchema>({ resolver: zodResolver(schema) });
 
   const onSubmit = () => {
-    mutate({
-      cpf: "aaaaaaaaaa",
-      password: "aaaaaaaaaa",
-      select1: { label: "aa", value: "aaaa" },
-      select2: { label: "aa", value: "aaaa" }
-    })
+    mutate({cpf: "aaaaaaaaaaa", password:"222222222",
+    select1:  {label: "aaaaa", value: "111111"},
+    select2: {label: "aaaaaaaaa", value: "111111"},
+    params: {
+      label: "aaqaaa"
+    }})
 
   };
 

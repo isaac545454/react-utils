@@ -37,10 +37,10 @@ const response = await http.exec({
   params: { id: "1" },
 });
 ```
->## useFetchData ()
+>## useHttpQuery ()
 ```js
-//uso do useFetchData 
-import { useFetchData  } from '@/hooks/index';
+//uso do useHttpQuery 
+import { useHttpQuery  } from '@/hooks/index';
 import { endpoint } from '@/endpoint';
 
 //parametros
@@ -52,17 +52,17 @@ import { endpoint } from '@/endpoint';
 -Outras opções relevantes para uma requisição HTTP GET, como `params`, `auth`, etc.
 
 //exemplo de uso(obs: evitar usar string diretamente no endpoint)
-const { data, isLoading, isError } = useFetchData <IResponsePost[]>({
+const { data, isLoading, isError } = useHttpQuery <IResponsePost[]>({
     queryKey: ['getPosts'],
     request: { endpoint: endpoint.getPosts },
     options: {enabled: true}
 });
 ```
 
->## useCreateOrUpdate()
+>## useHttpMutation()
 ```js
-//uso do useCreateOrUpdate
-import { useCreateOrUpdate } from '@/hooks/index';
+//uso do useHttpMutation
+import { useHttpMutation } from '@/hooks/index';
 import { endpoint } from '@/endpoint';
 
 //parametros
@@ -71,7 +71,7 @@ import { endpoint } from '@/endpoint';
 
 
 //exemplo de uso(obs: evitar usar string diretamente no endpoint)
- const { isLoading, isError, isSuccess, mutate } = useCreateOrUpdate<TData, TError, TRequest>({
+ const { isLoading, isError, isSuccess, mutate } = useHttpMutation<TData, TError, TRequest>({
     options: {
        // Opções de configuração da mutação (opcional),
     },

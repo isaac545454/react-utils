@@ -1,4 +1,4 @@
-import { useFetchData } from "../../../hooks/index";
+import { useHttpQuery } from "../../../hooks/index";
 import { endpoint } from "../../../endpoint";
 import { IResponsePost } from "../../Home/types";
 
@@ -6,7 +6,7 @@ import { IResponsePost } from "../../Home/types";
 
 export const usePost = () => {
 
-  const { data, isLoading, isError } = useFetchData<IResponsePost[]>({
+  const { data, isLoading, isError } = useHttpQuery<IResponsePost[]>({
     queryKey: ["getPosts"],
     request: { endpoint: endpoint.getPosts },
   });

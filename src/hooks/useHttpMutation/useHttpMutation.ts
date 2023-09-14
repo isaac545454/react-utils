@@ -12,6 +12,10 @@ interface IPostMutation<TData, TError, TRequest> {
   HttpClient: HttpProps;
 }
 
+export type TRequestProps<T> =  T & {
+  params?: object
+  }
+
 /**'
  * Hook personalizado para realizar uma mutação HTTP POST usando o react-query.
  *
@@ -26,7 +30,7 @@ interface IPostMutation<TData, TError, TRequest> {
  * @returns {UseMutationResult<TData, TError, TRequest>} Um objeto contendo os resultados da mutação.
  *
  * @example
- * const { isLoading, isError, isSuccess, mutate } = useCreateOrUpdate({
+ * const { isLoading, isError, isSuccess, mutate } = useHttpMutation({
  *   options: {
  *     // Opções de configuração da mutação (opcional)
  *   },
@@ -36,21 +40,25 @@ interface IPostMutation<TData, TError, TRequest> {
  *   },
  * });
  */
-export const useCreateOrUpdate = <TData, TError, TRequest>({
+export const useHttpMutation = <TData, TError, TRequest>({
   options,
   HttpClient,
 }: IPostMutation<TData, TError, TRequest>): UseMutationResult<
   TData,
   TError,
-  TRequest
+  TRequestProps<TRequest>
 > => {
   const { http } = createHttp<TData>()
-  const mutation = useMutation<TData, TError, TRequest>(
-    (data) => http.exec({ data, 
-      ...HttpClient,
-       method: "POST", 
-      
-      }),
+  
+  const mutation = useMutation<TData, TError,  TRequestProps<TRequest>>((info) => {
+    const {  params, ...data} = info
+
+   return http.exec({ 
+    data: data,
+    method: "POST", 
+    params:  {...params, ...HttpClient.params},
+   
+  })},
     options
   );
 

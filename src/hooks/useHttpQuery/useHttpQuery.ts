@@ -13,9 +13,9 @@ interface IGetMutation<TData, TError> {
   request: IGet;
 }
 /**
- * Custom Hook: useFetchData
+ * Custom Hook: useHttpQuery
  *
- * O `useFetchData` é um custom hook que simplifica a lógica de fazer uma requisição HTTP GET a uma API ou servidor usando a biblioteca `react-query`.
+ * O `useHttpQuery` é um custom hook que simplifica a lógica de fazer uma requisição HTTP GET a uma API ou servidor usando a biblioteca `react-query`.
  *
  * @template TData - O tipo dos dados que serão retornados pela requisição.
  * @template TError - O tipo de erro que pode ocorrer na requisição.
@@ -30,12 +30,12 @@ interface IGetMutation<TData, TError> {
  * @returns {UseQueryResult<TData, TError>} - Um objeto do tipo `UseQueryResult` que inclui propriedades como `data`, `isLoading` e `isError` para lidar com o estado da requisição e seus resultados.
  *
  * @example
- * // Exemplo de uso do `useFetchData` em um componente React.
+ * // Exemplo de uso do `useHttpQuery` em um componente React.
  * import React from 'react';
- * import { useFetchData  } from './useFetchData ';
+ * import { useHttpQuery  } from './useHttpQuery ';
  *
  * function PostList() {
- *   const { data, isLoading, isError } = useFetchData<IResponsePost[]>({
+ *   const { data, isLoading, isError } = useHttpQuery<IResponsePost[]>({
  *     queryKey: ['getPosts'],
  *     request: { endpoint: '/api/posts' },
  *   });
@@ -64,7 +64,7 @@ interface IGetMutation<TData, TError> {
  */
 
 
-export const useFetchData  = <TData, TError = unknown>({
+export const useHttpQuery  = <TData, TError = unknown>({
   queryKey,
   options,
   request,

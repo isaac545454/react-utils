@@ -22,7 +22,7 @@ class HttpClient <IResponse, TClient extends AxiosInstance> implements HttpClien
      * @param {HttpProps} params - Os parâmetros da solicitação HTTP.
      * @returns {Promise<IResponse>} Uma Promise que resolve na resposta da solicitação.
      */
-    async exec({ endpoint = "", ...res }) {
+    async exec({ endpoint = "", ...res }:HttpProps):Promise<IResponse> {
         console.log(res)
         const { data } = await this.client<IResponse>(endpoint, { ...res });
         return data;
