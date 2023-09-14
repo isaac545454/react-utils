@@ -1,6 +1,17 @@
-# react-utils
+## 📁 arquitetura do projeto
+```shell
 
-##cada componente tem um doc em storybook + jsDoc
+src
+ ├─> components
+     └─> name
+          ├─ types
+          ├─ storybook
+          ├─ test
+          ├─ name.ts
+          └─ index.ts
+ ├─> main.ts
+ 
+```
 
 
 ```js
@@ -24,5 +35,4 @@ const { http } = createHttp<MyResponseType>();
 // Faça uma solicitação GET para um endpoint
 const response = await http.exec({ endpoint: "/exemplo" });
 
- 
 ```
