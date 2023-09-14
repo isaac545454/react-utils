@@ -37,7 +37,7 @@ const response = await http.exec({
   params: { id: "1" },
 });
 ```
->## 🌐 useHttpQuery ()
+>## 📡 useHttpQuery ()
 ```js
 //uso do useHttpQuery 
 import { useHttpQuery  } from '@/hooks/index';
