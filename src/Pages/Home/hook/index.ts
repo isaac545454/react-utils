@@ -22,6 +22,7 @@ export const useHome = () => {
   const { data, isLoading, isError } = useGet<IResponsePost[]>({
     queryKey: ['getPosts'],
     request: { endpoint: endpoint.getPosts, signal },
+    options: {enabled: true}
   });
 
   const treatmentComponen = useTreatmentRequest({
