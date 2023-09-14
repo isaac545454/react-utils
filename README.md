@@ -1,17 +1,7 @@
-# React + TypeScript + Vite
+# react-utils
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##cada componente tem um doc em storybook + jsDoc
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
 
 ```js
    parserOptions: {
@@ -22,6 +12,17 @@ If you are developing a production application, we recommend updating the config
    },
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+```js
+//uso do HttpClient
+import { api as apiClient } from "../service/api";
+import { createHttp, HttpClient } from "./http-client"; // Importe a classe e a função
+
+// Crie uma instância de HttpClient configurada para um tipo específico de resposta
+const { http } = createHttp<MyResponseType>();
+
+// Faça uma solicitação GET para um endpoint
+const response = await http.exec({ endpoint: "/exemplo" });
+
+ 
+```

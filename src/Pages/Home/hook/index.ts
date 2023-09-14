@@ -16,11 +16,12 @@ import { useId, useState } from 'react';
 export const useHome = () => {
   const [showModal, setShowModal] = useState(true);
   const ID = useId();
+  const {signal} = new AbortController()
 
 
   const { data, isLoading, isError } = useGet<IResponsePost[]>({
     queryKey: ['getPosts'],
-    request: { endpoint: endpoint.getPosts },
+    request: { endpoint: endpoint.getPosts, signal },
   });
 
   const treatmentComponen = useTreatmentRequest({
