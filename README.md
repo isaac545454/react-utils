@@ -3,13 +3,20 @@
 
 src
  ├─> components
-     └─> name
-          ├─> types
-          ├─> storybook
-          ├─> test/name.spec.tsx
-          ├─> name.ts
-          └─> index.ts
- ├─> main.ts
+     └─> name-component
+          ├─> types(interfaces/types)
+          ├─> storybook(stories-do-compoente)
+          ├─> test/name.spec.tsx(epec-do-component)
+          ├─> name-component.ts(component)
+          └─> index.ts(export-do-component)
+ ├─> pages
+     └─> name-page
+         ├─> types(interfaces/types)
+         ├─> hooks(logica-da-page)
+         ├─> components(componentes-locais)
+         ├─> name-page.ts(page)
+         └─> index.ts(export-da-page)
+└─> main.ts
  
 ```
 
