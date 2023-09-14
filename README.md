@@ -4,11 +4,11 @@
 src
  ├─> components
      └─> name
-          ├─ types
-          ├─ storybook
-          ├─ test
-          ├─ name.ts
-          └─ index.ts
+          ├─> types
+          ├─> storybook
+          ├─> test/name.spec.tsx
+          ├─> name.ts
+          └─> index.ts
  ├─> main.ts
  
 ```
