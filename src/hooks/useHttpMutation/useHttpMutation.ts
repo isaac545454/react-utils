@@ -1,21 +1,8 @@
 
-import {
-  UseMutationResult,
-  useMutation,
-  MutationOptions,
-} from "@tanstack/react-query";
+import { UseMutationResult, useMutation } from "@tanstack/react-query";
 import { createHttp } from "../../infra";
-import { HttpProps } from "@models/HttpProps";
-
-
-interface IPostMutation<TData, TError, TRequest> {
-  options?: MutationOptions<TData, TError, TRequest>;
-  HttpService: HttpProps
-}
-
-export type TRequestProps<T> =  T & {
-  params?: object
-  }
+import { IPostMutation, TRequestProps } from "./types";
+ 
 
 /**'
  * Hook personalizado para realizar uma mutação HTTP POST usando o react-query.

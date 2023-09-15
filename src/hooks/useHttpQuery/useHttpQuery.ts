@@ -1,17 +1,7 @@
-import {
-  useQuery,
-  UseQueryResult,
-  QueryKey,
-  UseQueryOptions,
-} from "@tanstack/react-query";
-import { HttpProps } from "@models/HttpProps";
+import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import { createHttp } from "@infra";
+import { IGetMutation } from "./types";
 
-interface IGetMutation<TData, TError> {
-  queryKey: QueryKey;
-  options?: UseQueryOptions<TData, TError>;
-  HttpService: HttpProps;
-}
 /**
  * Custom Hook: useHttpQuery
  *
@@ -62,8 +52,6 @@ interface IGetMutation<TData, TError> {
  *
  * export  PostList;
  */
-
-
 export const useHttpQuery  = <TData, TError = unknown>({
   queryKey,
   options,
