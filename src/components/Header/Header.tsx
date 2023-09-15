@@ -8,9 +8,7 @@ export function Header() {
   const { t } = useTranslation();
   const { changeLanguage } = useHeader();
 
-  const RenderLanguageIcon = () => {
-    return i18n.language === "en" ? <CardEs /> : <CardEn />;
-  };
+ 
 
   return (
     <header className={styles.container}>
@@ -19,7 +17,7 @@ export function Header() {
       {/*  */}
       <div className="absolute right-20">
         <button onClick={changeLanguage}>
-          <RenderLanguageIcon />
+       {i18n.language === "en" ? <CardEs /> : <CardEn />}
         </button>
       </div>
       {/*  */}

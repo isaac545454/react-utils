@@ -1,1 +1,1 @@
-export { Template } from "./template";
+export { Template } from "./variants/template-user";

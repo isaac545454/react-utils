@@ -1,23 +1,22 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import { ptBR } from '../location/user-br';
 
 i18n
     .use(initReactI18next)
     .init({
         resources: {
+            br: {
+                translation:ptBR,
+            },
             en: {
                 translation: {
-                    greeting: 'Hello, World!',
-                },
-            },
-            es: {
-                translation: {
-                    greeting: '¡Hola, Mundo!',
+                    
                 },
             },
         },
-        lng: 'en', // Idioma padrão
-        fallbackLng: 'en', // Idioma de fallback
+        lng: 'en',  
+        fallbackLng: 'en',  
         interpolation: {
             escapeValue: false,
         },
