@@ -1,10 +1,10 @@
 import { useHttpMutation ,useHttpQuery } from '../../../hooks/index';
-import { endpoint } from '../../../endpoint';
 import { IResponsePost, ISchema } from '../types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, } from 'react-hook-form';
 import { schema } from '../schema';
 import { useId, useState } from 'react';
+import { endpoint } from '../../../infra';
 
 /**
  * @param params params

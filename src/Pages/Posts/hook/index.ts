@@ -1,5 +1,5 @@
 import { useHttpQuery } from "../../../hooks/index";
-import { endpoint } from "../../../endpoint";
+import { endpoint } from "../../../infra";
 import { IResponsePost } from "../../Home/types";
 
 
