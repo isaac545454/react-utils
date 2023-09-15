@@ -9,7 +9,7 @@ import { options } from "./mock";
 
 // //components
 import { Modal } from "../../components/Modal";
-import * as Input from "../../components/Input";
+import {Input} from "../../components/Input";
 import { GridInput } from "../../components/GridInput";
 
 //types
