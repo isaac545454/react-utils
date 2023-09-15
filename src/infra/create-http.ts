@@ -1,6 +1,6 @@
 import { AxiosInstance } from "axios";
 import { HttpService } from ".//http-service";
-import { apiClient } from "./api-client-config";
+import { apiClient } from "./client-config";
 
 /**
  * Cria uma instância de HttpService configurada para um tipo específico de resposta.

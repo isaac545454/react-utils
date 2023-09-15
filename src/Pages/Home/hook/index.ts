@@ -18,7 +18,7 @@ export const useHome = () => {
  
   const { data, isLoading, isError } = useHttpQuery<IResponsePost[]>({
     queryKey: ['getPosts'],
-    request: { endpoint: endpoint.getPosts  },
+    HttpService: { endpoint: endpoint.getPosts  },
     options: {enabled: true}
   });
 
