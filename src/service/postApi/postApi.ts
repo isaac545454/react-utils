@@ -1,4 +1,4 @@
-import { api } from "../../infra/api";
+import { api } from "../../infra/api-client-config";
 import { IPost } from "@models";
 
 export const postApi = async <TResponse>({

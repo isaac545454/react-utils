@@ -1,15 +1,16 @@
-import { HttpProps } from "../../infra/http-axios-client";
+
 import {
   UseMutationResult,
   useMutation,
   MutationOptions,
 } from "@tanstack/react-query";
 import { createHttp } from "../../infra";
+import { HttpProps } from "@models/HttpProps";
 
 
 interface IPostMutation<TData, TError, TRequest> {
   options?: MutationOptions<TData, TError, TRequest>;
-  HttpClient: HttpProps;
+  HttpService: HttpProps
 }
 
 export type TRequestProps<T> =  T & {
@@ -25,7 +26,7 @@ export type TRequestProps<T> =  T & {
  *
  * @param {Object} params - Parâmetros do hook.
  * @param {MutationOptions<TData, TError, TRequest>} [params.options] - Opções de configuração para a mutação.
- * @param {HttpProps} HttpClientProps- Dados da solicitação POST.
+ * @param {HttpProps} HttpServiceProps- Dados da solicitação POST.
  *
  * @returns {UseMutationResult<TData, TError, TRequest>} Um objeto contendo os resultados da mutação.
  *
@@ -34,7 +35,7 @@ export type TRequestProps<T> =  T & {
  *   options: {
  *     // Opções de configuração da mutação (opcional)
  *   },
- *   HttpClient: {
+ *   HttpServicec: {
  *     // Dados da solicitação 
  *     // method:POST | PUT | PATH (POST é default)
  *   },
@@ -42,7 +43,7 @@ export type TRequestProps<T> =  T & {
  */
 export const useHttpMutation = <TData, TError, TRequest>({
   options,
-  HttpClient,
+  HttpService,
 }: IPostMutation<TData, TError, TRequest>): UseMutationResult<
   TData,
   TError,
@@ -56,7 +57,7 @@ export const useHttpMutation = <TData, TError, TRequest>({
    return http.exec({ 
     data: data,
     method: "POST", 
-    params:  {...params, ...HttpClient.params},
+    params:  {...params, ...HttpService.params},
    
   })},
     options

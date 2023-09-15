@@ -48,7 +48,7 @@ src
 import { apiClient } from "@/infra/api";
 import { createHttp } from "@/infra/http-client"; // Importe a classe e a função
 
-// Crie uma instância de HttpClient configurada para um tipo específico de resposta
+// Crie uma instância de HttpService configurada para um tipo específico de resposta
 const { http } = createHttp<MyResponseType>();
 
 // Faça uma solicitação GET para um endpoint
@@ -96,7 +96,7 @@ import { endpoint } from '@/endpoint';
     options: {
        // Opções de configuração da mutação (opcional),
     },
-    req: {
+    HttpService: {
        endpoint: endpoint.createPost 
     },
   });

@@ -1,4 +1,4 @@
-import { api } from "../../infra/api";
+import { api } from "../../infra/api-client-config";
 import { IGet } from "@models/IGet";
 
 export const getApi = async <TResponse>({
