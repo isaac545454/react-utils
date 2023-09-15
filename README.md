@@ -67,7 +67,7 @@ import { endpoint } from '@/endpoint';
 //parametros
 -`queryKey` (QueryKey): Uma chave única que identifica a consulta ou recurso a ser buscado. Isso pode ser útil para cache ou invalidação de cache.
 -`options` (UseQueryOptions): Opções adicionais para personalizar o comportamento do `useQuery` da biblioteca `react-query`.
--`HttpProps` (HttpPropsProps): Um objeto de configuração que define os detalhes da requisição HTTP GET.
+-`HttpService` (HttpProps): Um objeto de configuração que define os detalhes da requisição HTTP GET.
 -`endpoint` (string): O endpoint da API ou URL de onde os dados devem ser buscados.
 -`headers` (object): Um objeto contendo cabeçalhos HTTP opcionais a serem enviados com a requisição.
 -Outras opções relevantes para uma requisição HTTP GET, como `params`, `auth`, etc.
@@ -75,7 +75,7 @@ import { endpoint } from '@/endpoint';
 //exemplo de uso(obs: evitar usar string diretamente no endpoint)
 const { data, isLoading, isError } = useHttpQuery <IResponsePost[]>({
     queryKey: ['getPosts'],
-    request: { endpoint: endpoint.getPosts },
+    HttpService: { endpoint: endpoint.getPosts },
     options: {enabled: true}
 });
 ```
@@ -88,7 +88,7 @@ import { endpoint } from '@/endpoint';
 
 //parametros
 - `options` (MutationOptions<TData, TError, TRequest>): Um objeto opcional contendo opções de configuração para a mutação. Essas opções são as mesmas que as fornecidas pelo `useMutation` do `react-query`. Elas permitem personalizar o comportamento da mutação, como manipulação de erros, atualização de cache, etc.
-- `HttpProps` (HttpPropsProps): Um objeto que representa os dados da solicitação POST. Isso geralmente inclui o corpo da solicitação, cabeçalhos e outras informações relevantes para a solicitação.
+- `HttpService` (HttpProps): Um objeto que representa os dados da solicitação POST. Isso geralmente inclui o corpo da solicitação, cabeçalhos e outras informações relevantes para a solicitação.
 
 
 //exemplo de uso(obs: evitar usar string diretamente no endpoint)
