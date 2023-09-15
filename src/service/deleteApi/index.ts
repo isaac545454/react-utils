@@ -1,1 +1,0 @@
-export { deleteApi } from "./deleteApi";
