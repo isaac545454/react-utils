@@ -1,1 +1,0 @@
-export { useTreatmentRequest } from "./useTreatmentRequest";
