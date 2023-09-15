@@ -1,5 +1,5 @@
 import { GridInput } from "../../components/GridInput";
-import * as Input from "../../components/Input";
+import {Input} from "../../components/Input";
 import { useContact } from "./hook";
 
 export function Grid() {

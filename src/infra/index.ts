@@ -1,2 +1,2 @@
 export * from './create-http'
-export * from './endpoint'
+export * from './endpoint-http'

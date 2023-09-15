@@ -4,13 +4,13 @@ import {
   QueryKey,
   UseQueryOptions,
 } from "@tanstack/react-query";
-import { IGet } from "@models/IGet";
-import { createHttp } from "../../infra/http-axios-client";
+import { HttpProps } from "@models/HttpProps";
+import { createHttp } from "@infra";
 
 interface IGetMutation<TData, TError> {
   queryKey: QueryKey;
   options?: UseQueryOptions<TData, TError>;
-  request: IGet;
+  HttpService: HttpProps;
 }
 /**
  * Custom Hook: useHttpQuery
@@ -23,7 +23,7 @@ interface IGetMutation<TData, TError> {
  * @param {IGetMutation<TData, TError>} options - Opções de configuração do custom hook.
  * @param {QueryKey} options.queryKey - Uma chave única que identifica a consulta ou recurso a ser buscado. Isso pode ser útil para cache ou invalidação de cache.
  * @param {UseQueryOptions<TData, TError>} [options.options] - Opções adicionais para personalizar o comportamento do `useQuery` da biblioteca `react-query`.
- * @param {IGet} options.request - Um objeto de configuração que define os detalhes da requisição HTTP GET.
+ * @param {HttpProps} options.request - Um objeto de configuração que define os detalhes da requisição HTTP GET.
  * @param {string} options.request.endpoint - O endpoint da API ou URL de onde os dados devem ser buscados.
  * @param {object} [options.request.headers] - Um objeto contendo cabeçalhos HTTP opcionais a serem enviados com a requisição.
  *
@@ -67,11 +67,11 @@ interface IGetMutation<TData, TError> {
 export const useHttpQuery  = <TData, TError = unknown>({
   queryKey,
   options,
-  request,
+  HttpService,
 }: IGetMutation<TData, TError>): UseQueryResult<TData, TError> => {
   const { http } = createHttp<TData>()
   const data = useQuery(queryKey, () => http.exec({
-    ...request, method: "GET",
+    ...HttpService, method: "GET",
   }), options);
   return data;
 };

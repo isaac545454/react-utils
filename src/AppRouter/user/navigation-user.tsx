@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Grid } from "../Pages/Grid";
-import { Home } from "../Pages/Home";
-import { Voice } from "../Pages/Voice";
-import { Post } from "../Pages/Posts";
-import { ROUTES } from "./routes";
+import { ROUTES } from "./routes-user";
+import { Home } from "@pages/Home";
+import { Grid } from "@pages/Grid";
+import { Voice } from "@pages/Voice";
+import { Post } from "@pages/Posts";
 
 export const router = createBrowserRouter([
   {

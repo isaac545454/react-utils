@@ -30,6 +30,8 @@
     "react-router-dom": "^6.15.0",
     "react-select": "^5.7.4",
     "react-toastify": "^9.1.3",
+    "vite-plugin-svgr": "^3.2.0",
+    "vite-tsconfig-paths": "^4.2.1",
     "zod": "^3.22.2"
   },
   "devDependencies": {
@@ -84,7 +86,9 @@
   },
   "jest": {
     "testEnvironment": "jest-environment-jsdom",
-    "setupFilesAfterEnv": ["<rootDir>/setup-tests.js"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/setup-tests.js"
+    ],
     "testPathIgnorePatterns": [
       "/node_modules/",
       "./src/endipoints",
@@ -96,5 +100,4 @@
       "^@services/(.*)$": "<rootDir>/src/service/$1"
     }
   }
-  
 }
