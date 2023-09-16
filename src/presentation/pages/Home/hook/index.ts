@@ -5,6 +5,7 @@ import { useForm, } from 'react-hook-form';
 import { schema } from '../schema';
 import { useId, useState } from 'react';
 import { endpoint } from '@infra';
+import {usePostApiStudentNotes} from '../../../query'
 
 /**
  * @param params params
@@ -14,15 +15,16 @@ import { endpoint } from '@infra';
  */
 export const useHome = () => {
   const [showModal, setShowModal] = useState(true);
+  const {dat} = usePostApiStudentNotes<{id: string}>()
   const ID = useId();
  
-  const { data, isLoading, isError } = useHttpQuery<IResponsePost[]>({
-    queryKey: ['getPosts'],
-    HttpService: { endpoint: endpoint.getPosts  },
-    options: {enabled: true}
-  });
+  // const { data, isLoading, isError } = useHttpQuery<IResponsePost[]>({
+  //   queryKey: ['getPosts'],
+  //   HttpService: { endpoint: endpoint.getPosts  },
+  //   options: {enabled: true}
+  // });
 
- 
+
 
   const { mutate } = useHttpMutation <{ title: string }, Error, ISchema>({
     HttpService: {

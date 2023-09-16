@@ -1,5 +1,5 @@
 import { AxiosInstance } from "axios";
-import { HttpService } from ".//http-service";
+import { HttpService } from "./http-service";
 import { apiClient } from "./client-config";
 
 /**

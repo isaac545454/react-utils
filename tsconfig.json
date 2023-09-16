@@ -11,7 +11,7 @@
           "./src/infra/index.ts"
         ],
         "@models/*": [
-          "./src/models/*"
+          "src/domain/models/*"
         ],
         "@AppRouter": [
           "./src/AppRouter/index.ts"

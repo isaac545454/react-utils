@@ -1,6 +1,6 @@
 import  { AxiosInstance } from "axios";
 import { HttpServiceProps } from './types'
-import { HttpProps } from "@models/HttpProps";
+import { HttpProps } from "../domain/models/HttpProps";
  
 /**
  * Uma classe para realizar solicitações HTTP usando Axios.
@@ -19,6 +19,7 @@ export class HttpService <IResponse, TClient extends AxiosInstance> implements H
      * @returns {Promise<IResponse>} Uma Promise que resolve na resposta da solicitação.
      */
     async exec({ endpoint = "", ...res }:HttpProps):Promise<IResponse> {
+        
         const { data } = await this.client<IResponse>(endpoint, { ...res });
         return data;
     }

@@ -1,4 +1,4 @@
-import { HttpProps } from "@models/HttpProps";
+import { HttpProps } from "../../../domain/models/HttpProps";
 import { QueryKey, UseQueryOptions } from "@tanstack/react-query";
 
 export interface IGetMutation<TData, TError> {

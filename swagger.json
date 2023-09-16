@@ -1,0 +1,245 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API de Notas de Tutoria para Alunos",
+    "description": "API para acessar notas de tutoria de alunos"
+  },
+  "tags": [
+    {
+      "name": "Aluno",
+      "description": "Rotas relacionadas a alunos"
+    }
+  ],
+  "paths": {
+    "/api/student/notes": {
+      "get": {
+        "tags": [
+          "Aluno"
+        ],
+        "summary": "Retorna as notas de tutoria",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "IDPERLET",
+            "description": "Período letivo",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "RA",
+            "description": "Código RA do aluno",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "MODULO",
+            "description": "Módulo selecionado",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "IDPROBLEMA",
+            "description": "Código do Problema selecionado",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notas de tutoria recebidas com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "CODCOLIGADA": {
+                        "type": "integer"
+                      },
+                      "CODFILIAL": {
+                        "type": "integer"
+                      },
+                      "IDPERLET": {
+                        "type": "integer"
+                      },
+                      "IDHABILITACAOFILIAL": {
+                        "type": "integer"
+                      },
+                      "IDTURMADISC": {
+                        "type": "integer"
+                      },
+                      "TIPO": {
+                        "type": "string"
+                      },
+                      "CODDISC": {
+                        "type": "string"
+                      },
+                      "DISCIPLINA": {
+                        "type": "string"
+                      },
+                      "IDPROBLEMA": {
+                        "type": "integer"
+                      },
+                      "DESCRICAO": {
+                        "type": "string"
+                      },
+                      "AVALIADO": {
+                        "type": "string"
+                      },
+                      "AVALIADO_NOME": {
+                        "type": "string"
+                      },
+                      "NOTA_ABERTURA": {
+                        "type": "number"
+                      },
+                      "NOTA_FECHAMENTO": {
+                        "type": "number"
+                      },
+                      "TIPONOTA": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "message": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Aluno"
+        ],
+        "summary": "Adiciona na base as notas de tutoria",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "ZMDPBL_NOTAS",
+            "description": "Dados da nota de tutoria a serem criados",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "CODCOLIGADA": {
+                    "type": "integer"
+                  },
+                  "IDTURMADISC": {
+                    "type": "integer"
+                  },
+                  "IDPROBLEMA": {
+                    "type": "integer"
+                  },
+                  "TIPONOTA": {
+                    "type": "string"
+                  },
+                  "TIPOETAPA": {
+                    "type": "string"
+                  },
+                  "AVALIADOR": {
+                    "type": "string"
+                  },
+                  "USUARIO": {
+                    "type": "string"
+                  },
+                  "AVALIADO": {
+                    "type": "string"
+                  },
+                  "NOTA": {
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "CODCOLIGADA",
+                "IDTURMADISC",
+                "IDPROBLEMA",
+                "TIPONOTA",
+                "TIPOETAPA",
+                "AVALIADOR",
+                "USUARIO",
+                "AVALIADO",
+                "NOTA"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notas de tutoria adicionadas com sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "CODCOLIGADA": {
+                        "type": "integer"
+                      },
+                      "IDTURMADISC": {
+                        "type": "integer"
+                      },
+                      "IDPROBLEMA": {
+                        "type": "integer"
+                      },
+                      "TIPONOTA": {
+                        "type": "string"
+                      },
+                      "TIPOETAPA": {
+                        "type": "string"
+                      },
+                      "AVALIADOR": {
+                        "type": "string"
+                      },
+                      "AVALIADO": {
+                        "type": "string"
+                      },
+                      "NOTA": {
+                        "type": "number"
+                      },
+                      "USUARIO": {
+                        "type": "string"
+                      },
+                      "RESTDS_TEMP_ID": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "message": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

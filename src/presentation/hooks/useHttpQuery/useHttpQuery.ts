@@ -58,8 +58,7 @@ export const useHttpQuery  = <TData, TError = unknown>({
   HttpService,
 }: IGetMutation<TData, TError>): UseQueryResult<TData, TError> => {
   const { http } = createHttp<TData>()
-  const data = useQuery(queryKey, () => http.exec({
-    ...HttpService, method: "GET",
-  }), options);
+  const data = useQuery(queryKey, () => http.exec({...HttpService, method: "GET",}), options);
+  
   return data;
 };
