@@ -1,12 +1,12 @@
-import { Text } from "..";
+import { Input } from "../Element";
 import type { Meta, StoryObj } from "@storybook/react";
 
 export default {
   title: "Components/Input",
-  component: Text,
+  component: Input,
 } as Meta;
 
-type Story = StoryObj<typeof Text>;
+type Story = StoryObj<typeof Input>;
 
 export const TextInput: Story = {};
 

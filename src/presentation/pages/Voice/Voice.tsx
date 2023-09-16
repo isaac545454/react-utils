@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import * as Input from "../../components/Input";
+import * as Input from "../../components/atoms/Input";
 
 export function Voice() {
   const email = useRef<HTMLInputElement>(null);

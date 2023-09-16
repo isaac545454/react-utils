@@ -1,7 +1,7 @@
 
 import { UseMutationResult, useMutation } from "@tanstack/react-query";
-import { createHttp } from "../../infra";
 import { IPostMutation, TRequestProps } from "./types";
+import { createHttp } from "../../../infra/create-http";
  
 
 /**'

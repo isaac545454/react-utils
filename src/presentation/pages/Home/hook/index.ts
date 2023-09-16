@@ -1,12 +1,12 @@
-import { useHttpMutation ,useHttpQuery } from '@hooks/index';
-import { IResponsePost, ISchema } from '../types';
+
+import {    ISchema } from '../types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, } from 'react-hook-form';
 import { schema } from '../schema';
-import { useId, useState } from 'react';
+import {   useId, useState } from 'react';
 import { endpoint } from '@infra';
-import {usePostApiStudentNotes} from '../../../query'
-
+import { useHttpMutation } from '../../../hooks';
+ 
 /**
  * @param params params
  * @description  custom hook for home logic
@@ -15,8 +15,8 @@ import {usePostApiStudentNotes} from '../../../query'
  */
 export const useHome = () => {
   const [showModal, setShowModal] = useState(true);
-  const {dat} = usePostApiStudentNotes<{id: string}>()
-  const ID = useId();
+  const ID = useId()
+ 
  
   // const { data, isLoading, isError } = useHttpQuery<IResponsePost[]>({
   //   queryKey: ['getPosts'],
@@ -26,7 +26,7 @@ export const useHome = () => {
 
 
 
-  const { mutate } = useHttpMutation <{ title: string }, Error, ISchema>({
+  const { mutate } = useHttpMutation<{ title: string }, Error, ISchema>({
     HttpService: {
       url: endpoint.getPosts,
       params:{ label2: "22222"}
@@ -38,15 +38,11 @@ export const useHome = () => {
     handleSubmit,
     formState: { errors },
     control,
+    getValues
   } = useForm<ISchema>({ resolver: zodResolver(schema) });
 
   const onSubmit = () => {
-    mutate({cpf: "aaaaaaaaaaa", password:"222222222",
-    select1:  {label: "aaaaa", value: "111111"},
-    select2: {label: "aaaaaaaaa", value: "111111"},
-    params: {
-      label: "aaqaaa"
-    }})
+    mutate({cpf: "aaaaaaaaaaa"})
 
   };
 
@@ -55,7 +51,7 @@ export const useHome = () => {
   };
 
   return {
-    data,
+    ID,
     handleSubmit,
     register,
     errors,
@@ -64,8 +60,6 @@ export const useHome = () => {
     setShowModal,
     onChangeModal,
     control,
-    isLoading,
-    isError,
-    ID
+    getValues
   };
 };

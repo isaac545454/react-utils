@@ -1,6 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import { ptBR } from '../location/user-br';
+import { ptBR } from './location/user-br';
 
 i18n
     .use(initReactI18next)

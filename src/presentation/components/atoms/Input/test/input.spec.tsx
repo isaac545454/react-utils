@@ -1,5 +1,5 @@
 import { render, fireEvent, screen } from "@testing-library/react";
-import { Input as TextInput } from "..";
+import { Input as TextInput } from "../Element";
 
 describe("<TextInput />", () => {
   it("TextInput is being rendered", () => {

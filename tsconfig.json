@@ -3,8 +3,8 @@
     "target": "ES2020",
     "useDefineForClassFields": true,
     "paths": {
-      "@components/*": [
-        "./src/components/*"
+      "@atoms/*": [
+        "./src/presentation/atoms/*"
       ],
       "@hooks/*": [
         "./src/hooks/*"

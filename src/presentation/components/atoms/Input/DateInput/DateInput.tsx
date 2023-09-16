@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
-import { InputProps } from "../../types";
-import { styles } from "../../styles";
+import { InputProps } from "../types";
+import { styles } from "../styles";
 import { AiFillCalendar } from "react-icons/ai";
 
 export const Date = forwardRef<HTMLInputElement, InputProps>(

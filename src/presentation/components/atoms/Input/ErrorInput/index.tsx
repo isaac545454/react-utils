@@ -1,12 +1,9 @@
 import { ErrorMessage } from "@hookform/error-message";
 import { styles } from "./style";
+import { InputErrrorProps } from "../types";
 
-type Props<TInter> = {
-  name: keyof TInter;
-  errors: Record<string, unknown>;
-};
 
-export function ErrrorInput<TInter>({ errors, name }: Props<TInter>) {
+export function ErrrorInput({ errors, name }: InputErrrorProps) {
   return (
     <ErrorMessage
       name={name as string}

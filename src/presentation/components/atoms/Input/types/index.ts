@@ -2,7 +2,7 @@ import { InputHTMLAttributes, LabelHTMLAttributes, ReactNode } from "react";
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
-export type MaskProps = InputHTMLAttributes<HTMLInputElement> & {
+export type InputMaskProps = InputHTMLAttributes<HTMLInputElement> & {
   mask: string;
 };
 
@@ -12,6 +12,11 @@ export type ITemplate = {
 
 
 
-export type LabelProps = {
+export type InputLabelProps = {
   label: string;
+};
+
+export type InputErrrorProps = {
+  name:  string
+  errors: Record<string, unknown>;
 };
