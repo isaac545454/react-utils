@@ -8,11 +8,11 @@ module.exports = {
       prettier: true,
 
       client: 'react-query',
-      target: path.resolve(__dirname, './src/query.ts'),
+      target: path.resolve(__dirname, './src/query/index.ts'),
 
       override: {
         mutator: {
-          path: require.resolve('./src/api/axios.ts'),
+          path: require.resolve('./src/infra/axios.ts'),
           name: 'request'
         },
         query: {
