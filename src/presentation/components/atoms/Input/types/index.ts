@@ -13,7 +13,7 @@ export type ITemplate = {
 
 
 export type InputLabelProps = {
-  label: string;
+  label?: string;
 };
 
 export type InputErrrorProps = {
