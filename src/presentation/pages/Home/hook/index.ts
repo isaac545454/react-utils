@@ -28,7 +28,7 @@ export const useHome = () => {
 
   const { mutate } = useHttpMutation<{ title: string }, Error, ISchema>({
     HttpService: {
-      url: endpoint.getPosts,
+      endpoint: "asssss",
       params:{ label2: "22222"}
     },
   });

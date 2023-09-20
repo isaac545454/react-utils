@@ -39,13 +39,13 @@ export const useHttpMutation = <TData, TError, TRequest>({
   const { http } = createHttp<TData>()
   
   const mutation = useMutation<TData, TError,  TRequestProps<TRequest>>((info) => {
-    const {  params, ...data} = info
+    const { params,...data} = info
 
    return http.exec({ 
     data: data,
     method: "POST", 
-    params:  {...params, ...HttpService.params},
-   
+     params: { ...params, ...HttpService.params },
+    ...HttpService
   })},
     options
   );

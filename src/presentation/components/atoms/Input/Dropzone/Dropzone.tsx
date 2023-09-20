@@ -1,4 +1,3 @@
-import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 
 export const Dropzone: React.FC<{ onFileUpload: (file: File[]) => void }> = ({ onFileUpload }) => {
@@ -6,9 +5,7 @@ export const Dropzone: React.FC<{ onFileUpload: (file: File[]) => void }> = ({ o
       if (acceptedFiles.length > 0) {
         onFileUpload(acceptedFiles);
       }
-    }
-
-  
+   }
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
       onDrop,
