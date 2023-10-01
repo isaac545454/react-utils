@@ -1,12 +1,11 @@
+import { ISchema } from '../types'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { schema } from '../schema'
+import { useId, useState } from 'react'
+import { useHttpMutation } from '../../../hooks'
+import { cookiesStorageFactory, sessionStorageFactory } from '../../../factories/cookiesStorageFactory'
 
-import {    ISchema } from '../types';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm, } from 'react-hook-form';
-import { schema } from '../schema';
-import {   useId, useState } from 'react';
-import { endpoint } from '@infra';
-import { useHttpMutation } from '../../../hooks';
- 
 /**
  * @param params params
  * @description  custom hook for home logic
@@ -14,56 +13,43 @@ import { useHttpMutation } from '../../../hooks';
  * @example  const { data, treatmentComponen, onChangeModal, showModal } = useHome();
  */
 export const useHome = () => {
-  const [showModal, setShowModal] = useState(true);
-  const ID = useId()
- 
- 
-  // const { data, isLoading, isError } = useHttpQuery<IResponsePost[]>({
-  //   queryKey: ['getPosts'],
-  //   HttpService: { endpoint: endpoint.getPosts  },
-  //   options: {enabled: true}
-  // });
+	const [showModal, setShowModal] = useState(true)
+	const ID = useId()
 
+	const { mutate } = useHttpMutation<{ title: string }, Error, ISchema>({
+		HttpService: {
+			endpoint: 'asssss',
+			params: { label2: '22222' },
+		},
+		options: {},
+	})
 
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		control,
+		getValues,
+	} = useForm<ISchema>({ resolver: zodResolver(schema) })
 
-  const { mutate } = useHttpMutation<{ title: string }, Error, ISchema>({
-    HttpService: {
-      endpoint: "asssss",
-      params: { label2: "22222" }
-      
-    },
-    options: { 
-      
-    }
-  });
+	const onSubmit = () => {
+		mutate({ cpf: 'aaaaaaaaaaa' })
+	}
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    control,
-    getValues
-  } = useForm<ISchema>({ resolver: zodResolver(schema) });
+	const onChangeModal = () => {
+		setShowModal(!showModal)
+	}
 
-  const onSubmit = () => {
-    mutate({cpf: "aaaaaaaaaaa"})
-
-  };
-
-  const onChangeModal = () => {
-    setShowModal(!showModal);
-  };
-
-  return {
-    ID,
-    handleSubmit,
-    register,
-    errors,
-    onSubmit,
-    showModal,
-    setShowModal,
-    onChangeModal,
-    control,
-    getValues
-  };
-};
+	return {
+		ID,
+		handleSubmit,
+		register,
+		errors,
+		onSubmit,
+		showModal,
+		setShowModal,
+		onChangeModal,
+		control,
+		getValues,
+	}
+}
