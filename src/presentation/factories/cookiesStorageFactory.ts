@@ -8,5 +8,5 @@ const CookiesStorage = {
 }
 
 export const cookiesStorageFactory = () => useStorage(CookiesStorage)
-export const localStorageFactory = () => useStorage(localStorage)
-export const sessionStorageFactory = () => useStorage(sessionStorage)
+
+ 

@@ -1,14 +1,8 @@
-//hooks
+
 import { useHome } from './hook'
-
-// //react
-import { Fragment, useState } from 'react'
-
-// //components
+import { Fragment } from 'react'
 import { Modal } from '../../components/Modal'
 import { GridInput } from '../../components/GridInput'
-
-//types
 import { InputMaskMolecule } from '../../molecules/Input'
 
 export const Home = () => {
