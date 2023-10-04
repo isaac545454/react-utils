@@ -36,6 +36,7 @@ src/
 - [`createHttp()`](https://www.linkedin.com/feed/update/urn:li:activity:7107698003984941059/)
 - [`useHttpQuery()`](https://www.linkedin.com/posts/isaac545454_useget-activity-7099364195527196672-21oh?utm_source=share&utm_medium=member_desktop)
 - [`useHttpMutation()`](https://www.linkedin.com/posts/isaac545454_useget-activity-7099364195527196672-21oh?utm_source=share&utm_medium=member_desktop)
+ - [`Composition`](https://www.linkedin.com/posts/isaac545454_pare-de-criar-componentes-que-dependem-de-activity-7104436766790549504-zzLp?utm_source=share&utm_medium=member_desktop)
  
 
 
@@ -106,7 +107,7 @@ import { endpoint } from '@/endpoint';
 ```
 
 
->## 🔄 Composition 
+>## 🧩 Composition 
 ```js
 import { Input } from './Input';
 
@@ -114,9 +115,9 @@ function App() {
   return (
     <div>
       <Input.Text />
-      <Input.title>Título do Campo</Input.title>
+      <Input.title>Título</Input.title>
       <Input.Mask mask="99/99/9999" />
-      <Input.Error>Erro Personalizado</Input.Error>
+      <Input.Error>Error</Input.Error>
     </div>
   );
 }
