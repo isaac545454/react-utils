@@ -115,7 +115,7 @@ function App() {
   return (
     <div>
       <Input.Text />
-      <Input.title>Título</Input.title>
+      <Input.Title>Título</Input.Title>
       <Input.Mask mask="99/99/9999" />
       <Input.Error>Error</Input.Error>
     </div>
