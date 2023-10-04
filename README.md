@@ -37,7 +37,7 @@ src/
 - [`useHttpQuery()`](https://www.linkedin.com/posts/isaac545454_useget-activity-7099364195527196672-21oh?utm_source=share&utm_medium=member_desktop)
 - [`useHttpMutation()`](https://www.linkedin.com/posts/isaac545454_useget-activity-7099364195527196672-21oh?utm_source=share&utm_medium=member_desktop)
  - [`Composition`](https://www.linkedin.com/posts/isaac545454_pare-de-criar-componentes-que-dependem-de-activity-7104436766790549504-zzLp?utm_source=share&utm_medium=member_desktop)
- 
+  - [`patterns Adapter`](https://www.linkedin.com/posts/isaac545454_pare-de-criar-componentes-que-dependem-de-activity-7104436766790549504-zzLp?utm_source=share&utm_medium=member_desktop)
 
 
 
@@ -121,6 +121,14 @@ function App() {
     </div>
   );
 }
+```
 
-export default App;
+>## 🔌patterns Adapter
+```js
+const CookiesStorage = {
+	setItem: Cookies.set,
+	getItem: Cookies.get,
+	removeItem: Cookies.remove,
+}
+export const cookiesStorageFactory = () => useStorage(CookiesStorage)
 ```
