@@ -104,3 +104,22 @@ import { endpoint } from '@/endpoint';
     mutate();
   };
 ```
+
+
+>## 🔄 Composition 
+```js
+import { Input } from './Input';
+
+function App() {
+  return (
+    <div>
+      <Input.Text />
+      <Input.title>Título do Campo</Input.title>
+      <Input.Mask mask="99/99/9999" />
+      <Input.Error>Erro Personalizado</Input.Error>
+    </div>
+  );
+}
+
+export default App;
+```

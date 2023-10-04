@@ -8,5 +8,3 @@ const CookiesStorage = {
 }
 
 export const cookiesStorageFactory = () => useStorage(CookiesStorage)
-
- 
