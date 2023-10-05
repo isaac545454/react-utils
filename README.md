@@ -136,8 +136,17 @@ export const cookiesStorageFactory = () => useStorage(CookiesStorage)
 
 >## 🎮 uncontrolled vs controlled 
 
-```js 	const uncontrolled = useRef<HTMLInputElement>(null)
-                <Input
-                    name="uncontrolled"
-                    ref={uncontrolled}
-                />```
+```js 
+  const uncontrolled = useRef<HTMLInputElement>(null)
+  <Input
+    name="uncontrolled"
+    ref={uncontrolled}
+  />
+
+  const [controlled, setControlled] = useState('')
+  <Input
+    name="controlled"
+    value={controlled}
+    onChange={e => setControlled(e.target.value)}
+  />
+```
