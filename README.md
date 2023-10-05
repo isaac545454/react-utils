@@ -138,12 +138,13 @@ export const cookiesStorageFactory = () => useStorage(CookiesStorage)
 
 ```js 
   const uncontrolled = useRef<HTMLInputElement>(null)
+  const [controlled, setControlled] = useState('')
+
   <Input
     name="uncontrolled"
     ref={uncontrolled}
   />
 
-  const [controlled, setControlled] = useState('')
   <Input
     name="controlled"
     value={controlled}
