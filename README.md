@@ -134,7 +134,7 @@ const CookiesStorage = {
 export const cookiesStorageFactory = () => useStorage(CookiesStorage)
 ```
 
->## 🎮 uncontrolled vs controlled 
+>## 🎮 unControlled vs controlled 
 
 ```js 
   const uncontrolled = useRef<HTMLInputElement>(null)
