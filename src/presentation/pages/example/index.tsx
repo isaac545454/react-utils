@@ -19,8 +19,15 @@ export function Example() {
 	return (
 		<div>
 			<form onSubmit={handleSubmitForm}>
-				<Input name="uncontrolled" ref={uncontrolled} />
-				<Input name="controlled" value={controlled} onChange={e => setControlled(e.target.value)} />
+                <Input
+                    name="uncontrolled"
+                    ref={uncontrolled}
+                />
+                <Input
+                    name="controlled"
+                    value={controlled}
+                    onChange={e => setControlled(e.target.value)}
+                />
 				<button type="submit">TESTAR</button>
 			</form>
 		</div>
