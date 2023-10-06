@@ -144,7 +144,6 @@ export const cookiesStorageFactory = () => useStorage(CookiesStorage)
     name="uncontrolled"
     ref={uncontrolled}
   />
-
   <Input
     name="controlled"
     value={controlled}
