@@ -20,20 +20,12 @@ export function accessibility() {
 			</header>
 			<main>
 				<form onSubmit={onSubmit}>
-					<img
-						src="imagem.jpg"
-						alt="Pintura abstrata"
-						aria-label="Pintura abstrata criada por John Doe em 2023"
-						decoding="sync"
-						onError={e => {
-							e.target.src = 'caminho_da_imagem_de_substituicao.jpg'
-							e.target.alt = 'Imagem de substituição'
-						}}
-					/>
+					<img src="imagem.jpg" alt="Pintura abstrata" role="presentation" />
 					<label htmlFor={id}>Digite um texto:</label>
 					<input type="text" id={id} className="focus:bg-red-300" />
-
-					<button aria-label="Adicionar ao carrinho">ADICIONAR</button>
+					<button aria-label="Adicionar ao carrinho" type="submit">
+						ADICIONAR
+					</button>
 				</form>
 
 				<a href="#" aria-label="Link para algum lugar" className="focus:text-green-600">
