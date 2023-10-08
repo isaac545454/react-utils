@@ -4,4 +4,5 @@ export const ROUTES = {
 	VOICE: '/voice',
 	POSTS: '/posts',
 	EXAMPLE: '/example',
+	ACCESSIBILITY: '/accessibility',
 }

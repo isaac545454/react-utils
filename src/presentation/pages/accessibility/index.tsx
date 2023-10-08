@@ -1,12 +1,30 @@
 import { FormEvent, useId } from 'react'
 import { Modal } from '../../components/Modal'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useQuery } from '@tanstack/react-query'
+import { Error } from '../../components/Error'
 
-export function accessibility() {
+const getAllPromise = async () => {
+	const results = await Promise.all([
+		await axios.get('https://rickandmortyapi.com/api/character'),
+		await axios.get('https://jsonplaceholder.typicode.com/post'),
+	])
+
+	return results.map(item => item.data)
+}
+
+export function Accessibility() {
+	const { isError } = useQuery(['all'], getAllPromise)
+
 	const id = useId()
 
 	const onSubmit = (e: FormEvent) => {
 		e.preventDefault()
+	}
+
+	if (isError) {
+		return <Error mensagem={'eeeo'} />
 	}
 
 	return (

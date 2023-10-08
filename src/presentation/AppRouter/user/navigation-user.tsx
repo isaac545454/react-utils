@@ -5,6 +5,7 @@ import { Grid } from '@pages/Grid'
 import { Voice } from '@pages/Voice'
 import { Post } from '@pages/Posts'
 import { Example } from '@pages/example'
+import { Accessibility } from '@pages/accessibility'
 
 export const router = createBrowserRouter([
 	{
@@ -26,5 +27,9 @@ export const router = createBrowserRouter([
 	{
 		path: ROUTES.EXAMPLE,
 		element: <Example />,
+	},
+	{
+		path: ROUTES.ACCESSIBILITY,
+		element: <Accessibility />,
 	},
 ])
