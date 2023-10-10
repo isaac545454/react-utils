@@ -6,6 +6,7 @@ import { Voice } from '@pages/Voice'
 import { Post } from '@pages/Posts'
 import { Example } from '@pages/example'
 import { Accessibility } from '@pages/accessibility'
+import { DataList } from '@pages/test'
 
 export const router = createBrowserRouter([
 	{
@@ -31,5 +32,9 @@ export const router = createBrowserRouter([
 	{
 		path: ROUTES.ACCESSIBILITY,
 		element: <Accessibility />,
+	},
+	{
+		path: ROUTES.TEST,
+		element: <DataList />,
 	},
 ])

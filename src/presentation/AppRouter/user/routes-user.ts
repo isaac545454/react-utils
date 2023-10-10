@@ -5,4 +5,5 @@ export const ROUTES = {
 	POSTS: '/posts',
 	EXAMPLE: '/example',
 	ACCESSIBILITY: '/accessibility',
+	TEST: '/test',
 }
