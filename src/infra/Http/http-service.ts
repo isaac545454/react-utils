@@ -1,6 +1,6 @@
 import { AxiosInstance } from 'axios'
 import { HttpServiceProps } from './types'
-import { HttpProps } from '../domain/models/HttpProps'
+import { HttpProps } from '../../domain/models/HttpProps'
 
 interface HttpPropsPromise {
 	arrayPromise: Array<Promise<HttpProps>>
@@ -25,10 +25,5 @@ export class HttpService<IResponse, TClient extends AxiosInstance> implements Ht
 	async exec({ endpoint = '', ...res }: HttpProps): Promise<IResponse> {
 		const { data } = await this.client<IResponse>(endpoint, { ...res })
 		return data
-	}
-
-	async promiseAll({ arrayPromise }: HttpPropsPromise) {
-		const a = await Promise.all([arrayPromise])
-		return a.map(item => item.item)
 	}
 }

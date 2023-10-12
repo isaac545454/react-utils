@@ -1,8 +1,6 @@
-
-import { UseMutationResult, useMutation } from "@tanstack/react-query";
-import { IPostMutation, TRequestProps } from "./types";
-import { createHttp } from "../../../infra/create-http";
- 
+import { UseMutationResult, useMutation } from '@tanstack/react-query'
+import { IPostMutation, TRequestProps } from './types'
+import { createHttp } from '../../../infra/Http/create-http'
 
 /**'
  * Hook personalizado para realizar uma mutação HTTP POST usando o react-query.
@@ -23,32 +21,27 @@ import { createHttp } from "../../../infra/create-http";
  *     // Opções de configuração da mutação (opcional)
  *   },
  *   HttpServicec: {
- *     // Dados da solicitação 
+ *     // Dados da solicitação
  *     // method:POST | PUT | PATH (POST é default)
  *   },
  * });
  */
 export const useHttpMutation = <TData, TError, TRequest>({
-  options,
-  HttpService,
-}: IPostMutation<TData, TError, TRequest>): UseMutationResult<
-  TData,
-  TError,
-  TRequestProps<TRequest>
-> => {
-  const { http } = createHttp<TData>()
-  
-  const mutation = useMutation<TData, TError,  TRequestProps<TRequest>>((info) => {
-    const { params,...data} = info
+	options,
+	HttpService,
+}: IPostMutation<TData, TError, TRequest>): UseMutationResult<TData, TError, TRequestProps<TRequest>> => {
+	const { http } = createHttp<TData>()
 
-   return http.exec({ 
-    data: data,
-    method: "POST", 
-     params: { ...params, ...HttpService.params },
-    ...HttpService
-  })},
-    options
-  );
+	const mutation = useMutation<TData, TError, TRequestProps<TRequest>>(info => {
+		const { params, ...data } = info
 
-  return mutation;
-};
+		return http.exec({
+			data: data,
+			method: 'POST',
+			params: { ...params, ...HttpService.params },
+			...HttpService,
+		})
+	}, options)
+
+	return mutation
+}

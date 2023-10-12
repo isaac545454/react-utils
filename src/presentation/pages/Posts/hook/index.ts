@@ -1,16 +1,16 @@
-import { endpoint } from "../../../../infra/endpoint-http";
-import { useHttpQuery } from "../../../hooks/index";
-import { IResponsePost } from "../../Home/types";
+import { endpoint } from '../../../../infra/Http/endpoint-http'
+import { useHttpQuery } from '../../../hooks/index'
+import { IResponsePost } from '../../Home/types'
 
 export const usePost = () => {
-  const { data, isLoading, isError } = useHttpQuery<IResponsePost[]>({
-    queryKey: ["getPosts"],
-    HttpService: { endpoint: endpoint.getPosts },
-  });
+	const { data, isLoading, isError } = useHttpQuery<IResponsePost[]>({
+		queryKey: ['getPosts'],
+		HttpService: { endpoint: endpoint.getPosts },
+	})
 
-  return {
-    isLoading,
-    isError,
-    data,
-  };
-};
+	return {
+		isLoading,
+		isError,
+		data,
+	}
+}
