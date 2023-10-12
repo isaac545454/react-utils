@@ -1,10 +1,6 @@
 import { AxiosInstance } from 'axios'
 import { HttpServiceProps } from './types'
-import { HttpProps } from '../../domain/models/HttpProps'
-
-interface HttpPropsPromise {
-	arrayPromise: Array<Promise<HttpProps>>
-}
+import { HttpProps } from '../../../domain/models/HttpProps'
 
 /**
  * Uma classe para realizar solicitações HTTP usando Axios.

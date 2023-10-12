@@ -1,4 +1,4 @@
-import { endpoint } from '../../../../infra/Http/endpoint-http'
+import { endpoint } from '../../../../infra/Http/HttpClient/endpoint-http'
 import { useHttpQuery } from '../../../hooks/index'
 import { IResponsePost } from '../../Home/types'
 
