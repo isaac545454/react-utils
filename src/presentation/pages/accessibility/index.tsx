@@ -3,7 +3,7 @@ import { Modal } from '../../components/Modal'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
-import { Error } from '../../components/Error'
+import { Error } from '../../components/atoms/Error'
 
 const getAllPromise = async () => {
 	const results = await Promise.all([

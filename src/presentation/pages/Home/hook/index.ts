@@ -3,8 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { schema } from '../schema'
 import { useId, useState } from 'react'
-import { useHttpMutation } from '../../../hooks'
-import { cookiesStorageFactory, sessionStorageFactory } from '../../../factories/cookiesStorageFactory'
+import { useHttpMutation } from '../../../hooks/useHttpMutation'
 
 /**
  * @param params params

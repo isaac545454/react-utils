@@ -1,6 +1,6 @@
-import { useQuery, UseQueryResult } from "@tanstack/react-query";
-import { createHttp } from "@infra";
-import { IGetMutation } from "./types";
+import { useQuery, UseQueryResult } from '@tanstack/react-query'
+import { IGetMutation } from './types'
+import { createHttp } from '../../../infra/Http/HttpClientFactory/create-http-factory'
 
 /**
  * Custom Hook: useHttpQuery
@@ -52,13 +52,13 @@ import { IGetMutation } from "./types";
  *
  * export  PostList;
  */
-export const useHttpQuery  = <TData, TError = unknown>({
-  queryKey,
-  options,
-  HttpService,
+export const useHttpQuery = <TData, TError = unknown>({
+	queryKey,
+	options,
+	HttpService,
 }: IGetMutation<TData, TError>): UseQueryResult<TData, TError> => {
-  const { http } = createHttp<TData>()
-  const data = useQuery(queryKey, () => http.exec({...HttpService, method: "GET",}), options);
-  
-  return data;
-};
+	const { http } = createHttp<TData>()
+	const data = useQuery(queryKey, () => http.exec({ ...HttpService, method: 'GET' }), options)
+
+	return data
+}
