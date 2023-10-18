@@ -40,6 +40,7 @@ src/
 - [`patterns Adapter`](https://www.linkedin.com/feed/update/urn:li:activity:7114582559736410112/)
 - [`uncontrolled vs controlled`](https://www.linkedin.com/posts/isaac545454_uncontrolled-components-vs-controlled-components-activity-7115671105025028096-ke60?utm_source=share&utm_medium=member_desktop)
 - [`DOM vs virtual DOM`](https://www.linkedin.com/feed/update/urn:li:activity:7119657569488412672/)
+- [`git-flow`](https://www.linkedin.com/feed/update/urn:li:activity:7120022552499879937/)
 
 
 
