@@ -13,4 +13,4 @@ function criarArrayDeObjetos(numeroDeItens: number) {
 }
 
 // Exemplo de uso: criar um array com 50 itens
-export const meuArray = criarArrayDeObjetos(50)
+export const meuArray = criarArrayDeObjetos(5000)

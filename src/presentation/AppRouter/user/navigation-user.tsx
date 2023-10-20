@@ -7,6 +7,7 @@ import { Post } from '@pages/Posts'
 import { Example } from '@pages/example'
 import { Accessibility } from '@pages/accessibility'
 import { DataList } from '@pages/test'
+import { ArrayPage } from '@pages/Array'
 
 export const router = createBrowserRouter([
 	{
@@ -36,5 +37,9 @@ export const router = createBrowserRouter([
 	{
 		path: ROUTES.TEST,
 		element: <DataList />,
+	},
+	{
+		path: ROUTES.ARRAY,
+		element: <ArrayPage />,
 	},
 ])

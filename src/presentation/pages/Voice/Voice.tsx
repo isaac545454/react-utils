@@ -1,20 +1,25 @@
-import { useRef } from "react";
-import * as Input from "../../components/atoms/Input";
+import { useRef } from 'react'
 
 export function Voice() {
-  const email = useRef<HTMLInputElement>(null);
-  const password = useRef<HTMLInputElement>(null);
+	const email = useRef<HTMLTextAreaElement>(null)
 
-  const handle = () => {
-    if (email === null || password === null) return;
-    console.log(email.current?.value, password.current?.value);
-  };
+	const handle = () => {
+		if (!email || !email.current?.value) return
 
-  return (
-    <div>
-      <Input.Text ref={email} />
-      <Input.Text ref={password} />
-      <button onClick={handle}>enviar</button>
-    </div>
-  );
+		const utterance = new SpeechSynthesisUtterance(email.current?.value)
+
+		const synth = window.speechSynthesis
+
+		synth.speak(utterance)
+	}
+
+	return (
+		<div>
+			<textarea
+				ref={email}
+				className="w-4/5 mt-2 h-10 rounded-lg bg-dark-900   p-4 border border-gray-200 placeholder:text-gray-400 "
+			/>
+			<button onClick={handle}>enviar</button>
+		</div>
+	)
 }

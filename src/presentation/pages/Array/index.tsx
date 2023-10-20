@@ -1,7 +1,15 @@
+import React from 'react'
 import { meuArray } from '../../utils/generate'
 
-const Array = () => {
-	return <div />
+export const ArrayPage = () => {
+	return (
+		<div>
+			<div>{React.Children.toArray(meuArray.map(item => <div>{item.descricao}</div>))}</div>
+			<div>
+				{meuArray.map(item => (
+					<div>{item.descricao}</div>
+				))}
+			</div>
+		</div>
+	)
 }
-
-export default Array

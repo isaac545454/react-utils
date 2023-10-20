@@ -6,4 +6,5 @@ export const ROUTES = {
 	EXAMPLE: '/example',
 	ACCESSIBILITY: '/accessibility',
 	TEST: '/test',
+	ARRAY: '/array',
 }
