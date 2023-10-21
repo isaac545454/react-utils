@@ -7,9 +7,7 @@ export function Voice() {
 		if (!email || !email.current?.value) return
 
 		const utterance = new SpeechSynthesisUtterance(email.current?.value)
-
 		const synth = window.speechSynthesis
-
 		synth.speak(utterance)
 	}
 

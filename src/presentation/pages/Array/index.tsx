@@ -7,7 +7,7 @@ export const ArrayPage = () => {
 			<div>{React.Children.toArray(meuArray.map(item => <div>{item.descricao}</div>))}</div>
 			<div>
 				{meuArray.map(item => (
-					<div>{item.descricao}</div>
+					<div key={item.id}>{item.descricao}</div>
 				))}
 			</div>
 		</div>
