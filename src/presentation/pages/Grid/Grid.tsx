@@ -1,18 +1,24 @@
-import { GridInput } from "../../components/GridInput";
-import {Input} from "../../components/atoms/Input";
-import { useContact } from "./hook";
+import React from 'react'
+import { GridInput } from '../../components/GridInput'
+import { Input } from '../../components/atoms/Input'
+import { useGrid } from './hook'
 
-export function Grid() {
-  const { handleSubmit, register, onSubmit } = useContact();
-
-  return (
-    <>
-      <GridInput onSubmit={handleSubmit(onSubmit)}>
-        <>
-          <Input.Text {...register("name")} />
-          <Input.Text {...register("email")} />
-        </>
-      </GridInput>
-    </>
-  );
+type Props = {
+	state: string
 }
+
+export const Grid = React.memo(({ state }: Props) => {
+	const { handleSubmit, register, onSubmit } = useGrid()
+
+	return (
+		<>
+			<GridInput onSubmit={handleSubmit(onSubmit)}>
+				<>
+					<h1>{state}</h1>
+					<Input.Text {...register('name')} />
+					<Input.Text {...register('email')} />
+				</>
+			</GridInput>
+		</>
+	)
+})

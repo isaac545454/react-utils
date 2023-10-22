@@ -7,4 +7,5 @@ export const ROUTES = {
 	ACCESSIBILITY: '/accessibility',
 	TEST: '/test',
 	ARRAY: '/array',
+	XSS: `/xss`,
 }

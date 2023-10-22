@@ -1,14 +1,19 @@
 import { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { ROUTES } from '../../AppRouter'
 
 export function Voice() {
 	const email = useRef<HTMLTextAreaElement>(null)
+	const navigate = useNavigate()
 
 	const handle = () => {
 		if (!email || !email.current?.value) return
 
-		const utterance = new SpeechSynthesisUtterance(email.current?.value)
-		const synth = window.speechSynthesis
-		synth.speak(utterance)
+		console.log(email.current.value)
+		navigate(`/xss?q=${email.current.value}`)
+		// const utterance = new SpeechSynthesisUtterance(email.current?.value)
+		// const synth = window.speechSynthesis
+		// synth.speak(utterance)
 	}
 
 	return (
