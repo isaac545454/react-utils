@@ -42,6 +42,7 @@ src/
 - [`DOM vs virtual DOM`](https://www.linkedin.com/feed/update/urn:li:activity:7119657569488412672/)
 - [`git-flow`](https://www.linkedin.com/feed/update/urn:li:activity:7120022552499879937/)
 - [`IndexedDB`](https://www.linkedin.com/feed/update/urn:li:activity:7121106732507893760/)
+- [`methods array`](https://www.linkedin.com/feed/update/urn:li:activity:7122193771517112320/)
 
 
 
