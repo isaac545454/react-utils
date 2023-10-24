@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ROUTES } from '../../AppRouter'
 
 export function Voice() {
 	const email = useRef<HTMLTextAreaElement>(null)
