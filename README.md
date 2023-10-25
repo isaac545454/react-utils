@@ -44,6 +44,7 @@ src/
 - [`IndexedDB`](https://www.linkedin.com/feed/update/urn:li:activity:7121106732507893760/)
 - [`methods array`](https://www.linkedin.com/feed/update/urn:li:activity:7122193771517112320/)
 - [`key do react`](https://www.linkedin.com/posts/isaac545454_para-que-serve-a-key-em-react-pq-n%C3%A3o-devemos-activity-7120744467338342400-gs9V?utm_source=share&utm_medium=member_desktop)
+- [`memorizar componente`](https://www.linkedin.com/feed/update/urn:li:activity:7122918453321117697/)
 
 
 
