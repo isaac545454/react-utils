@@ -1,11 +1,32 @@
-import React from 'react'
-import { useSearchParams } from 'react-router-dom'
+import React, { useReducer } from 'react'
 
-const XSS: React.FC = () => {
-	const [searchParams] = useSearchParams()
-	const query = searchParams.get('q')
+type TypeAction = 'increment' | 'decrement' | 'reset'
+type Action = { type: TypeAction }
 
-	return <div>{query}</div>
+const reducer = (state: State, action: Action): State => {
+	switch (action.type) {
+		case 'increment':
+			return { count: state.count + 1 }
+		case 'decrement':
+			return { count: state.count - 1 }
+		case 'reset':
+			return { count: 0 }
+		default:
+			return state
+	}
 }
 
-export default XSS
+export const Reducer: React.FC = () => {
+	const [state, dispatch] = useReducer(reducer, { count: 0 })
+
+	const handleClick = (type: TypeAction) => dispatch({ type: type })
+
+	return (
+		<div>
+			<p>Contagem: {state.count}</p>
+			<button onClick={() => handleClick('decrement')}>Decrementar</button>
+			<button onClick={() => handleClick('reset')}>Resetar</button>
+			<button onClick={() => handleClick('increment')}>Incrementar</button>
+		</div>
+	)
+}

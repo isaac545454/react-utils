@@ -8,7 +8,7 @@ import { Example } from '@pages/example'
 import { Accessibility } from '@pages/accessibility'
 import { DataList } from '@pages/test'
 import { ArrayPage } from '@pages/Array'
-import XSS from '@pages/XSS'
+import { Reducer } from '@pages/XSS'
 
 export const router = createBrowserRouter([
 	{
@@ -45,6 +45,6 @@ export const router = createBrowserRouter([
 	},
 	{
 		path: ROUTES.XSS,
-		element: <XSS />,
+		element: <Reducer />,
 	},
 ])
