@@ -1,3 +1,6 @@
 export const endpoint = {
-  getPosts: "/posts",
-};
+	getPosts: '/posts',
+	create: '/',
+	getForm: 'form',
+	editForm: (id: string) => `/${id}`,
+}

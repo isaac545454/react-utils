@@ -8,4 +8,6 @@ export const ROUTES = {
 	TEST: '/test',
 	ARRAY: '/array',
 	XSS: `/xss`,
+	MULTIFORM: 'MultiForm',
+	MULTIFORMEDIT: 'MultiForm/:id',
 }

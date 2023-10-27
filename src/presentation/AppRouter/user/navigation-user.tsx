@@ -9,6 +9,7 @@ import { Accessibility } from '@pages/accessibility'
 import { DataList } from '@pages/test'
 import { ArrayPage } from '@pages/Array'
 import { Reducer } from '@pages/XSS'
+import { MultiForm } from '@pages/MultiForm'
 
 export const router = createBrowserRouter([
 	{
@@ -46,5 +47,13 @@ export const router = createBrowserRouter([
 	{
 		path: ROUTES.XSS,
 		element: <Reducer />,
+	},
+	{
+		path: ROUTES.MULTIFORM,
+		element: <MultiForm />,
+	},
+	{
+		path: ROUTES.MULTIFORMEDIT,
+		element: <MultiForm />,
 	},
 ])
