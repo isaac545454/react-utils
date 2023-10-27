@@ -14,8 +14,10 @@ import Button from './components/Button'
 import { useHttpQuery } from '../../hooks/useHttpQuery'
 import { Loading } from '../../components/Loading'
 import { Error } from '../../components/atoms/Error'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { HttpMethod } from '../../types/req'
+import { ROUTES } from '../../AppRouter'
+import { toast } from 'react-toastify'
 
 const steps = [
 	{ page: <Initial />, key: TypesSubmit.Initial },
@@ -27,12 +29,23 @@ export const MultiForm = () => {
 	const methods = useForm<TypeFormSubmit>({ resolver: zodResolver(schema) })
 	const [state, setState] = useState(0)
 	const { id } = useParams()
+	const navigate = useNavigate()
+
 	const idExists = !!id
 	const method = idExists ? HttpMethod.PUT : HttpMethod.POST
 	const endpoint = idExists ? HttpEndpoint.editForm(id) : HttpEndpoint.create
 
 	const { mutate, isLoading: mutateLoading } = useHttpMutation<ResponseSubit, AxiosError, TypeFormSubmit>({
 		HttpService: { endpoint, method },
+		options: {
+			onSuccess: () => {
+				toast.success('sucesso')
+				navigate(ROUTES.HOME)
+			},
+			onError: () => {
+				toast.error('error')
+			},
+		},
 	})
 
 	const { isLoading, isError } = useHttpQuery<TypeFormSubmit>({
