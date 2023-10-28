@@ -1,14 +1,14 @@
 import { z } from 'zod'
 import { schema } from '../schemas'
 
-export type TypeFormSubmit = z.infer<typeof schema>
+export type SubmitData = z.infer<typeof schema>
 
-export enum TypesSubmit {
+export enum FormSteps {
 	Initial = 'Initial',
 	Contact = 'Contact',
 	Aboult = 'Aboult',
 }
 
-export type ResponseSubit = {
+export type CreateResponse = {
 	id: string
 }

@@ -1,11 +1,9 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import { Aboult } from './steps/Aboult'
-import { Initial } from './steps/Initial'
-import { Contact } from './steps/Contact'
-import { useState } from 'react'
+
+import { Suspense, lazy, useState } from 'react'
 import { schema } from './schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ResponseSubit, TypeFormSubmit, TypesSubmit } from './types'
+import { CreateResponse, SubmitData, FormSteps } from './types'
 import { useHttpMutation } from '../../hooks/useHttpMutation'
 import { endpoint as HttpEndpoint } from '../../../infra/Http/HttpClient/endpoint-http'
 import { AxiosError } from 'axios'
@@ -17,42 +15,47 @@ import { Error } from '../../components/atoms/Error'
 import { useNavigate, useParams } from 'react-router-dom'
 import { HttpMethod } from '../../types/req'
 import { ROUTES } from '../../AppRouter'
-import { toast } from 'react-toastify'
+import { useNotification } from '../../hooks/useNotification'
+import { Skeleton as SkeletonStep } from '../../components/Skeleton'
+import { Container } from './components/Container'
+
+const AboutStep = lazy(() => import('./steps/Aboult').then(module => ({ default: module.Aboult })))
+const InitialStep = lazy(() => import('./steps/Initial').then(module => ({ default: module.Initial })))
+const ContactStep = lazy(() => import('./steps/Contact').then(module => ({ default: module.Contact })))
 
 const steps = [
-	{ page: <Initial />, key: TypesSubmit.Initial },
-	{ page: <Contact />, key: TypesSubmit.Contact },
-	{ page: <Aboult />, key: TypesSubmit.Aboult },
+	{ step: <InitialStep />, key: FormSteps.Initial },
+	{ step: <ContactStep />, key: FormSteps.Contact },
+	{ step: <AboutStep />, key: FormSteps.Aboult },
 ]
 
 export const MultiForm = () => {
-	const methods = useForm<TypeFormSubmit>({ resolver: zodResolver(schema) })
+	const methods = useForm<SubmitData>({ resolver: zodResolver(schema) })
+	const notification = useNotification()
 	const [state, setState] = useState(0)
 	const { id } = useParams()
 	const navigate = useNavigate()
 
-	const idExists = !!id
-	const method = idExists ? HttpMethod.PUT : HttpMethod.POST
-	const endpoint = idExists ? HttpEndpoint.editForm(id) : HttpEndpoint.create
+	const idExist = !!id
+	const method = idExist ? HttpMethod.PUT : HttpMethod.POST
+	const endpoint = idExist ? HttpEndpoint.editForm(id) : HttpEndpoint.create
 
-	const { mutate, isLoading: mutateLoading } = useHttpMutation<ResponseSubit, AxiosError, TypeFormSubmit>({
+	const { mutate: creation, isLoading: creationLoading } = useHttpMutation<CreateResponse, AxiosError, SubmitData>({
 		HttpService: { endpoint, method },
 		options: {
 			onSuccess: () => {
-				toast.success('sucesso')
+				notification.success('Registro criado com sucesso')
 				navigate(ROUTES.HOME)
 			},
-			onError: () => {
-				toast.error('error')
-			},
+			onError: () => notification.error('Erro ao criar o registro'),
 		},
 	})
 
-	const { isLoading, isError } = useHttpQuery<TypeFormSubmit>({
-		queryKey: ['form'],
+	const { isLoading, isError } = useHttpQuery<SubmitData>({
+		queryKey: ['getForm'],
 		HttpService: { endpoint: HttpEndpoint.getForm },
 		options: {
-			enabled: idExists,
+			enabled: idExist,
 			onSettled: data => data && methods.reset(data),
 		},
 	})
@@ -62,19 +65,20 @@ export const MultiForm = () => {
 		const valid = await methods.trigger(key)
 		if (!valid) return
 		if (key !== steps[steps.length - 1].key) return setState(state => state + 1)
-		const parseFormat = schema.parse(methods.getValues())
-		mutate(parseFormat)
+		creation(methods.getValues())
 	}
 
-	if (idExists && isLoading) return <Loading />
-	if (idExists && isError) return <Error mensagem="Error" />
+	if (idExist && isLoading) return <Loading />
+	if (idExist && isError) return <Error mensagem="Registro não encontrado" />
 
 	return (
-		<div className={style.Container}>
-			<FormProvider {...methods}>
-				<div className={style.page}>{steps[state].page}</div>
-				<Button isLoading={mutateLoading} onClick={onSubmit} />
-			</FormProvider>
-		</div>
+		<FormProvider {...methods}>
+			<Container className={style.container}>
+				<Suspense fallback={<SkeletonStep repetition={1} />}>
+					<Container className={style.step}>{steps[state].step}</Container>
+				</Suspense>
+				<Button isLoading={creationLoading} onClick={onSubmit} />
+			</Container>
+		</FormProvider>
 	)
 }
