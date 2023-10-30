@@ -8,6 +8,7 @@ import { Skeleton as SkeletonStep } from '../../components/Skeleton'
 import { Container } from './components/Container'
 import { steps } from './steps'
 import { useMultiForm } from './hook'
+import { ROUTES } from '../../AppRouter'
 
 export const MultiForm = () => {
 	const { methods, creationLoading, isError, isLoading, onSubmit, idExist, state } = useMultiForm()
@@ -21,7 +22,7 @@ export const MultiForm = () => {
 				<Suspense fallback={<SkeletonStep repetition={1} />}>
 					<Container className={style.step}>{steps[state].step}</Container>
 				</Suspense>
-				<Button isLoading={creationLoading} onClick={onSubmit} />
+				<Button isLoading={creationLoading} save={{ onClick: onSubmit }} redirect={{ to: ROUTES.HOME }} />
 			</Container>
 		</FormProvider>
 	)

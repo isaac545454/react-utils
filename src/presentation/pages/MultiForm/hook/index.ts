@@ -12,9 +12,12 @@ import { AxiosError } from 'axios'
 import { ROUTES } from '../../../AppRouter'
 import { useHttpQuery } from '../../../hooks/useHttpQuery'
 import { steps } from '../steps'
+import { useEffect } from 'react'
+import { Storage } from '../../../../infra/Storage'
 
 export const useMultiForm = () => {
 	const methods = useForm<SubmitData>({ resolver: zodResolver(schema) })
+	const { getItem, setItem, removeItem } = Storage(localStorage)
 	const notification = useNotification()
 	const [state, setState] = useState(0)
 	const { id } = useParams()
@@ -30,6 +33,7 @@ export const useMultiForm = () => {
 			onSuccess: () => {
 				notification.success('Registro criado com sucesso')
 				navigate(ROUTES.HOME)
+				removeItem('form')
 			},
 			onError: () => notification.error('Erro ao criar o registro'),
 		},
@@ -51,6 +55,12 @@ export const useMultiForm = () => {
 		if (key !== steps[steps.length - 1].key) return setState(state => state + 1)
 		creation(methods.getValues())
 	}
+
+	useEffect(() => {
+		const data = getItem('form')
+		if (data && !idExist) methods.reset(data)
+		return () => setItem('form', methods.getValues())
+	}, [])
 
 	return {
 		methods,

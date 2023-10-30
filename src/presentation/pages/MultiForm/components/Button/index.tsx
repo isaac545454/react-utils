@@ -1,14 +1,20 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 type ButtonProps = {
 	isLoading: boolean
-} & React.ComponentProps<'button'>
+	save: React.ComponentProps<'button'>
+	redirect: React.ComponentProps<typeof Link>
+}
 
-const Button: React.FC<ButtonProps> = ({ isLoading, ...rest }) => {
+const Button: React.FC<ButtonProps> = ({ isLoading, save, redirect }) => {
 	return (
-		<button type="button" {...rest} disabled={isLoading}>
-			enviar
-		</button>
+		<>
+			<button type="button" {...save} disabled={isLoading}>
+				enviar
+			</button>
+			<Link {...redirect}>aa</Link>
+		</>
 	)
 }
 
