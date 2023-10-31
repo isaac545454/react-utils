@@ -22,7 +22,12 @@ export const MultiForm = () => {
 				<Suspense fallback={<SkeletonStep repetition={1} />}>
 					<Container className={style.step}>{steps[func.state].step}</Container>
 				</Suspense>
-				<Button isLoading={func.creationLoading} save={{ onClick: func.onSubmit }} redirect={{ to: ROUTES.HOME }} />
+				<Button
+					isLoading={func.creationLoading}
+					save={{ onClick: func.onSubmit, children: 'aaaa' }}
+					redirect={{ to: ROUTES.HOME }}
+					as="a"
+				/>
 			</Container>
 		</FormProvider>
 	)

@@ -5,15 +5,18 @@ type ButtonProps = {
 	isLoading: boolean
 	save: React.ComponentProps<'button'>
 	redirect: React.ComponentProps<typeof Link>
+	as?: React.ElementType
 }
 
-const Button: React.FC<ButtonProps> = ({ isLoading, save, redirect }) => {
+const Button: React.FC<ButtonProps> = props => {
+	const { as: Component = 'button', isLoading, save, redirect } = props
+
 	return (
 		<>
-			<button type="button" {...save} disabled={isLoading}>
+			<Component type="button" {...save} disabled={isLoading}>
 				enviar
-			</button>
-			<Link {...redirect}>aa</Link>
+			</Component>
+			<Link {...redirect} />
 		</>
 	)
 }
