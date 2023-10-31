@@ -58,8 +58,8 @@ export const useMultiForm = () => {
 
 	useEffect(() => {
 		const data = getItem('form')
-		if (data && !idExist) methods.reset(data)
-		return () => setItem('form', methods.getValues())
+		if (data && !idExist) methods.reset(data.form)
+		return () => setItem('form', { form: methods.getValues(), step: state })
 	}, [])
 
 	return {

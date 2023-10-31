@@ -11,18 +11,18 @@ import { useMultiForm } from './hook'
 import { ROUTES } from '../../AppRouter'
 
 export const MultiForm = () => {
-	const { methods, creationLoading, isError, isLoading, onSubmit, idExist, state } = useMultiForm()
+	const func = useMultiForm()
 
-	if (idExist && isLoading) return <Loading />
-	if (idExist && isError) return <Error mensagem="Registro não encontrado" />
+	if (func.idExist && func.isLoading) return <Loading />
+	if (func.idExist && func.isError) return <Error mensagem="Registro não encontrado" />
 
 	return (
-		<FormProvider {...methods}>
+		<FormProvider {...func.methods}>
 			<Container className={style.container}>
 				<Suspense fallback={<SkeletonStep repetition={1} />}>
-					<Container className={style.step}>{steps[state].step}</Container>
+					<Container className={style.step}>{steps[func.state].step}</Container>
 				</Suspense>
-				<Button isLoading={creationLoading} save={{ onClick: onSubmit }} redirect={{ to: ROUTES.HOME }} />
+				<Button isLoading={func.creationLoading} save={{ onClick: func.onSubmit }} redirect={{ to: ROUTES.HOME }} />
 			</Container>
 		</FormProvider>
 	)
