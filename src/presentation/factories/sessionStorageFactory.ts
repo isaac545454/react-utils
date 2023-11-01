@@ -1,3 +1,3 @@
-import { useStorage } from "../hooks";
+import { Storage } from '../../infra/Storage'
 
-export const sessionStorageFactory  =()=> useStorage(sessionStorage)
+export const sessionStorageFactory = () => Storage(sessionStorage)

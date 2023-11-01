@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import { useStorage } from '../hooks'
+import { Storage } from '../../infra/Storage'
 
 const CookiesStorage = {
 	setItem: Cookies.set,
@@ -7,4 +7,4 @@ const CookiesStorage = {
 	removeItem: Cookies.remove,
 }
 
-export const cookiesStorageFactory = () => useStorage(CookiesStorage)
+export const cookiesStorageFactory = () => Storage(CookiesStorage)

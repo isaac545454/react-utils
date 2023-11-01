@@ -1,6 +1,3 @@
-import { useStorage } from "../hooks";
+import { Storage } from '../../infra/Storage'
 
-export const localStorageFactory =()=> useStorage(localStorage)
-
- 
-
+export const localStorageFactory = () => Storage(localStorage)
