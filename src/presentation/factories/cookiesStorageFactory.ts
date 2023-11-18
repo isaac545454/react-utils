@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 import { Storage } from '../../infra/Storage'
 
-const CookiesStorage = {
+export const CookiesStorage = {
 	setItem: Cookies.set,
 	getItem: Cookies.get,
 	removeItem: Cookies.remove,
