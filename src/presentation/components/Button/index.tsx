@@ -26,12 +26,8 @@ const button = tv(
 )
 
 type ButtonProps =
-	| (React.ButtonHTMLAttributes<HTMLButtonElement> & {
-			as?: 'button'
-	  })
-	| (React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-			as: 'a'
-	  })
+	| (React.ButtonHTMLAttributes<HTMLButtonElement> & { as?: 'button' })
+	| (React.AnchorHTMLAttributes<HTMLAnchorElement> & { as: 'a' })
 
 export const Button = (props: ButtonProps & VariantProps<typeof button>) => {
 	if (props.as === 'a') return <a {...props} className={twMerge(button({ variant: props.variant }), props.className)} />

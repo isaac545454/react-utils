@@ -1,43 +1,20 @@
 import { useHome } from './hook'
-import { Fragment } from 'react'
+import { Fragment, ElementRef, useRef } from 'react'
 import { Modal } from '../../components/Modal'
 import { GridInput } from '../../components/GridInput'
 import { InputMaskMolecule } from '../../molecules/Input'
-import { useIndexedDB } from '../../hooks/useIndexDB'
 import { Button } from '../../components/Button'
+import { Input } from '../../components/atoms/Input'
 
 export const Home = () => {
-	const { showModal, errors, register, handleSubmit, onSubmit } = useHome()
-	const { addItem, getAllItems } = useIndexedDB('Testt', 2)
+	const { showModal } = useHome()
+	const InputRef = useRef<ElementRef<'input'>>(null)
+
+	console.log(InputRef.current?.value)
 
 	return (
 		<Modal.Container showModal={showModal}>
-			<Fragment>
-				<Button variant="outline">Button</Button>
-				<Button as="a" variant="ghost">
-					Link
-				</Button>
-				<Modal.Header />
-				<GridInput onSubmit={handleSubmit(onSubmit)}>
-					<Fragment>
-						<InputMaskMolecule
-							InputErrrorProps={{ errors: errors, name: 'cpf' }}
-							InputTitleProps={{ label: 'CPF' }}
-							{...register('cpf')}
-							mask="999.999.999.99"
-						/>
-					</Fragment>
-					<Modal.ContainerButtons>
-						<Fragment>
-							<Modal.ButtonCancel
-								type="button"
-								onClick={() => addItem({ data: { name: 'isaac' }, column: 'items', transition: 'readwrite' })}
-							/>
-							<Modal.ButtonToSend onClick={() => getAllItems({ column: 'items', transition: 'readwrite' })} />
-						</Fragment>
-					</Modal.ContainerButtons>
-				</GridInput>
-			</Fragment>
+			<Input.Text ref={InputRef} />
 		</Modal.Container>
 	)
 }
