@@ -15,6 +15,8 @@ export const FileType = {
 	PDF: 'pdf',
 } as const
 
+export type FileTypeValue = (typeof FileType)[keyof typeof FileType]
+
 const fileGeneratorWord = ({ params: { word } }: FileGeneratorWord) => {
 	return console.log(word)
 }
