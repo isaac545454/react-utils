@@ -1,63 +1,44 @@
-const test1 = Object.freeze({
-	test: '/test',
-	login: '/login',
-	users: '/users',
-	test2: { a: 'a' },
-})
-// const test1: Readonly<{
-// 	test: '/test'
-// 	login: '/login'
-// 	users: '/users'
-// 	test2: { a: string }
-// }>
+// type FileParams = { word?: string, pdf?: string }
 
-const test2 = {
-	test: '/test',
-	login: '/login',
-	users: '/users',
-	test2: { a: 'a' },
-} as const
-// const test2: {
-// 	readonly test: '/test'
-// 	readonly login: '/login'
-// 	readonly users: '/users'
-// 	readonly test2: { readonly a: 'a' }
+// type FileGeneratorWord = {
+// 	type: typeof FileType.WORD
+// 	params: FileParams
 // }
 
-test1.login = '/test2'
-//Cannot assign to 'login' because it is a read-only property.
-test1.test2.a = 'b'
+// type FileGeneratorPdf = {
+// 	type: typeof FileType.PDF
+// 	params: FileParams
+// }
 
-test2.login = '/test2'
-//Cannot assign to 'login' because it is a read-only property.
-test2.test2.a = 'c'
-//Cannot assign to 'a' because it is a read-only property.
+export const FileType = {
+	WORD: 'word',
+	PDF: 'pdf',
+} as const
 
-type TestProps = (typeof test2)[keyof typeof test2]
-//type TestProps = "/test" | "/login" | "/users"
-
-export enum FileType {
-	WORD = 'word',
-	PDF = 'pdf',
+const fileGeneratorWord = ({ params: { word } }: FileGeneratorWord) => {
+	return console.log(word)
+}
+const fileGeneratorPdf = ({ params: { pdf } }: FileGeneratorPdf) => {
+	return console.log(pdf)
 }
 
-const fileGeneratorWord = ({ test }: FileParams) => console.log(test)
-const fileGeneratorPdf = ({ test }: FileParams) => console.log(test)
-
-const fileGeneratorsMap = {
-	[FileType.WORD]: fileGeneratorWord,
-	[FileType.PDF]: fileGeneratorPdf,
+type FileGeneratorWord = {
+	type: typeof FileType.WORD
+	params: { word: string }
 }
 
-type FileParams = {
-	test: string
+type FileGeneratorPdf = {
+	type: typeof FileType.PDF
+	params: { pdf: string }
 }
 
-type FileGeneratorParams = {
-	type: FileType
-	params: FileParams
-}
+type FileGeneratorParams = FileGeneratorWord | FileGeneratorPdf
 
-export const fileGenerator = ({ params, type }: FileGeneratorParams) => {
-	return fileGeneratorsMap[type](params)
+export const fileGenerator = (props: FileGeneratorParams) => {
+	switch (props.type) {
+		case FileType.PDF:
+			return fileGeneratorPdf(props)
+		case FileType.WORD:
+			return fileGeneratorWord(props)
+	}
 }
