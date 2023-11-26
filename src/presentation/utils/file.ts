@@ -26,11 +26,13 @@ const fileGeneratorPdf = ({ params: { pdf } }: FileGeneratorPdf) => {
 
 type FileGeneratorWord = {
 	type: typeof FileType.WORD
+	//type: "word"
 	params: { word: string }
 }
 
 type FileGeneratorPdf = {
 	type: typeof FileType.PDF
+	// type: "pdf"
 	params: { pdf: string }
 }
 
