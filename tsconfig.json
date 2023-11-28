@@ -3,27 +3,9 @@
     "target": "ES2020",
     "useDefineForClassFields": true,
     "paths": {
-      "@atoms/*": [
-        "./src/presentation/atoms/*"
+      "@/*": [
+        "./src/*"
       ],
-      "@hooks/*": [
-        "./src/hooks/*"
-      ],
-      "@infra": [
-        "./src/infra/index.ts"
-      ],
-      "@models/*": [
-        "./src/domain/models/*"
-      ],
-      "@AppRouter": [
-        "./src/AppRouter/index.ts"
-      ],
-      "@pages/*": [
-        "./src/presentation/pages/*"
-      ],
-      "@template": [
-        "./src/templates/index.ts"
-      ]
     },
     "lib": [
       "ES2020",
