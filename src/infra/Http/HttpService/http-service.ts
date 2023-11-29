@@ -16,7 +16,7 @@ export class HttpService<IResponse, TClient extends AxiosInstance> implements Ht
 		try {
 			const { data } = await this.client<IResponse>(endpoint, { ...res })
 			return data
-		} catch {
+		} catch (error) {
 			throw new FetchDataError()
 		}
 	}
