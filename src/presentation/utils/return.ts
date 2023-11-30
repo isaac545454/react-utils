@@ -1,20 +1,28 @@
-type User = {
-	isActive: boolean
-	hasPermission: boolean
+type CreateUser = {
+	name: string
+	email: string
+	password: string
 }
-// function processUserData({ hasPermission, isActive }: User) {
-// 	if (isActive) {
-// 		if (hasPermission) {
-// 			return hasPermission
-// 		}
-// 	}
-// 	return false
+
+const createUser = ({ email, name, password }: CreateUser): string => {
+	if (email) {
+		if (name) {
+			if (password) {
+				return 'createuser'
+			} else {
+				return 'password required'
+			}
+		} else {
+			return 'name required'
+		}
+	} else {
+		return 'email required'
+	}
+}
+
+// const createUser = ({ email, name, password }: CreateUser): string => {
+// 	if (!email) return 'email required'
+// 	if (!name) return 'name required'
+// 	if (!password) return 'password required'
+// 	return 'createuser'
 // }
-
-// const user = { isActive: true, hasPermission: true }
-// const result = processUserData(user)
-// console.log(result)
-
-function processUserData({ hasPermission, isActive }: User): boolean {
-	return !!isActive && !!hasPermission
-}
