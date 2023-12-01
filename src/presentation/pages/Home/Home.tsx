@@ -3,11 +3,16 @@ import { Fragment, ElementRef, useRef } from 'react'
 
 import { Input } from '../../components/atoms/Input'
 import { FileType, fileGenerator } from '../../utils/file'
+import { types, useContextCart } from '@/presentation/context/cart'
 
 export const Home = () => {
 	const { showModal } = useHome()
-	const a = fileGenerator(FileType.WORD)
-	console.log(a)
+	const { cartState, dispatch } = useContextCart()
+
+	dispatch({
+		type: types.add,
+		payload: { id: '1', name: 'test' },
+	})
 
 	return (
 		<Fragment>
