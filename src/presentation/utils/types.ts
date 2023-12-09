@@ -1,3 +1,5 @@
+import { t } from 'i18next'
+
 type Person = {
 	age: number
 	name: string
@@ -32,3 +34,16 @@ const a = sum(2, 2)
 
 const b = sum('a', 'b')
 //const b: string
+
+type FetchProps = RequestInit & {
+	URL: string
+}
+
+export const Base = <T>() => {
+	const exec = async ({ URL, ...rest }: FetchProps): Promise<T> => {
+		const res = await fetch(URL, { ...rest })
+		return await res.json()
+	}
+
+	return { exec }
+}
