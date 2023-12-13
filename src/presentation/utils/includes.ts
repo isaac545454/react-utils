@@ -1,26 +1,27 @@
-//-1
-// const verification = (ProjectProgressStatus: string): void => {
-// 	if (
-// 		ProjectProgressStatus === 'aprovado' ||
-// 		ProjectProgressStatus === 'reprovado' ||
-// 		ProjectProgressStatus === 'pendente'
-// 	) {
-// 		console.log('contem status')
+// const verification = (ProjectProgressStatus: string): string => {
+// 	if (ProjectProgressStatus === 'aprovado' || ProjectProgressStatus === 'reprovado') {
+// 		return 'contem status'
 // 	}
+
+// 	return 'não avaliado'
 // }
 
 //- 2
-const PROJECT_STATUS_OBJ = {
-	aprovado: 'aprovado',
-	reprovado: 'reprovado',
-	pendente: 'pendente',
-} as const
 
-const PROJECT_STATUS: ReadonlyArray<string> = Object.values(PROJECT_STATUS_OBJ)
-
-type ProjectStatus = (typeof PROJECT_STATUS)[number]
-
-const verification = (ProjectProgressStatus: ProjectStatus): void => {
-	if (!PROJECT_STATUS.includes(ProjectProgressStatus)) return console.log('não contém status')
-	if (ProjectProgressStatus === PROJECT_STATUS_OBJ.aprovado) return console.log('aprovado')
+export enum PROJECT_STATUS {
+	aprovado = 'aprovado',
+	reprovado = 'reprovado',
+	pendente = 'pendente',
 }
+
+const isStatusApprovedOrRejected = (ProjectProgressStatus: PROJECT_STATUS): boolean => {
+	return [PROJECT_STATUS.aprovado, PROJECT_STATUS.reprovado].includes(ProjectProgressStatus)
+}
+
+export const verification = (ProjectProgressStatus: PROJECT_STATUS): string => {
+	if (!isStatusApprovedOrRejected(ProjectProgressStatus)) return 'não avaliado'
+
+	return 'avaliado'
+}
+
+console.log(verification(PROJECT_STATUS.pendente))
