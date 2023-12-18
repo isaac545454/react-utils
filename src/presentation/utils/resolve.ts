@@ -15,7 +15,7 @@ type User = {
 	name: string
 }
 
-const isResolved = async <T>(promiseToBeResolved: Promise<T>): IsResolvedResult<T> => {
+export const isResolved = async <T>(promiseToBeResolved: Promise<T>): IsResolvedResult<T> => {
 	return promiseToBeResolved
 		.then(
 			(results: T) =>
