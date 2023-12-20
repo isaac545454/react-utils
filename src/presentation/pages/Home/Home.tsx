@@ -1,25 +1,13 @@
-import { useHome } from './hook'
-import { Fragment, ElementRef, useRef } from 'react'
-
-import { Input } from '../../components/atoms/Input'
-import { FileType, fileGenerator } from '../../utils/file'
-import { types, useContextCart } from '@/presentation/context/cart'
+import { handleCreateUser } from '@/presentation/utils/clean'
+import React, { Fragment, useState } from 'react'
 
 export const Home = () => {
-	const { showModal } = useHome()
-	const { cartState, dispatch } = useContextCart()
-
-	dispatch({
-		type: types.add,
-		payload: { id: '1', name: 'test' },
+	const a = handleCreateUser({
+		email: 'test@gmail.com',
+		name: 'isaac',
+		password: '123456',
 	})
+	console.log(a)
 
-	return (
-		<Fragment>
-			<Input.Text />
-			<Input.Text />
-		</Fragment>
-	)
+	return <Fragment></Fragment>
 }
-
-// atalhos

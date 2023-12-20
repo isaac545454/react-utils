@@ -1,22 +1,20 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { ComponentProps } from 'react'
 
 type ButtonProps = {
 	isLoading: boolean
-	save: React.ComponentProps<'button'>
-	redirect: React.ComponentProps<typeof Link>
-	as?: React.ElementType
-}
+} & ComponentProps<'button'>
 
 const Button: React.FC<ButtonProps> = props => {
-	const { as: Component = 'button', isLoading, save, redirect } = props
+	const { isLoading, ...res } = props
 
 	return (
 		<>
-			<Component type="button" {...save} disabled={isLoading}>
-				enviar
-			</Component>
-			<Link {...redirect} />
+			{!isLoading && (
+				<button type="button" {...res} disabled={isLoading}>
+					enviar
+				</button>
+			)}
+			{isLoading && <div>carregando</div>}
 		</>
 	)
 }
