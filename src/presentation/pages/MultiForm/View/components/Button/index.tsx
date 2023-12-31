@@ -4,7 +4,7 @@ type ButtonProps = {
 	isLoading: boolean
 } & ComponentProps<'button'>
 
-const Button: React.FC<ButtonProps> = props => {
+export const Button: React.FC<ButtonProps> = props => {
 	const { isLoading, ...res } = props
 
 	return (
@@ -18,5 +18,3 @@ const Button: React.FC<ButtonProps> = props => {
 		</>
 	)
 }
-
-export default Button

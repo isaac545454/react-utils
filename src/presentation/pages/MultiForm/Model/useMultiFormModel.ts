@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form'
-import { SubmitData } from '../types'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { schema } from '../schemas'
+import { schema } from '../schemas/root'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { steps } from '../steps'
 import { useGetMultiForm } from '../../../query/MultiForm/get'
 import { useCreateMultiForm } from '../../../query/MultiForm/post'
+import { SubmitData } from '../types/response'
+import { steps } from '../View'
 
 export const useMultiFormModel = () => {
 	const { id } = useParams()
