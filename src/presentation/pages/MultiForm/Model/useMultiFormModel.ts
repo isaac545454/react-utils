@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetMultiForm } from '../../../query/MultiForm/get'
 import { useCreateMultiForm } from '../../../query/MultiForm/post'
-import { SubmitData } from '../types/response'
+import { SubmitData } from '../types/shemaType'
 import { steps } from '../View'
 
 export const useMultiFormModel = () => {
@@ -17,19 +17,15 @@ export const useMultiFormModel = () => {
 
 	const onSubmit = async () => {
 		const key = steps[state].key
+
 		const valid = await methods.trigger(key)
 		if (!valid) return
-		if (key !== steps[steps.length - 1].key) return setState(state => state + 1)
+
+		const isNotLastStep = key !== steps[steps.length - 1].key
+		if (isNotLastStep) return setState(state => state + 1)
+
 		creation(methods.getValues())
 	}
 
-	return {
-		methods,
-		creationLoading,
-		isLoading,
-		isError,
-		onSubmit,
-		idExist: !!id,
-		state,
-	}
+	return { methods, creationLoading, isLoading, isError, onSubmit, idExist: !!id, state }
 }
