@@ -15,25 +15,28 @@ type CurrencyFormatterParams = {
 }
 
 const currencyFormatter = ({ Currency, Locale }: CurrencyFormatterParams) => {
-	return new Intl.NumberFormat(Locale, {
-		style: 'currency',
-		currency: Currency,
-	})
-}
-
-const useCurrencyFormatter = () => {
-	return {
-		Real: currencyFormatter({ Currency: Currency.BRL, Locale: Locale.PT_BR }),
-		Dollar: currencyFormatter({ Currency: Currency.USD, Locale: Locale.EN_US }),
-		Euro: currencyFormatter({ Currency: Currency.EUR, Locale: Locale.EN_US }),
+	return (value: number): string => {
+		return new Intl.NumberFormat(Locale, {
+			style: 'currency',
+			currency: Currency,
+		}).format(value)
 	}
 }
 
-const { Real, Dollar, Euro } = useCurrencyFormatter()
+export const currencyFormatters = {
+	Real: currencyFormatter({ Currency: Currency.BRL, Locale: Locale.PT_BR }),
+	Dollar: currencyFormatter({ Currency: Currency.USD, Locale: Locale.EN_US }),
+	Euro: currencyFormatter({ Currency: Currency.EUR, Locale: Locale.EN_US }),
+}
 
-console.log(Real.format(1100))
-//"R$ 1.100,00"
-console.log(Dollar.format(1100))
-//"$1,100.00"
-console.log(Euro.format(1100))
-//"€1,100.00"
+console.log({
+	Real: currencyFormatters.Real(1100),
+	Dollar: currencyFormatters.Dollar(1100),
+	Euro: currencyFormatters.Euro(1100),
+})
+
+// {
+//   Real: 'R$ 1.100,00',
+//   Dollar: '$1,100.00',
+//   Euro: '€1,100.00'
+// }
