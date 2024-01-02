@@ -1,17 +1,6 @@
-enum Currency {
-	BRL = 'BRL',
-	USD = 'USD',
-	EUR = 'EUR',
-}
-
-enum Locale {
-	EN_US = 'en-US',
-	PT_BR = 'pt-BR',
-}
-
 type CurrencyFormatterParams = {
-	Locale: Locale
-	Currency: Currency
+	Locale: 'en-US' | 'pt-BR'
+	Currency: 'BRL' | 'USD' | 'EUR'
 }
 
 const currencyFormatter = ({ Currency, Locale }: CurrencyFormatterParams) => {
@@ -24,9 +13,9 @@ const currencyFormatter = ({ Currency, Locale }: CurrencyFormatterParams) => {
 }
 
 export const currencyFormatters = {
-	Real: currencyFormatter({ Currency: Currency.BRL, Locale: Locale.PT_BR }),
-	Dollar: currencyFormatter({ Currency: Currency.USD, Locale: Locale.EN_US }),
-	Euro: currencyFormatter({ Currency: Currency.EUR, Locale: Locale.EN_US }),
+	Real: currencyFormatter({ Currency: 'BRL', Locale: 'pt-BR' }),
+	Dollar: currencyFormatter({ Currency: 'USD', Locale: 'en-US' }),
+	Euro: currencyFormatter({ Currency: 'EUR', Locale: 'en-US' }),
 }
 
 console.log({
