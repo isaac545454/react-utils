@@ -1,4 +1,5 @@
-import { CreateResponse, SubmitData } from '@pages/MultiForm/types'
+import { CreateResponse } from '../../pages/MultiForm/types/response'
+import { SubmitData } from '../../pages/MultiForm/types/shemaType'
 import { useHttpMutation } from '../../hooks/useHttpMutation'
 import { AxiosError } from 'axios'
 import { HttpMethod } from '../../types/req'

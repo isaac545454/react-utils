@@ -1,47 +1,33 @@
-type IsResolvedResult<T> = Promise<SuccessResult<T> | FailureResult>
-
-type SuccessResult<TData> = {
-	data: TData
-	error: null
-}
-
-type FailureResult = {
-	data: null
-	error: unknown
-}
-
 type User = {
 	email: string
 	name: string
 }
 
-export const isResolved = async <T>(promiseToBeResolved: Promise<T>): IsResolvedResult<T> => {
+type IsResolvedResult<T, E> = Promise<SuccessResult<T> | FailureResult<E>>
+type SuccessResult<TData> = [null, TData]
+type FailureResult<E> = [E, null]
+
+export const isResolved = async <T, E>(promiseToBeResolved: Promise<T>): IsResolvedResult<T, E> => {
 	return promiseToBeResolved
-		.then(
-			(results: T) =>
-				({
-					data: results,
-					error: null,
-				} as SuccessResult<T>),
-		)
-		.catch(
-			error =>
-				({
-					data: null,
-					error: error,
-				} as FailureResult),
-		)
+		.then((results: T) => [null, results] as SuccessResult<T>)
+		.catch(error => [error, null] as FailureResult<E>)
+}
+
+export const a = () => {
+	return {
+		test: '1',
+	}
 }
 
 export const CreateUser = async () => {
-	const { data, error } = await isResolved<User>(Promise.reject('teste'))
+	const [error, data] = await isResolved<User, unknown>(Promise.reject('teste'))
 
-	if (error) {
+	if (error || !data) {
 		//tratamento de erro
 		return console.log(`error ${error}`)
 	}
 
-	console.log(`sucess ${data}`)
+	console.log(`sucess ${data.email}`)
 }
 
 // type ResolvedResult<T> = [null, T]

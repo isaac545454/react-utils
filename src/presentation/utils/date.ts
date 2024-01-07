@@ -34,3 +34,10 @@ console.log({
 	formatToBRWithoutYear: shortDateFormatters.formatToBRWithoutYear(currentDate),
 	formatToBRShort: shortDateFormatters.formatToBRShort(currentDate),
 })
+
+// {
+//   "formatToBR": "01/01/2024",
+//   "formatToISO": "2024-01-01",
+//   "formatToBRWithoutYear": "01 de janeiro",
+//   "formatToBRShort": "01/01"
+// } 
