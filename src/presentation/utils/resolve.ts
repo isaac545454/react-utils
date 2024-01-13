@@ -13,21 +13,15 @@ export const isResolved = async <T, E>(promiseToBeResolved: Promise<T>): IsResol
 		.catch(error => [error, null] as FailureResult<E>)
 }
 
-export const a = () => {
-	return {
-		test: '1',
-	}
-}
-
 export const CreateUser = async () => {
 	const [error, data] = await isResolved<User, unknown>(Promise.reject('teste'))
 
-	if (error || !data) {
+	if (error) {
 		//tratamento de erro
 		return console.log(`error ${error}`)
 	}
 
-	console.log(`sucess ${data.email}`)
+	console.log(`sucess ${data?.email}`)
 }
 
 // type ResolvedResult<T> = [null, T]

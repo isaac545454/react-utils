@@ -1,4 +1,5 @@
 import { faker } from '@faker-js/faker'
+import { AiFillAmazonCircle } from 'react-icons/ai'
 
 export type Soma = {
 	y: number
