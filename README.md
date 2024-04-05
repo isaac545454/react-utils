@@ -1,3 +1,20 @@
+>## <font color="red">[GET] </font> listagens de temas e tipos (select)
+response
+
+```json
+{
+    "owner": {
+        "name": "string",
+        "id": "string"
+    },
+    "farm": {
+        "name": "string",
+        "id": "string"
+    }
+}
+  
+```
+
 
 > ## 📁 arquitetura do projeto
 ```shell
